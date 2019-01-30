@@ -1,0 +1,306 @@
+---
+swagger: "2.0"
+info:
+  version: "0.1.0"
+  title: "reco-engine-dev"
+host: "dev-recommendations.dive.tv"
+schemes:
+- "https"
+paths:
+  /v1/build:
+    get:
+      operationId: "getBuild"
+      responses:
+        200:
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+            Content-Type:
+              type: "string"
+      security:
+      - api_key: []
+  /v1/ping:
+    get:
+      operationId: "getPing"
+      responses:
+        200:
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+            Content-Type:
+              type: "string"
+      security:
+      - api_key: []
+  /v1/profile:
+    get:
+      operationId: "getProfile"
+      parameters:
+      - name: "pageSize"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "x-api-key"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "externalAccountId"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "page"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "externalProfileId"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "client-id"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "id"
+        in: "query"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+            Content-Type:
+              type: "string"
+      security:
+      - api_key: []
+    post:
+      operationId: "postProfile"
+      consumes:
+      - "application/json; charset=utf-8"
+      parameters:
+      - name: "x-api-key"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "client-id"
+        in: "header"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "MODEL884958"
+        required: true
+        schema:
+          $ref: "#/definitions/MODEL884958"
+      responses:
+        200:
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+            Content-Type:
+              type: "string"
+      security:
+      - api_key: []
+  /v1/profile/{id}:
+    delete:
+      operationId: "deleteProfile"
+      parameters:
+      - name: "x-api-key"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "client-id"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+            Content-Type:
+              type: "string"
+      security:
+      - api_key: []
+    patch:
+      operationId: "patchProfile"
+      consumes:
+      - "application/json; charset=utf-8"
+      parameters:
+      - name: "x-api-key"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "client-id"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "MODEL6afe76"
+        required: true
+        schema:
+          $ref: "#/definitions/MODEL6afe76"
+      responses:
+        200:
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+            Content-Type:
+              type: "string"
+      security:
+      - api_key: []
+  /v1/recommendations:
+    get:
+      operationId: "getRecommendations"
+      parameters:
+      - name: "externalAccountProfileId"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "device"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "contentType"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "profileCountry"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "pageSize"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "tag"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "x-api-key"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "mediaEventType"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "exclusivePageStart"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "mediaContentProviderId"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "client-id"
+        in: "header"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+            Content-Type:
+              type: "string"
+      security:
+      - api_key: []
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "x-api-key"
+    in: "header"
+definitions:
+  MODEL884958:
+    type: "object"
+    required:
+    - "country"
+    - "enabledParentalRatings"
+    - "externalAccountId"
+    - "externalProfileId"
+    - "name"
+    - "subscriptionPackages"
+    properties:
+      externalProfileId:
+        type: "string"
+      externalAccountId:
+        type: "string"
+      name:
+        type: "string"
+      subscriptionPackages:
+        type: "array"
+        items:
+          type: "string"
+      enabledParentalRatings:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            scheme:
+              type: "string"
+            value:
+              type: "string"
+      country:
+        type: "string"
+  MODEL6afe76:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      subscriptionPackages:
+        type: "array"
+        items:
+          type: "string"
+      enabledParentalRatings:
+        type: "array"
+        items:
+          type: "object"
+          properties:
+            scheme:
+              type: "string"
+            value:
+              type: "string"
+      country:
+        type: "string"

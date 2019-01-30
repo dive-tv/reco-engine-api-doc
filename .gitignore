@@ -1,1 +1,5 @@
 node_modules/
+/*.jar
+/.env
+/.vscode
+/.idea
