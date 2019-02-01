@@ -27,11 +27,76 @@
                 "type" : "string"
               }
             }
+          },
+          "400" : {
+            "description" : "400 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "500" : {
+            "description" : "500 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "401 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "504" : {
+            "description" : "504 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
           }
-        },
-        "security" : [ {
-          "api_key" : [ ]
-        } ]
+        }
       }
     },
     "/v1/ping" : {
@@ -54,11 +119,76 @@
                 "type" : "string"
               }
             }
+          },
+          "400" : {
+            "description" : "400 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "500" : {
+            "description" : "500 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "401 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "504" : {
+            "description" : "504 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
           }
-        },
-        "security" : [ {
-          "api_key" : [ ]
-        } ]
+        }
       }
     },
     "/v1/profile" : {
@@ -117,11 +247,76 @@
                 "type" : "string"
               }
             }
+          },
+          "400" : {
+            "description" : "400 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "500" : {
+            "description" : "500 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "401 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "504" : {
+            "description" : "504 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
           }
-        },
-        "security" : [ {
-          "api_key" : [ ]
-        } ]
+        }
       },
       "post" : {
         "operationId" : "postProfile",
@@ -138,10 +333,10 @@
           "type" : "string"
         }, {
           "in" : "body",
-          "name" : "MODEL884958",
+          "name" : "MODEL648bef",
           "required" : true,
           "schema" : {
-            "$ref" : "#/definitions/MODEL884958"
+            "$ref" : "#/definitions/MODEL648bef"
           }
         } ],
         "responses" : {
@@ -161,11 +356,76 @@
                 "type" : "string"
               }
             }
+          },
+          "400" : {
+            "description" : "400 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "500" : {
+            "description" : "500 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "401 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "504" : {
+            "description" : "504 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
           }
-        },
-        "security" : [ {
-          "api_key" : [ ]
-        } ]
+        }
       }
     },
     "/v1/profile/{id}" : {
@@ -204,11 +464,76 @@
                 "type" : "string"
               }
             }
+          },
+          "400" : {
+            "description" : "400 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "500" : {
+            "description" : "500 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "401 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "504" : {
+            "description" : "504 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
           }
-        },
-        "security" : [ {
-          "api_key" : [ ]
-        } ]
+        }
       },
       "patch" : {
         "operationId" : "patchProfile",
@@ -230,10 +555,10 @@
           "type" : "string"
         }, {
           "in" : "body",
-          "name" : "MODEL6afe76",
+          "name" : "MODELa07b6a",
           "required" : true,
           "schema" : {
-            "$ref" : "#/definitions/MODEL6afe76"
+            "$ref" : "#/definitions/MODELa07b6a"
           }
         } ],
         "responses" : {
@@ -253,11 +578,76 @@
                 "type" : "string"
               }
             }
+          },
+          "400" : {
+            "description" : "400 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "500" : {
+            "description" : "500 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "401 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "504" : {
+            "description" : "504 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
           }
-        },
-        "security" : [ {
-          "api_key" : [ ]
-        } ]
+        }
       }
     },
     "/v1/recommendations" : {
@@ -336,23 +726,81 @@
                 "type" : "string"
               }
             }
+          },
+          "400" : {
+            "description" : "400 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "500" : {
+            "description" : "500 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "401" : {
+            "description" : "401 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
+          },
+          "504" : {
+            "description" : "504 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Methods" : {
+                "type" : "string"
+              },
+              "Access-Control-Allow-Headers" : {
+                "type" : "string"
+              },
+              "Content-Type" : {
+                "type" : "string"
+              }
+            }
           }
-        },
-        "security" : [ {
-          "api_key" : [ ]
-        } ]
+        }
       }
     }
   },
-  "securityDefinitions" : {
-    "api_key" : {
-      "type" : "apiKey",
-      "name" : "x-api-key",
-      "in" : "header"
-    }
-  },
   "definitions" : {
-    "MODEL884958" : {
+    "MODEL648bef" : {
       "type" : "object",
       "required" : [ "country", "enabledParentalRatings", "externalAccountId", "externalProfileId", "name", "subscriptionPackages" ],
       "properties" : {
@@ -390,7 +838,7 @@
         }
       }
     },
-    "MODEL6afe76" : {
+    "MODELa07b6a" : {
       "type" : "object",
       "properties" : {
         "name" : {

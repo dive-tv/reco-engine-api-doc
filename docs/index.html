@@ -696,30 +696,7 @@ margin-bottom: 20px;
   <script>
     // Script section to load models into a JS Var
     var defs = {}
-        defs["MODEL6afe76"] = {
-  "type" : "object",
-  "properties" : {
-    "name" : {
-      "type" : "string"
-    },
-    "subscriptionPackages" : {
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "enabledParentalRatings" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/MODEL884958_enabledParentalRatings"
-      }
-    },
-    "country" : {
-      "type" : "string"
-    }
-  }
-};
-        defs["MODEL884958"] = {
+        defs["MODEL648bef"] = {
   "type" : "object",
   "required" : [ "country", "enabledParentalRatings", "externalAccountId", "externalProfileId", "name", "subscriptionPackages" ],
   "properties" : {
@@ -741,7 +718,7 @@ margin-bottom: 20px;
     "enabledParentalRatings" : {
       "type" : "array",
       "items" : {
-        "$ref" : "#/definitions/MODEL884958_enabledParentalRatings"
+        "$ref" : "#/definitions/MODEL648bef_enabledParentalRatings"
       }
     },
     "country" : {
@@ -749,12 +726,35 @@ margin-bottom: 20px;
     }
   }
 };
-        defs["MODEL884958_enabledParentalRatings"] = {
+        defs["MODEL648bef_enabledParentalRatings"] = {
   "properties" : {
     "scheme" : {
       "type" : "string"
     },
     "value" : {
+      "type" : "string"
+    }
+  }
+};
+        defs["MODELa07b6a"] = {
+  "type" : "object",
+  "properties" : {
+    "name" : {
+      "type" : "string"
+    },
+    "subscriptionPackages" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "enabledParentalRatings" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/MODEL648bef_enabledParentalRatings"
+      }
+    },
+    "country" : {
       "type" : "string"
     }
   }
@@ -850,7 +850,7 @@ margin-bottom: 20px;
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-deleteProfile-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE -H "x-api-key: [[apiKey]]" "https://dev-recommendations.dive.tv/v1/profile/{id}"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE "https://dev-recommendations.dive.tv/v1/profile/{id}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-deleteProfile-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -864,14 +864,7 @@ import java.util.*;
 public class DefaultApiExample {
 
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
-        // Configure API key authorization: api_key
-        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-        api_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api_key.setApiKeyPrefix("Token");
-
         DefaultApi apiInstance = new DefaultApi();
         String xApiKey = xApiKey_example; // String | 
         String clientId = clientId_example; // String | 
@@ -910,14 +903,7 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-deleteProfile-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-
-// Configure API key authorization: (authentication scheme: api_key)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
-
-String *xApiKey = xApiKey_example; // 
+                              <pre class="prettyprint"><code class="language-cpp">String *xApiKey = xApiKey_example; // 
 String *clientId = clientId_example; // 
 String *id = id_example; // 
 
@@ -936,13 +922,6 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
                             <div class="tab-pane" id="examples-Default-deleteProfile-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var RecoEngineDev = require('reco_engine_dev');
-var defaultClient = RecoEngineDev.ApiClient.instance;
-
-// Configure API key authorization: api_key
-var api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix['x-api-key'] = "Token"
 
 var api = new RecoEngineDev.DefaultApi()
 
@@ -981,11 +960,6 @@ namespace Example
         public void main()
         {
             
-            // Configure API key authorization: api_key
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
-
             var apiInstance = new DefaultApi();
             var xApiKey = xApiKey_example;  // String | 
             var clientId = clientId_example;  // String | 
@@ -1009,11 +983,6 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
 $api_instance = new Swagger\Client\Api\DefaultApi();
 $xApiKey = xApiKey_example; // String | 
 $clientId = clientId_example; // String | 
@@ -1031,11 +1000,6 @@ try {
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
-
-# Configure API key authorization: api_key
-$WWW::SwaggerClient::Configuration::api_key->{'x-api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$WWW::SwaggerClient::Configuration::api_key_prefix->{'x-api-key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $xApiKey = xApiKey_example; # String | 
@@ -1056,11 +1020,6 @@ import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: api_key
-swagger_client.configuration.api_key['x-api-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['x-api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
@@ -1202,6 +1161,186 @@ except ApiException as e:
                                 </div>
                             </div>
 
+                            <h3> Status: 400 - 400 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-deleteProfile-400-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-deleteProfile-400-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 401 - 401 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-deleteProfile-401-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-deleteProfile-401-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 500 - 500 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-deleteProfile-500-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-deleteProfile-500-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 504 - 504 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-deleteProfile-504-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-deleteProfile-504-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
                         </article>
                       </div>
                       <hr>
@@ -1237,7 +1376,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-getBuild-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET -H "x-api-key: [[apiKey]]" "https://dev-recommendations.dive.tv/v1/build"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://dev-recommendations.dive.tv/v1/build"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-getBuild-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -1251,14 +1390,7 @@ import java.util.*;
 public class DefaultApiExample {
 
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
-        // Configure API key authorization: api_key
-        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-        api_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api_key.setApiKeyPrefix("Token");
-
         DefaultApi apiInstance = new DefaultApi();
         try {
             apiInstance.getBuild();
@@ -1291,14 +1423,7 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-getBuild-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-
-// Configure API key authorization: (authentication scheme: api_key)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
-
-
+                              <pre class="prettyprint"><code class="language-cpp">
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 [apiInstance getBuildWithCompletionHandler: 
@@ -1312,13 +1437,6 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
                             <div class="tab-pane" id="examples-Default-getBuild-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var RecoEngineDev = require('reco_engine_dev');
-var defaultClient = RecoEngineDev.ApiClient.instance;
-
-// Configure API key authorization: api_key
-var api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix['x-api-key'] = "Token"
 
 var api = new RecoEngineDev.DefaultApi()
 
@@ -1350,11 +1468,6 @@ namespace Example
         public void main()
         {
             
-            // Configure API key authorization: api_key
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
-
             var apiInstance = new DefaultApi();
 
             try
@@ -1375,11 +1488,6 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
 $api_instance = new Swagger\Client\Api\DefaultApi();
 
 try {
@@ -1394,11 +1502,6 @@ try {
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
-
-# Configure API key authorization: api_key
-$WWW::SwaggerClient::Configuration::api_key->{'x-api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$WWW::SwaggerClient::Configuration::api_key_prefix->{'x-api-key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 
@@ -1416,11 +1519,6 @@ import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: api_key
-swagger_client.configuration.api_key['x-api-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['x-api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
@@ -1450,6 +1548,186 @@ except ApiException as e:
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
                                 <div class="tab-pane" id="responses-getBuild-200-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 400 - 400 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getBuild-400-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getBuild-400-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 401 - 401 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getBuild-401-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getBuild-401-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 500 - 500 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getBuild-500-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getBuild-500-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 504 - 504 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getBuild-504-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getBuild-504-headers">
                                     <table>
                                         <tr>
                                             <th width="150px">Name</th>
@@ -1520,7 +1798,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-getPing-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET -H "x-api-key: [[apiKey]]" "https://dev-recommendations.dive.tv/v1/ping"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://dev-recommendations.dive.tv/v1/ping"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-getPing-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -1534,14 +1812,7 @@ import java.util.*;
 public class DefaultApiExample {
 
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
-        // Configure API key authorization: api_key
-        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-        api_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api_key.setApiKeyPrefix("Token");
-
         DefaultApi apiInstance = new DefaultApi();
         try {
             apiInstance.getPing();
@@ -1574,14 +1845,7 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-getPing-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-
-// Configure API key authorization: (authentication scheme: api_key)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
-
-
+                              <pre class="prettyprint"><code class="language-cpp">
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 [apiInstance getPingWithCompletionHandler: 
@@ -1595,13 +1859,6 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
                             <div class="tab-pane" id="examples-Default-getPing-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var RecoEngineDev = require('reco_engine_dev');
-var defaultClient = RecoEngineDev.ApiClient.instance;
-
-// Configure API key authorization: api_key
-var api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix['x-api-key'] = "Token"
 
 var api = new RecoEngineDev.DefaultApi()
 
@@ -1633,11 +1890,6 @@ namespace Example
         public void main()
         {
             
-            // Configure API key authorization: api_key
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
-
             var apiInstance = new DefaultApi();
 
             try
@@ -1658,11 +1910,6 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
 $api_instance = new Swagger\Client\Api\DefaultApi();
 
 try {
@@ -1677,11 +1924,6 @@ try {
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
-
-# Configure API key authorization: api_key
-$WWW::SwaggerClient::Configuration::api_key->{'x-api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$WWW::SwaggerClient::Configuration::api_key_prefix->{'x-api-key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 
@@ -1699,11 +1941,6 @@ import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: api_key
-swagger_client.configuration.api_key['x-api-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['x-api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
@@ -1733,6 +1970,186 @@ except ApiException as e:
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
                                 <div class="tab-pane" id="responses-getPing-200-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 400 - 400 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getPing-400-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getPing-400-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 401 - 401 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getPing-401-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getPing-401-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 500 - 500 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getPing-500-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getPing-500-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 504 - 504 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getPing-504-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getPing-504-headers">
                                     <table>
                                         <tr>
                                             <th width="150px">Name</th>
@@ -1803,7 +2220,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-getProfile-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET -H "x-api-key: [[apiKey]]" "https://dev-recommendations.dive.tv/v1/profile?pageSize=&externalAccountId=&page=&externalProfileId=&id="</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://dev-recommendations.dive.tv/v1/profile?pageSize=&externalAccountId=&page=&externalProfileId=&id="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-getProfile-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -1817,14 +2234,7 @@ import java.util.*;
 public class DefaultApiExample {
 
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
-        // Configure API key authorization: api_key
-        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-        api_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api_key.setApiKeyPrefix("Token");
-
         DefaultApi apiInstance = new DefaultApi();
         String xApiKey = xApiKey_example; // String | 
         String clientId = clientId_example; // String | 
@@ -1871,14 +2281,7 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-getProfile-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-
-// Configure API key authorization: (authentication scheme: api_key)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
-
-String *xApiKey = xApiKey_example; // 
+                              <pre class="prettyprint"><code class="language-cpp">String *xApiKey = xApiKey_example; // 
 String *clientId = clientId_example; // 
 String *pageSize = pageSize_example; //  (optional)
 String *externalAccountId = externalAccountId_example; //  (optional)
@@ -1905,13 +2308,6 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
                             <div class="tab-pane" id="examples-Default-getProfile-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var RecoEngineDev = require('reco_engine_dev');
-var defaultClient = RecoEngineDev.ApiClient.instance;
-
-// Configure API key authorization: api_key
-var api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix['x-api-key'] = "Token"
 
 var api = new RecoEngineDev.DefaultApi()
 
@@ -1955,11 +2351,6 @@ namespace Example
         public void main()
         {
             
-            // Configure API key authorization: api_key
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
-
             var apiInstance = new DefaultApi();
             var xApiKey = xApiKey_example;  // String | 
             var clientId = clientId_example;  // String | 
@@ -1987,11 +2378,6 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
 $api_instance = new Swagger\Client\Api\DefaultApi();
 $xApiKey = xApiKey_example; // String | 
 $clientId = clientId_example; // String | 
@@ -2013,11 +2399,6 @@ try {
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
-
-# Configure API key authorization: api_key
-$WWW::SwaggerClient::Configuration::api_key->{'x-api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$WWW::SwaggerClient::Configuration::api_key_prefix->{'x-api-key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $xApiKey = xApiKey_example; # String | 
@@ -2042,11 +2423,6 @@ import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: api_key
-swagger_client.configuration.api_key['x-api-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['x-api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
@@ -2257,6 +2633,186 @@ except ApiException as e:
                                 </div>
                             </div>
 
+                            <h3> Status: 400 - 400 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getProfile-400-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getProfile-400-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 401 - 401 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getProfile-401-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getProfile-401-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 500 - 500 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getProfile-500-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getProfile-500-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 504 - 504 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getProfile-504-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getProfile-504-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
                         </article>
                       </div>
                       <hr>
@@ -2292,7 +2848,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-getRecommendations-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET -H "x-api-key: [[apiKey]]" "https://dev-recommendations.dive.tv/v1/recommendations?externalAccountProfileId=&device=&contentType=&profileCountry=&pageSize=&tag=&mediaEventType=&exclusivePageStart=&mediaContentProviderId="</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://dev-recommendations.dive.tv/v1/recommendations?externalAccountProfileId=&device=&contentType=&profileCountry=&pageSize=&tag=&mediaEventType=&exclusivePageStart=&mediaContentProviderId="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-getRecommendations-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2306,14 +2862,7 @@ import java.util.*;
 public class DefaultApiExample {
 
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
-        // Configure API key authorization: api_key
-        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-        api_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api_key.setApiKeyPrefix("Token");
-
         DefaultApi apiInstance = new DefaultApi();
         String xApiKey = xApiKey_example; // String | 
         String clientId = clientId_example; // String | 
@@ -2368,14 +2917,7 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-getRecommendations-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-
-// Configure API key authorization: (authentication scheme: api_key)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
-
-String *xApiKey = xApiKey_example; // 
+                              <pre class="prettyprint"><code class="language-cpp">String *xApiKey = xApiKey_example; // 
 String *clientId = clientId_example; // 
 String *externalAccountProfileId = externalAccountProfileId_example; //  (optional)
 String *device = device_example; //  (optional)
@@ -2410,13 +2952,6 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
                             <div class="tab-pane" id="examples-Default-getRecommendations-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var RecoEngineDev = require('reco_engine_dev');
-var defaultClient = RecoEngineDev.ApiClient.instance;
-
-// Configure API key authorization: api_key
-var api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix['x-api-key'] = "Token"
 
 var api = new RecoEngineDev.DefaultApi()
 
@@ -2464,11 +2999,6 @@ namespace Example
         public void main()
         {
             
-            // Configure API key authorization: api_key
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
-
             var apiInstance = new DefaultApi();
             var xApiKey = xApiKey_example;  // String | 
             var clientId = clientId_example;  // String | 
@@ -2500,11 +3030,6 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
 $api_instance = new Swagger\Client\Api\DefaultApi();
 $xApiKey = xApiKey_example; // String | 
 $clientId = clientId_example; // String | 
@@ -2530,11 +3055,6 @@ try {
                               <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
-
-# Configure API key authorization: api_key
-$WWW::SwaggerClient::Configuration::api_key->{'x-api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$WWW::SwaggerClient::Configuration::api_key_prefix->{'x-api-key'} = "Bearer";
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $xApiKey = xApiKey_example; # String | 
@@ -2563,11 +3083,6 @@ import time
 import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
-
-# Configure API key authorization: api_key
-swagger_client.configuration.api_key['x-api-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['x-api-key'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
@@ -2850,6 +3365,186 @@ except ApiException as e:
                                 </div>
                             </div>
 
+                            <h3> Status: 400 - 400 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getRecommendations-400-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getRecommendations-400-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 401 - 401 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getRecommendations-401-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getRecommendations-401-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 500 - 500 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getRecommendations-500-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getRecommendations-500-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 504 - 504 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-getRecommendations-504-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-getRecommendations-504-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
                         </article>
                       </div>
                       <hr>
@@ -2885,7 +3580,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-patchProfile-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X PATCH -H "x-api-key: [[apiKey]]" "https://dev-recommendations.dive.tv/v1/profile/{id}"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X PATCH "https://dev-recommendations.dive.tv/v1/profile/{id}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-patchProfile-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2899,21 +3594,14 @@ import java.util.*;
 public class DefaultApiExample {
 
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
-        // Configure API key authorization: api_key
-        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-        api_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api_key.setApiKeyPrefix("Token");
-
         DefaultApi apiInstance = new DefaultApi();
         String xApiKey = xApiKey_example; // String | 
         String clientId = clientId_example; // String | 
         String id = id_example; // String | 
-        MODEL6afe76 mODEL6afe76 = ; // MODEL6afe76 | 
+        MODELa07b6a mODELa07b6a = ; // MODELa07b6a | 
         try {
-            apiInstance.patchProfile(xApiKey, clientId, id, mODEL6afe76);
+            apiInstance.patchProfile(xApiKey, clientId, id, mODELa07b6a);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#patchProfile");
             e.printStackTrace();
@@ -2932,9 +3620,9 @@ public class DefaultApiExample {
         String xApiKey = xApiKey_example; // String | 
         String clientId = clientId_example; // String | 
         String id = id_example; // String | 
-        MODEL6afe76 mODEL6afe76 = ; // MODEL6afe76 | 
+        MODELa07b6a mODELa07b6a = ; // MODELa07b6a | 
         try {
-            apiInstance.patchProfile(xApiKey, clientId, id, mODEL6afe76);
+            apiInstance.patchProfile(xApiKey, clientId, id, mODELa07b6a);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#patchProfile");
             e.printStackTrace();
@@ -2947,24 +3635,17 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-patchProfile-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-
-// Configure API key authorization: (authentication scheme: api_key)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
-
-String *xApiKey = xApiKey_example; // 
+                              <pre class="prettyprint"><code class="language-cpp">String *xApiKey = xApiKey_example; // 
 String *clientId = clientId_example; // 
 String *id = id_example; // 
-MODEL6afe76 *mODEL6afe76 = ; // 
+MODELa07b6a *mODELa07b6a = ; // 
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 [apiInstance patchProfileWith:xApiKey
     clientId:clientId
     id:id
-    mODEL6afe76:mODEL6afe76
+    mODELa07b6a:mODELa07b6a
               completionHandler: ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
@@ -2975,13 +3656,6 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
                             <div class="tab-pane" id="examples-Default-patchProfile-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var RecoEngineDev = require('reco_engine_dev');
-var defaultClient = RecoEngineDev.ApiClient.instance;
-
-// Configure API key authorization: api_key
-var api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix['x-api-key'] = "Token"
 
 var api = new RecoEngineDev.DefaultApi()
 
@@ -2991,7 +3665,7 @@ var clientId = clientId_example; // {String}
 
 var id = id_example; // {String} 
 
-var mODEL6afe76 = ; // {MODEL6afe76} 
+var mODELa07b6a = ; // {MODELa07b6a} 
 
 
 var callback = function(error, data, response) {
@@ -3001,7 +3675,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.patchProfile(xApiKey, clientId, id, mODEL6afe76, callback);
+api.patchProfile(xApiKey, clientId, id, mODELa07b6a, callback);
 </code></pre>
                             </div>
 
@@ -3022,20 +3696,15 @@ namespace Example
         public void main()
         {
             
-            // Configure API key authorization: api_key
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
-
             var apiInstance = new DefaultApi();
             var xApiKey = xApiKey_example;  // String | 
             var clientId = clientId_example;  // String | 
             var id = id_example;  // String | 
-            var mODEL6afe76 = new MODEL6afe76(); // MODEL6afe76 | 
+            var mODELa07b6a = new MODELa07b6a(); // MODELa07b6a | 
 
             try
             {
-                apiInstance.patchProfile(xApiKey, clientId, id, mODEL6afe76);
+                apiInstance.patchProfile(xApiKey, clientId, id, mODELa07b6a);
             }
             catch (Exception e)
             {
@@ -3051,19 +3720,14 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
 $api_instance = new Swagger\Client\Api\DefaultApi();
 $xApiKey = xApiKey_example; // String | 
 $clientId = clientId_example; // String | 
 $id = id_example; // String | 
-$mODEL6afe76 = ; // MODEL6afe76 | 
+$mODELa07b6a = ; // MODELa07b6a | 
 
 try {
-    $api_instance->patchProfile($xApiKey, $clientId, $id, $mODEL6afe76);
+    $api_instance->patchProfile($xApiKey, $clientId, $id, $mODELa07b6a);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->patchProfile: ', $e->getMessage(), PHP_EOL;
 }
@@ -3075,19 +3739,14 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
 
-# Configure API key authorization: api_key
-$WWW::SwaggerClient::Configuration::api_key->{'x-api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$WWW::SwaggerClient::Configuration::api_key_prefix->{'x-api-key'} = "Bearer";
-
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $xApiKey = xApiKey_example; # String | 
 my $clientId = clientId_example; # String | 
 my $id = id_example; # String | 
-my $mODEL6afe76 = WWW::SwaggerClient::Object::MODEL6afe76->new(); # MODEL6afe76 | 
+my $mODELa07b6a = WWW::SwaggerClient::Object::MODELa07b6a->new(); # MODELa07b6a | 
 
 eval { 
-    $api_instance->patchProfile(xApiKey => $xApiKey, clientId => $clientId, id => $id, mODEL6afe76 => $mODEL6afe76);
+    $api_instance->patchProfile(xApiKey => $xApiKey, clientId => $clientId, id => $id, mODELa07b6a => $mODELa07b6a);
 };
 if ($@) {
     warn "Exception when calling DefaultApi->patchProfile: $@\n";
@@ -3101,20 +3760,15 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: api_key
-swagger_client.configuration.api_key['x-api-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['x-api-key'] = 'Bearer'
-
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
 xApiKey = xApiKey_example # String | 
 clientId = clientId_example # String | 
 id = id_example # String | 
-mODEL6afe76 =  # MODEL6afe76 | 
+mODELa07b6a =  # MODELa07b6a | 
 
 try: 
-    api_instance.patch_profile(xApiKey, clientId, id, mODEL6afe76)
+    api_instance.patch_profile(xApiKey, clientId, id, mODELa07b6a)
 except ApiException as e:
     print("Exception when calling DefaultApi->patchProfile: %s\n" % e)</code></pre>
                             </div>
@@ -3204,7 +3858,7 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">mODEL6afe76 <span style="color:red;">*</span></td>
+                                <tr><td style="width:150px;">mODELa07b6a <span style="color:red;">*</span></td>
 <td>
 
 
@@ -3212,10 +3866,10 @@ except ApiException as e:
 $(document).ready(function() {
   var schemaWrapper = {
   "in" : "body",
-  "name" : "MODEL6afe76",
+  "name" : "MODELa07b6a",
   "required" : true,
   "schema" : {
-    "$ref" : "#/definitions/MODEL6afe76"
+    "$ref" : "#/definitions/MODELa07b6a"
   }
 };
   var schema = schemaWrapper.schema;
@@ -3229,12 +3883,12 @@ $(document).ready(function() {
   }
 
   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-  var result = $('#d2e199_patchProfile_mODEL6afe76');
+  var result = $('#d2e199_patchProfile_mODELa07b6a');
   result.empty();
   result.append(view.render());
 });
 </script>
-<div id="d2e199_patchProfile_mODEL6afe76"></div>
+<div id="d2e199_patchProfile_mODELa07b6a"></div>
 </td>
 </tr>
 
@@ -3253,6 +3907,186 @@ $(document).ready(function() {
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
                                 <div class="tab-pane" id="responses-patchProfile-200-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 400 - 400 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-patchProfile-400-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-patchProfile-400-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 401 - 401 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-patchProfile-401-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-patchProfile-401-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 500 - 500 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-patchProfile-500-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-patchProfile-500-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 504 - 504 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-patchProfile-504-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-patchProfile-504-headers">
                                     <table>
                                         <tr>
                                             <th width="150px">Name</th>
@@ -3323,7 +4157,7 @@ $(document).ready(function() {
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Default-postProfile-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X POST -H "x-api-key: [[apiKey]]" "https://dev-recommendations.dive.tv/v1/profile"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "https://dev-recommendations.dive.tv/v1/profile"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-postProfile-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -3337,20 +4171,13 @@ import java.util.*;
 public class DefaultApiExample {
 
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
         
-        // Configure API key authorization: api_key
-        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-        api_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api_key.setApiKeyPrefix("Token");
-
         DefaultApi apiInstance = new DefaultApi();
         String xApiKey = xApiKey_example; // String | 
         String clientId = clientId_example; // String | 
-        MODEL884958 mODEL884958 = ; // MODEL884958 | 
+        MODEL648bef mODEL648bef = ; // MODEL648bef | 
         try {
-            apiInstance.postProfile(xApiKey, clientId, mODEL884958);
+            apiInstance.postProfile(xApiKey, clientId, mODEL648bef);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#postProfile");
             e.printStackTrace();
@@ -3368,9 +4195,9 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String xApiKey = xApiKey_example; // String | 
         String clientId = clientId_example; // String | 
-        MODEL884958 mODEL884958 = ; // MODEL884958 | 
+        MODEL648bef mODEL648bef = ; // MODEL648bef | 
         try {
-            apiInstance.postProfile(xApiKey, clientId, mODEL884958);
+            apiInstance.postProfile(xApiKey, clientId, mODEL648bef);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#postProfile");
             e.printStackTrace();
@@ -3383,22 +4210,15 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-postProfile-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-
-// Configure API key authorization: (authentication scheme: api_key)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
-
-String *xApiKey = xApiKey_example; // 
+                              <pre class="prettyprint"><code class="language-cpp">String *xApiKey = xApiKey_example; // 
 String *clientId = clientId_example; // 
-MODEL884958 *mODEL884958 = ; // 
+MODEL648bef *mODEL648bef = ; // 
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 [apiInstance postProfileWith:xApiKey
     clientId:clientId
-    mODEL884958:mODEL884958
+    mODEL648bef:mODEL648bef
               completionHandler: ^(NSError* error) {
                             if (error) {
                                 NSLog(@"Error: %@", error);
@@ -3409,13 +4229,6 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
                             <div class="tab-pane" id="examples-Default-postProfile-0-javascript">
                               <pre class="prettyprint"><code class="language-js">var RecoEngineDev = require('reco_engine_dev');
-var defaultClient = RecoEngineDev.ApiClient.instance;
-
-// Configure API key authorization: api_key
-var api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix['x-api-key'] = "Token"
 
 var api = new RecoEngineDev.DefaultApi()
 
@@ -3423,7 +4236,7 @@ var xApiKey = xApiKey_example; // {String}
 
 var clientId = clientId_example; // {String} 
 
-var mODEL884958 = ; // {MODEL884958} 
+var mODEL648bef = ; // {MODEL648bef} 
 
 
 var callback = function(error, data, response) {
@@ -3433,7 +4246,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.postProfile(xApiKey, clientId, mODEL884958, callback);
+api.postProfile(xApiKey, clientId, mODEL648bef, callback);
 </code></pre>
                             </div>
 
@@ -3454,19 +4267,14 @@ namespace Example
         public void main()
         {
             
-            // Configure API key authorization: api_key
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
-
             var apiInstance = new DefaultApi();
             var xApiKey = xApiKey_example;  // String | 
             var clientId = clientId_example;  // String | 
-            var mODEL884958 = new MODEL884958(); // MODEL884958 | 
+            var mODEL648bef = new MODEL648bef(); // MODEL648bef | 
 
             try
             {
-                apiInstance.postProfile(xApiKey, clientId, mODEL884958);
+                apiInstance.postProfile(xApiKey, clientId, mODEL648bef);
             }
             catch (Exception e)
             {
@@ -3482,18 +4290,13 @@ namespace Example
                               <pre class="prettyprint"><code class="language-php"><&#63;php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Configure API key authorization: api_key
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
 $api_instance = new Swagger\Client\Api\DefaultApi();
 $xApiKey = xApiKey_example; // String | 
 $clientId = clientId_example; // String | 
-$mODEL884958 = ; // MODEL884958 | 
+$mODEL648bef = ; // MODEL648bef | 
 
 try {
-    $api_instance->postProfile($xApiKey, $clientId, $mODEL884958);
+    $api_instance->postProfile($xApiKey, $clientId, $mODEL648bef);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->postProfile: ', $e->getMessage(), PHP_EOL;
 }
@@ -3505,18 +4308,13 @@ try {
 use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
 
-# Configure API key authorization: api_key
-$WWW::SwaggerClient::Configuration::api_key->{'x-api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$WWW::SwaggerClient::Configuration::api_key_prefix->{'x-api-key'} = "Bearer";
-
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
 my $xApiKey = xApiKey_example; # String | 
 my $clientId = clientId_example; # String | 
-my $mODEL884958 = WWW::SwaggerClient::Object::MODEL884958->new(); # MODEL884958 | 
+my $mODEL648bef = WWW::SwaggerClient::Object::MODEL648bef->new(); # MODEL648bef | 
 
 eval { 
-    $api_instance->postProfile(xApiKey => $xApiKey, clientId => $clientId, mODEL884958 => $mODEL884958);
+    $api_instance->postProfile(xApiKey => $xApiKey, clientId => $clientId, mODEL648bef => $mODEL648bef);
 };
 if ($@) {
     warn "Exception when calling DefaultApi->postProfile: $@\n";
@@ -3530,19 +4328,14 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: api_key
-swagger_client.configuration.api_key['x-api-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['x-api-key'] = 'Bearer'
-
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
 xApiKey = xApiKey_example # String | 
 clientId = clientId_example # String | 
-mODEL884958 =  # MODEL884958 | 
+mODEL648bef =  # MODEL648bef | 
 
 try: 
-    api_instance.post_profile(xApiKey, clientId, mODEL884958)
+    api_instance.post_profile(xApiKey, clientId, mODEL648bef)
 except ApiException as e:
     print("Exception when calling DefaultApi->postProfile: %s\n" % e)</code></pre>
                             </div>
@@ -3605,7 +4398,7 @@ except ApiException as e:
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">mODEL884958 <span style="color:red;">*</span></td>
+                                <tr><td style="width:150px;">mODEL648bef <span style="color:red;">*</span></td>
 <td>
 
 
@@ -3613,10 +4406,10 @@ except ApiException as e:
 $(document).ready(function() {
   var schemaWrapper = {
   "in" : "body",
-  "name" : "MODEL884958",
+  "name" : "MODEL648bef",
   "required" : true,
   "schema" : {
-    "$ref" : "#/definitions/MODEL884958"
+    "$ref" : "#/definitions/MODEL648bef"
   }
 };
   var schema = schemaWrapper.schema;
@@ -3630,12 +4423,12 @@ $(document).ready(function() {
   }
 
   var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-  var result = $('#d2e199_postProfile_mODEL884958');
+  var result = $('#d2e199_postProfile_mODEL648bef');
   result.empty();
   result.append(view.render());
 });
 </script>
-<div id="d2e199_postProfile_mODEL884958"></div>
+<div id="d2e199_postProfile_mODEL648bef"></div>
 </td>
 </tr>
 
@@ -3654,6 +4447,186 @@ $(document).ready(function() {
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
                                 <div class="tab-pane" id="responses-postProfile-200-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 400 - 400 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-postProfile-400-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-postProfile-400-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 401 - 401 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-postProfile-401-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-postProfile-401-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 500 - 500 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-postProfile-500-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-postProfile-500-headers">
+                                    <table>
+                                        <tr>
+                                            <th width="150px">Name</th>
+                                            <th width="100px">Type</th>
+                                            <th width="100px">Format</th>
+                                            <th>Description</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Origin</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Methods</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Access-Control-Allow-Headers</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Content-Type</td>
+                                            <td>String</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <h3> Status: 504 - 504 response </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="">
+                                  <a data-toggle="tab" href="#responses-postProfile-504-headers">Headers</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane" id="responses-postProfile-504-headers">
                                     <table>
                                         <tr>
                                             <th width="150px">Name</th>

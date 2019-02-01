@@ -14,13 +14,13 @@ The complete documentation for each is located on __/docs__ folder
 <!-- markdown-swagger -->
  Endpoint              | Method | Auth? | Description
  --------------------- | ------ | ----- | -----------
- `/v1/build`           | GET    | Yes   |
- `/v1/ping`            | GET    | Yes   |
- `/v1/profile`         | GET    | Yes   |
- `/v1/profile`         | POST   | Yes   |
- `/v1/profile/{id}`    | DELETE | Yes   |
- `/v1/profile/{id}`    | PATCH  | Yes   |
- `/v1/recommendations` | GET    | Yes   |
+ `/v1/build`           | GET    | No    |            
+ `/v1/ping`            | GET    | No    |            
+ `/v1/profile`         | GET    | No    |            
+ `/v1/profile`         | POST   | No    |            
+ `/v1/profile/{id}`    | DELETE | No    |            
+ `/v1/profile/{id}`    | PATCH  | No    |            
+ `/v1/recommendations` | GET    | No    |            
 <!-- /markdown-swagger -->
 
 ## Documentation Generation

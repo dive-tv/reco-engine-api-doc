@@ -1,13 +1,13 @@
 #!/bin/bash
 
-export OUT=./swagger-codegen-cli.jar
+export JAR_FILE=./swagger-codegen-cli.jar
 
-if [ ! -f $OUT ] 
+if [ ! -f $JAR_FILE ] 
 then
     $(pwd)/scripts/swagger-get-codegen
 fi
 
-java -jar $OUT generate \
+java -jar $JAR_FILE generate \
     -i ./swagger/api.json \
     -o ./docs \
     -l html2
