@@ -7502,12 +7502,6 @@
                         <li data-group="Default" data-name="deleteProfile" class="">
                             <a href="#api-Default-deleteProfile">deleteProfile</a>
                         </li>
-                        <li data-group="Default" data-name="getBuild" class="">
-                            <a href="#api-Default-getBuild">getBuild</a>
-                        </li>
-                        <li data-group="Default" data-name="getPing" class="">
-                            <a href="#api-Default-getPing">getPing</a>
-                        </li>
                         <li data-group="Default" data-name="getProfile" class="">
                             <a href="#api-Default-getProfile">getProfile</a>
                         </li>
@@ -7532,10 +7526,10 @@
                 </div>
                 <div id="header">
                     <div id="api-_">
-                        <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
+                        <h2 id="welcome-to-apidoc">API Documentation</h2>
                         <div class="app-desc">Version: 1.1.0</div>
                         <hr>
-                        <div>API Specifications for the Dive Recomendation Engine</div>
+                        <div>API Specifications for the Dive Recomendation Engine API</div>
                     </div>
                 </div>
                 <div id="sections">
@@ -7546,12 +7540,11 @@
                                 data-version="0">
                                 <div class="pull-left">
                                     <h1>deleteProfile</h1>
-                                    <p>Delete Profile</p>
+                                    <p>Deletes a User Profile</p>
                                 </div>
                                 <div class="pull-right"></div>
                                 <div class="clearfix"></div>
                                 <p></p>
-                                <p class="marked">Delete Profile</p>
                                 <p></p>
                                 <br />
                                 <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/v1/profile/{id}</span></code></pre>
@@ -7589,7 +7582,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
+
         // Configure API key authorization: api_key
         ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
         api_key.setApiKey("YOUR API KEY");
@@ -7705,7 +7698,7 @@ namespace Example
     {
         public void main()
         {
-            
+
             // Configure API key authorization: api_key
             Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -7768,7 +7761,7 @@ my $xApiKey = xApiKey_example; # String | Client API Key
 my $clientId = clientId_example; # String | Client Id. Each client will be provided with a clientId and an API Key
 my $id = id_example; # String | Profile ID to be deleted
 
-eval { 
+eval {
     $api_instance->deleteProfile(xApiKey => $xApiKey, clientId => $clientId, id => $id);
 };
 if ($@) {
@@ -7794,7 +7787,7 @@ xApiKey = xApiKey_example # String | Client API Key
 clientId = clientId_example # String | Client Id. Each client will be provided with a clientId and an API Key
 id = id_example # String | Profile ID to be deleted
 
-try: 
+try:
     # Delete Profile
     api_instance.delete_profile(xApiKey, clientId, id)
 except ApiException as e:
@@ -8125,949 +8118,16 @@ except ApiException as e:
                             </article>
                         </div>
                         <hr>
-                        <div id="api-Default-getBuild">
-                            <article id="api-Default-getBuild-0" data-group="User" data-name="getBuild" data-version="0">
-                                <div class="pull-left">
-                                    <h1>getBuild</h1>
-                                    <p>Ping for health checks</p>
-                                </div>
-                                <div class="pull-right"></div>
-                                <div class="clearfix"></div>
-                                <p></p>
-                                <p class="marked">Ping for health checks</p>
-                                <p></p>
-                                <br />
-                                <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/build</span></code></pre>
-                                <p>
-                                    <h3>Usage and SDK Samples</h3>
-                                </p>
-                                <ul class="nav nav-tabs nav-tabs-examples">
-                                    <li class="active"><a href="#examples-Default-getBuild-0-curl">Curl</a></li>
-                                    <li class=""><a href="#examples-Default-getBuild-0-java">Java</a></li>
-                                    <li class=""><a href="#examples-Default-getBuild-0-android">Android</a></li>
-                                    <!--<li class=""><a href="#examples-Default-getBuild-0-groovy">Groovy</a></li>-->
-                                    <li class=""><a href="#examples-Default-getBuild-0-objc">Obj-C</a></li>
-                                    <li class=""><a href="#examples-Default-getBuild-0-javascript">JavaScript</a></li>
-                                    <!--<li class=""><a href="#examples-Default-getBuild-0-angular">Angular</a></li>-->
-                                    <li class=""><a href="#examples-Default-getBuild-0-csharp">C#</a></li>
-                                    <li class=""><a href="#examples-Default-getBuild-0-php">PHP</a></li>
-                                    <li class=""><a href="#examples-Default-getBuild-0-perl">Perl</a></li>
-                                    <li class=""><a href="#examples-Default-getBuild-0-python">Python</a></li>
-                                </ul>
-
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="examples-Default-getBuild-0-curl">
-                                        <pre class="prettyprint"><code class="language-bsh">curl -X GET -H "x-api-key: [[apiKey]]" "https://localhost/v1/build"</code></pre>
-                                    </div>
-                                    <div class="tab-pane" id="examples-Default-getBuild-0-java">
-                                        <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
-        // Configure API key authorization: api_key
-        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-        api_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api_key.setApiKeyPrefix("Token");
-
-        DefaultApi apiInstance = new DefaultApi();
-        try {
-            apiInstance.getBuild();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getBuild");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                                    </div>
-
-                                    <div class="tab-pane" id="examples-Default-getBuild-0-android">
-                                        <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        try {
-            apiInstance.getBuild();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getBuild");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                                    </div>
-                                    <!--
-  <div class="tab-pane" id="examples-Default-getBuild-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                                    <div class="tab-pane" id="examples-Default-getBuild-0-objc">
-                                        <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-
-// Configure API key authorization: (authentication scheme: api_key)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
-
-
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-// Ping for health checks
-[apiInstance getBuildWithCompletionHandler: 
-              ^(NSError* error) {
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                                    </div>
-
-                                    <div class="tab-pane" id="examples-Default-getBuild-0-javascript">
-                                        <pre class="prettyprint"><code class="language-js">var DivetvRecommendationEngineApi = require('divetv_recommendation_engine_api');
-var defaultClient = DivetvRecommendationEngineApi.ApiClient.instance;
-
-// Configure API key authorization: api_key
-var api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix['x-api-key'] = "Token"
-
-var api = new DivetvRecommendationEngineApi.DefaultApi()
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-api.getBuild(callback);
-</code></pre>
-                                    </div>
-
-                                    <!--<div class="tab-pane" id="examples-Default-getBuild-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                                    <div class="tab-pane" id="examples-Default-getBuild-0-csharp">
-                                        <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class getBuildExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: api_key
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
-
-            var apiInstance = new DefaultApi();
-
-            try
-            {
-                // Ping for health checks
-                apiInstance.getBuild();
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DefaultApi.getBuild: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                                    </div>
-
-                                    <div class="tab-pane" id="examples-Default-getBuild-0-php">
-                                        <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\DefaultApi();
-
-try {
-    $api_instance->getBuild();
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->getBuild: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                                    </div>
-
-                                    <div class="tab-pane" id="examples-Default-getBuild-0-perl">
-                                        <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
-
-# Configure API key authorization: api_key
-$WWW::SwaggerClient::Configuration::api_key->{'x-api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$WWW::SwaggerClient::Configuration::api_key_prefix->{'x-api-key'} = "Bearer";
-
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-
-eval { 
-    $api_instance->getBuild();
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->getBuild: $@\n";
-}</code></pre>
-                                    </div>
-
-                                    <div class="tab-pane" id="examples-Default-getBuild-0-python">
-                                        <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: api_key
-swagger_client.configuration.api_key['x-api-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['x-api-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = swagger_client.DefaultApi()
-
-try: 
-    # Ping for health checks
-    api_instance.get_build()
-except ApiException as e:
-    print("Exception when calling DefaultApi->getBuild: %s\n" % e)</code></pre>
-                                    </div>
-                                </div>
-
-                                <h2>Parameters</h2>
-
-
-
-
-
-
-                                <h2>Responses</h2>
-                                <h3> Status: 200 - OK </h3>
-
-                                <ul class="nav nav-tabs nav-tabs-examples">
-                                    <li class="">
-                                        <a data-toggle="tab" href="#responses-getBuild-200-headers">Headers</a>
-                                    </li>
-                                </ul>
-
-                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                    <div class="tab-pane" id="responses-getBuild-200-headers">
-                                        <table>
-                                            <tr>
-                                                <th width="150px">Name</th>
-                                                <th width="100px">Type</th>
-                                                <th width="100px">Format</th>
-                                                <th>Description</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Content-Type</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Headers</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Methods</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Origin</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <h3> Status: 400 - Invalid Request </h3>
-
-                                <ul class="nav nav-tabs nav-tabs-examples">
-                                    <li class="">
-                                        <a data-toggle="tab" href="#responses-getBuild-400-headers">Headers</a>
-                                    </li>
-                                </ul>
-
-                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                    <div class="tab-pane" id="responses-getBuild-400-headers">
-                                        <table>
-                                            <tr>
-                                                <th width="150px">Name</th>
-                                                <th width="100px">Type</th>
-                                                <th width="100px">Format</th>
-                                                <th>Description</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Content-Type</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Headers</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Methods</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Origin</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <h3> Status: 401 - Invalid Request </h3>
-
-                                <ul class="nav nav-tabs nav-tabs-examples">
-                                    <li class="">
-                                        <a data-toggle="tab" href="#responses-getBuild-401-headers">Headers</a>
-                                    </li>
-                                </ul>
-
-                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                    <div class="tab-pane" id="responses-getBuild-401-headers">
-                                        <table>
-                                            <tr>
-                                                <th width="150px">Name</th>
-                                                <th width="100px">Type</th>
-                                                <th width="100px">Format</th>
-                                                <th>Description</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Content-Type</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Headers</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Methods</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Origin</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <h3> Status: 500 - Error Response </h3>
-
-                                <ul class="nav nav-tabs nav-tabs-examples">
-                                    <li class="">
-                                        <a data-toggle="tab" href="#responses-getBuild-500-headers">Headers</a>
-                                    </li>
-                                </ul>
-
-                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                    <div class="tab-pane" id="responses-getBuild-500-headers">
-                                        <table>
-                                            <tr>
-                                                <th width="150px">Name</th>
-                                                <th width="100px">Type</th>
-                                                <th width="100px">Format</th>
-                                                <th>Description</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Content-Type</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Headers</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Methods</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Origin</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <h3> Status: 504 - Gateway Timeout </h3>
-
-                                <ul class="nav nav-tabs nav-tabs-examples">
-                                    <li class="">
-                                        <a data-toggle="tab" href="#responses-getBuild-504-headers">Headers</a>
-                                    </li>
-                                </ul>
-
-                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                    <div class="tab-pane" id="responses-getBuild-504-headers">
-                                        <table>
-                                            <tr>
-                                                <th width="150px">Name</th>
-                                                <th width="100px">Type</th>
-                                                <th width="100px">Format</th>
-                                                <th>Description</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Content-Type</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Headers</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Methods</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Origin</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                            </article>
-                        </div>
-                        <hr>
-                        <div id="api-Default-getPing">
-                            <article id="api-Default-getPing-0" data-group="User" data-name="getPing" data-version="0">
-                                <div class="pull-left">
-                                    <h1>getPing</h1>
-                                    <p>Ping for health checks</p>
-                                </div>
-                                <div class="pull-right"></div>
-                                <div class="clearfix"></div>
-                                <p></p>
-                                <p class="marked">Ping for health checks</p>
-                                <p></p>
-                                <br />
-                                <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/ping</span></code></pre>
-                                <p>
-                                    <h3>Usage and SDK Samples</h3>
-                                </p>
-                                <ul class="nav nav-tabs nav-tabs-examples">
-                                    <li class="active"><a href="#examples-Default-getPing-0-curl">Curl</a></li>
-                                    <li class=""><a href="#examples-Default-getPing-0-java">Java</a></li>
-                                    <li class=""><a href="#examples-Default-getPing-0-android">Android</a></li>
-                                    <!--<li class=""><a href="#examples-Default-getPing-0-groovy">Groovy</a></li>-->
-                                    <li class=""><a href="#examples-Default-getPing-0-objc">Obj-C</a></li>
-                                    <li class=""><a href="#examples-Default-getPing-0-javascript">JavaScript</a></li>
-                                    <!--<li class=""><a href="#examples-Default-getPing-0-angular">Angular</a></li>-->
-                                    <li class=""><a href="#examples-Default-getPing-0-csharp">C#</a></li>
-                                    <li class=""><a href="#examples-Default-getPing-0-php">PHP</a></li>
-                                    <li class=""><a href="#examples-Default-getPing-0-perl">Perl</a></li>
-                                    <li class=""><a href="#examples-Default-getPing-0-python">Python</a></li>
-                                </ul>
-
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="examples-Default-getPing-0-curl">
-                                        <pre class="prettyprint"><code class="language-bsh">curl -X GET -H "x-api-key: [[apiKey]]" "https://localhost/v1/ping"</code></pre>
-                                    </div>
-                                    <div class="tab-pane" id="examples-Default-getPing-0-java">
-                                        <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.DefaultApi;
-
-import java.io.File;
-import java.util.*;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
-        // Configure API key authorization: api_key
-        ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
-        api_key.setApiKey("YOUR API KEY");
-        // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-        //api_key.setApiKeyPrefix("Token");
-
-        DefaultApi apiInstance = new DefaultApi();
-        try {
-            apiInstance.getPing();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getPing");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                                    </div>
-
-                                    <div class="tab-pane" id="examples-Default-getPing-0-android">
-                                        <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.DefaultApi;
-
-public class DefaultApiExample {
-
-    public static void main(String[] args) {
-        DefaultApi apiInstance = new DefaultApi();
-        try {
-            apiInstance.getPing();
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#getPing");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                                    </div>
-                                    <!--
-  <div class="tab-pane" id="examples-Default-getPing-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                                    <div class="tab-pane" id="examples-Default-getPing-0-objc">
-                                        <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
-
-// Configure API key authorization: (authentication scheme: api_key)
-[apiConfig setApiKey:@"YOUR_API_KEY" forApiKeyIdentifier:@"x-api-key"];
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"x-api-key"];
-
-
-DefaultApi *apiInstance = [[DefaultApi alloc] init];
-
-// Ping for health checks
-[apiInstance getPingWithCompletionHandler: 
-              ^(NSError* error) {
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                                    </div>
-
-                                    <div class="tab-pane" id="examples-Default-getPing-0-javascript">
-                                        <pre class="prettyprint"><code class="language-js">var DivetvRecommendationEngineApi = require('divetv_recommendation_engine_api');
-var defaultClient = DivetvRecommendationEngineApi.ApiClient.instance;
-
-// Configure API key authorization: api_key
-var api_key = defaultClient.authentications['api_key'];
-api_key.apiKey = "YOUR API KEY"
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//api_key.apiKeyPrefix['x-api-key'] = "Token"
-
-var api = new DivetvRecommendationEngineApi.DefaultApi()
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-};
-api.getPing(callback);
-</code></pre>
-                                    </div>
-
-                                    <!--<div class="tab-pane" id="examples-Default-getPing-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                                    <div class="tab-pane" id="examples-Default-getPing-0-csharp">
-                                        <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class getPingExample
-    {
-        public void main()
-        {
-            
-            // Configure API key authorization: api_key
-            Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.ApiKeyPrefix.Add("x-api-key", "Bearer");
-
-            var apiInstance = new DefaultApi();
-
-            try
-            {
-                // Ping for health checks
-                apiInstance.getPing();
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling DefaultApi.getPing: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                                    </div>
-
-                                    <div class="tab-pane" id="examples-Default-getPing-0-php">
-                                        <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: api_key
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
-
-$api_instance = new Swagger\Client\Api\DefaultApi();
-
-try {
-    $api_instance->getPing();
-} catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->getPing: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                                    </div>
-
-                                    <div class="tab-pane" id="examples-Default-getPing-0-perl">
-                                        <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::DefaultApi;
-
-# Configure API key authorization: api_key
-$WWW::SwaggerClient::Configuration::api_key->{'x-api-key'} = 'YOUR_API_KEY';
-# uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$WWW::SwaggerClient::Configuration::api_key_prefix->{'x-api-key'} = "Bearer";
-
-my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-
-eval { 
-    $api_instance->getPing();
-};
-if ($@) {
-    warn "Exception when calling DefaultApi->getPing: $@\n";
-}</code></pre>
-                                    </div>
-
-                                    <div class="tab-pane" id="examples-Default-getPing-0-python">
-                                        <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: api_key
-swagger_client.configuration.api_key['x-api-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# swagger_client.configuration.api_key_prefix['x-api-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = swagger_client.DefaultApi()
-
-try: 
-    # Ping for health checks
-    api_instance.get_ping()
-except ApiException as e:
-    print("Exception when calling DefaultApi->getPing: %s\n" % e)</code></pre>
-                                    </div>
-                                </div>
-
-                                <h2>Parameters</h2>
-
-
-
-
-
-
-                                <h2>Responses</h2>
-                                <h3> Status: 200 - OK </h3>
-
-                                <ul class="nav nav-tabs nav-tabs-examples">
-                                    <li class="">
-                                        <a data-toggle="tab" href="#responses-getPing-200-headers">Headers</a>
-                                    </li>
-                                </ul>
-
-                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                    <div class="tab-pane" id="responses-getPing-200-headers">
-                                        <table>
-                                            <tr>
-                                                <th width="150px">Name</th>
-                                                <th width="100px">Type</th>
-                                                <th width="100px">Format</th>
-                                                <th>Description</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Content-Type</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Headers</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Methods</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Origin</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <h3> Status: 400 - Invalid Request </h3>
-
-                                <ul class="nav nav-tabs nav-tabs-examples">
-                                    <li class="">
-                                        <a data-toggle="tab" href="#responses-getPing-400-headers">Headers</a>
-                                    </li>
-                                </ul>
-
-                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                    <div class="tab-pane" id="responses-getPing-400-headers">
-                                        <table>
-                                            <tr>
-                                                <th width="150px">Name</th>
-                                                <th width="100px">Type</th>
-                                                <th width="100px">Format</th>
-                                                <th>Description</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Content-Type</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Headers</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Methods</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Origin</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <h3> Status: 401 - Invalid Request </h3>
-
-                                <ul class="nav nav-tabs nav-tabs-examples">
-                                    <li class="">
-                                        <a data-toggle="tab" href="#responses-getPing-401-headers">Headers</a>
-                                    </li>
-                                </ul>
-
-                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                    <div class="tab-pane" id="responses-getPing-401-headers">
-                                        <table>
-                                            <tr>
-                                                <th width="150px">Name</th>
-                                                <th width="100px">Type</th>
-                                                <th width="100px">Format</th>
-                                                <th>Description</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Content-Type</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Headers</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Methods</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Origin</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <h3> Status: 500 - Error Response </h3>
-
-                                <ul class="nav nav-tabs nav-tabs-examples">
-                                    <li class="">
-                                        <a data-toggle="tab" href="#responses-getPing-500-headers">Headers</a>
-                                    </li>
-                                </ul>
-
-                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                    <div class="tab-pane" id="responses-getPing-500-headers">
-                                        <table>
-                                            <tr>
-                                                <th width="150px">Name</th>
-                                                <th width="100px">Type</th>
-                                                <th width="100px">Format</th>
-                                                <th>Description</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Content-Type</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Headers</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Methods</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Origin</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                                <h3> Status: 504 - Gateway Timeout </h3>
-
-                                <ul class="nav nav-tabs nav-tabs-examples">
-                                    <li class="">
-                                        <a data-toggle="tab" href="#responses-getPing-504-headers">Headers</a>
-                                    </li>
-                                </ul>
-
-                                <div class="tab-content" style='margin-bottom: 10px;'>
-                                    <div class="tab-pane" id="responses-getPing-504-headers">
-                                        <table>
-                                            <tr>
-                                                <th width="150px">Name</th>
-                                                <th width="100px">Type</th>
-                                                <th width="100px">Format</th>
-                                                <th>Description</th>
-                                            </tr>
-                                            <tr>
-                                                <td>Content-Type</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Headers</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Methods</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access-Control-Allow-Origin</td>
-                                                <td>String</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-
-                            </article>
-                        </div>
-                        <hr>
                         <div id="api-Default-getProfile">
                             <article id="api-Default-getProfile-0" data-group="User" data-name="getProfile"
                                 data-version="0">
                                 <div class="pull-left">
                                     <h1>getProfile</h1>
-                                    <p>Get Profile</p>
+                                    <p>Retrieves a list of User Profiles</p>
                                 </div>
                                 <div class="pull-right"></div>
                                 <div class="clearfix"></div>
                                 <p></p>
-                                <p class="marked">Get Profile</p>
                                 <p></p>
                                 <br />
                                 <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/profile</span></code></pre>
@@ -9105,7 +8165,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
+
         // Configure API key authorization: api_key
         ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
         api_key.setApiKey("YOUR API KEY");
@@ -9212,7 +8272,7 @@ var xApiKey = xApiKey_example; // {String} Client API Key
 
 var clientId = clientId_example; // {String} Client Id. Each client will be provided with a clientId and an API Key
 
-var opts = { 
+var opts = {
   'id': 56, // {Integer} Profile ID to be retrieved
   'externalAccountId': externalAccountId_example, // {String} account id in the Client System
   'externalProfileId': externalProfileId_example, // {String} profile id in the Client System
@@ -9247,7 +8307,7 @@ namespace Example
     {
         public void main()
         {
-            
+
             // Configure API key authorization: api_key
             Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -9256,11 +8316,11 @@ namespace Example
             var apiInstance = new DefaultApi();
             var xApiKey = xApiKey_example;  // String | Client API Key
             var clientId = clientId_example;  // String | Client Id. Each client will be provided with a clientId and an API Key
-            var id = 56;  // Integer | Profile ID to be retrieved (optional) 
-            var externalAccountId = externalAccountId_example;  // String | account id in the Client System (optional) 
-            var externalProfileId = externalProfileId_example;  // String | profile id in the Client System (optional) 
-            var pageSize = 56;  // Integer | Number of users returned. Max 50 (optional) 
-            var page = 56;  // Integer | Number of page (optional) 
+            var id = 56;  // Integer | Profile ID to be retrieved (optional)
+            var externalAccountId = externalAccountId_example;  // String | account id in the Client System (optional)
+            var externalProfileId = externalProfileId_example;  // String | profile id in the Client System (optional)
+            var pageSize = 56;  // Integer | Number of users returned. Max 50 (optional)
+            var page = 56;  // Integer | Number of page (optional)
 
             try
             {
@@ -9324,7 +8384,7 @@ my $externalProfileId = externalProfileId_example; # String | profile id in the 
 my $pageSize = 56; # Integer | Number of users returned. Max 50
 my $page = 56; # Integer | Number of page
 
-eval { 
+eval {
     my $result = $api_instance->getProfile(xApiKey => $xApiKey, clientId => $clientId, id => $id, externalAccountId => $externalAccountId, externalProfileId => $externalProfileId, pageSize => $pageSize, page => $page);
     print Dumper($result);
 };
@@ -9355,7 +8415,7 @@ externalProfileId = externalProfileId_example # String | profile id in the Clien
 pageSize = 56 # Integer | Number of users returned. Max 50 (optional)
 page = 56 # Integer | Number of page (optional)
 
-try: 
+try:
     # Get Profile
     api_response = api_instance.get_profile(xApiKey, clientId, id=id, externalAccountId=externalAccountId, externalProfileId=externalProfileId, pageSize=pageSize, page=page)
     pprint(api_response)
@@ -9466,7 +8526,7 @@ except ApiException as e:
                                                         </span>
 
                                                         <div class="inner description">
-                                                            account id in the Client System
+                                                            Account id in the Client System
                                                         </div>
                                                     </div>
                                                 </div>
@@ -9487,7 +8547,7 @@ except ApiException as e:
                                                         </span>
 
                                                         <div class="inner description">
-                                                            profile id in the Client System
+                                                            Profile id in the Client System
                                                         </div>
                                                     </div>
                                                 </div>
@@ -9839,12 +8899,11 @@ except ApiException as e:
                                 data-version="0">
                                 <div class="pull-left">
                                     <h1>getRecommendations</h1>
-                                    <p>Gets a recommendation</p>
+                                    <p>Retrieves a list of Recommendations</p>
                                 </div>
                                 <div class="pull-right"></div>
                                 <div class="clearfix"></div>
                                 <p></p>
-                                <p class="marked">Gets a recommendation</p>
                                 <p></p>
                                 <br />
                                 <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/v1/recommendations</span></code></pre>
@@ -9882,7 +8941,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
+
         // Configure API key authorization: api_key
         ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
         api_key.setApiKey("YOUR API KEY");
@@ -10005,7 +9064,7 @@ var xApiKey = xApiKey_example; // {String} Client API Key
 
 var clientId = clientId_example; // {String} Client Id. Each client will be provided with a clientId and an API Key
 
-var opts = { 
+var opts = {
   'externalAccountProfileId': externalAccountProfileId_example, // {String} Allows to get the recommendations for a given profile account / profile
   'profileCountry': profileCountry_example, // {String} Filter recommendations by country
   'device': device_example, // {String} Filter recommendations by device type
@@ -10044,7 +9103,7 @@ namespace Example
     {
         public void main()
         {
-            
+
             // Configure API key authorization: api_key
             Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -10053,15 +9112,15 @@ namespace Example
             var apiInstance = new DefaultApi();
             var xApiKey = xApiKey_example;  // String | Client API Key
             var clientId = clientId_example;  // String | Client Id. Each client will be provided with a clientId and an API Key
-            var externalAccountProfileId = externalAccountProfileId_example;  // String | Allows to get the recommendations for a given profile account / profile (optional) 
-            var profileCountry = profileCountry_example;  // String | Filter recommendations by country (optional) 
-            var device = device_example;  // String | Filter recommendations by device type (optional) 
-            var mediaEventType = mediaEventType_example;  // String | Media Event Type in the Client System (optional) 
-            var mediaContentProviderId = mediaContentProviderId_example;  // String | Content Provider Id to filter by (optional) 
-            var pageSize = 56;  // Integer | Number of users returned. Max 50 (optional) 
-            var exclusivePageStart = exclusivePageStart_example;  // String | From where to start reading (optional) 
-            var tag = tag_example;  // String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR (optional) 
-            var contentType = contentType_example;  // String | Content type to be queried (optional) 
+            var externalAccountProfileId = externalAccountProfileId_example;  // String | Allows to get the recommendations for a given profile account / profile (optional)
+            var profileCountry = profileCountry_example;  // String | Filter recommendations by country (optional)
+            var device = device_example;  // String | Filter recommendations by device type (optional)
+            var mediaEventType = mediaEventType_example;  // String | Media Event Type in the Client System (optional)
+            var mediaContentProviderId = mediaContentProviderId_example;  // String | Content Provider Id to filter by (optional)
+            var pageSize = 56;  // Integer | Number of users returned. Max 50 (optional)
+            var exclusivePageStart = exclusivePageStart_example;  // String | From where to start reading (optional)
+            var tag = tag_example;  // String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR (optional)
+            var contentType = contentType_example;  // String | Content type to be queried (optional)
 
             try
             {
@@ -10133,7 +9192,7 @@ my $exclusivePageStart = exclusivePageStart_example; # String | From where to st
 my $tag = tag_example; # String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR
 my $contentType = contentType_example; # String | Content type to be queried
 
-eval { 
+eval {
     my $result = $api_instance->getRecommendations(xApiKey => $xApiKey, clientId => $clientId, externalAccountProfileId => $externalAccountProfileId, profileCountry => $profileCountry, device => $device, mediaEventType => $mediaEventType, mediaContentProviderId => $mediaContentProviderId, pageSize => $pageSize, exclusivePageStart => $exclusivePageStart, tag => $tag, contentType => $contentType);
     print Dumper($result);
 };
@@ -10168,7 +9227,7 @@ exclusivePageStart = exclusivePageStart_example # String | From where to start r
 tag = tag_example # String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR (optional)
 contentType = contentType_example # String | Content type to be queried (optional)
 
-try: 
+try:
     # Gets a recommendation
     api_response = api_instance.get_recommendations(xApiKey, clientId, externalAccountProfileId=externalAccountProfileId, profileCountry=profileCountry, device=device, mediaEventType=mediaEventType, mediaContentProviderId=mediaContentProviderId, pageSize=pageSize, exclusivePageStart=exclusivePageStart, tag=tag, contentType=contentType)
     pprint(api_response)
@@ -10736,12 +9795,11 @@ except ApiException as e:
                                 data-version="0">
                                 <div class="pull-left">
                                     <h1>patchProfile</h1>
-                                    <p>Patch Profile</p>
+                                    <p>Patches a User Profile</p>
                                 </div>
                                 <div class="pull-right"></div>
                                 <div class="clearfix"></div>
                                 <p></p>
-                                <p class="marked">Patch Profile</p>
                                 <p></p>
                                 <br />
                                 <pre class="prettyprint language-html prettyprinted" data-type="patch"><code><span class="pln">/v1/profile/{id}</span></code></pre>
@@ -10779,7 +9837,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
+
         // Configure API key authorization: api_key
         ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
         api_key.setApiKey("YOUR API KEY");
@@ -10871,7 +9929,7 @@ var clientId = clientId_example; // {String} Client Id. Each client will be prov
 
 var id = id_example; // {String} Profile ID to be patched
 
-var opts = { 
+var opts = {
   'data':  // {Data_1} form data
 };
 
@@ -10902,7 +9960,7 @@ namespace Example
     {
         public void main()
         {
-            
+
             // Configure API key authorization: api_key
             Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -10912,7 +9970,7 @@ namespace Example
             var xApiKey = xApiKey_example;  // String | Client API Key
             var clientId = clientId_example;  // String | Client Id. Each client will be provided with a clientId and an API Key
             var id = id_example;  // String | Profile ID to be patched
-            var data = new Data_1(); // Data_1 | form data (optional) 
+            var data = new Data_1(); // Data_1 | form data (optional)
 
             try
             {
@@ -10968,7 +10026,7 @@ my $clientId = clientId_example; # String | Client Id. Each client will be provi
 my $id = id_example; # String | Profile ID to be patched
 my $data = WWW::SwaggerClient::Object::Data_1->new(); # Data_1 | form data
 
-eval { 
+eval {
     $api_instance->patchProfile(xApiKey => $xApiKey, clientId => $clientId, id => $id, data => $data);
 };
 if ($@) {
@@ -10995,7 +10053,7 @@ clientId = clientId_example # String | Client Id. Each client will be provided w
 id = id_example # String | Profile ID to be patched
 data =  # Data_1 | form data (optional)
 
-try: 
+try:
     # Patch Profile
     api_instance.patch_profile(xApiKey, clientId, id, data=data)
 except ApiException as e:
@@ -11374,12 +10432,11 @@ except ApiException as e:
                                 data-version="0">
                                 <div class="pull-left">
                                     <h1>postProfile</h1>
-                                    <p>Create Profile</p>
+                                    <p>Creates a User Profile</p>
                                 </div>
                                 <div class="pull-right"></div>
                                 <div class="clearfix"></div>
                                 <p></p>
-                                <p class="marked">Create Profile</p>
                                 <p></p>
                                 <br />
                                 <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/v1/profile</span></code></pre>
@@ -11417,7 +10474,7 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
+
         // Configure API key authorization: api_key
         ApiKeyAuth api_key = (ApiKeyAuth) defaultClient.getAuthentication("api_key");
         api_key.setApiKey("YOUR API KEY");
@@ -11503,7 +10560,7 @@ var xApiKey = xApiKey_example; // {String} Client API Key
 
 var clientId = clientId_example; // {String} Client Id. Each client will be provided with a clientId and an API Key
 
-var opts = { 
+var opts = {
   'data':  // {Data} form data
 };
 
@@ -11534,7 +10591,7 @@ namespace Example
     {
         public void main()
         {
-            
+
             // Configure API key authorization: api_key
             Configuration.Default.ApiKey.Add("x-api-key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -11543,7 +10600,7 @@ namespace Example
             var apiInstance = new DefaultApi();
             var xApiKey = xApiKey_example;  // String | Client API Key
             var clientId = clientId_example;  // String | Client Id. Each client will be provided with a clientId and an API Key
-            var data = new Data(); // Data | form data (optional) 
+            var data = new Data(); // Data | form data (optional)
 
             try
             {
@@ -11597,7 +10654,7 @@ my $xApiKey = xApiKey_example; # String | Client API Key
 my $clientId = clientId_example; # String | Client Id. Each client will be provided with a clientId and an API Key
 my $data = WWW::SwaggerClient::Object::Data->new(); # Data | form data
 
-eval { 
+eval {
     $api_instance->postProfile(xApiKey => $xApiKey, clientId => $clientId, data => $data);
 };
 if ($@) {
@@ -11623,7 +10680,7 @@ xApiKey = xApiKey_example # String | Client API Key
 clientId = clientId_example # String | Client Id. Each client will be provided with a clientId and an API Key
 data =  # Data | form data (optional)
 
-try: 
+try:
     # Create Profile
     api_instance.post_profile(xApiKey, clientId, data=data)
 except ApiException as e:
