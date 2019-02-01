@@ -1,4 +1,6 @@
+
 # reco-engine-api-doc - Documentation Generation
+
 [back](./README.md)
 
 Documentation generation for recommendation api
@@ -29,7 +31,7 @@ Download the Swagger api definition from amazon and saves it on the __/swagger__
 It's saves the files in __yaml__ and __json__ format
 
 ```shell
-$ npm run swagger:get
+npm run swagger:get
 ```
 
 ### Swagger Generate
@@ -37,7 +39,7 @@ $ npm run swagger:get
 Generate the website with the API documentation on __/docs__ folder
 
 ```shell
-$ npm run swagger:generate
+npm run swagger:generate
 ```
 
 ### Swagger Generate Markdown
@@ -45,7 +47,7 @@ $ npm run swagger:generate
 Updates the endpoints table on the __[README](./README.md)__ file
 
 ```shell
-$ npm run swagger:generate:md
+npm run swagger:generate:md
 ```
 
 ### Swagger
@@ -53,8 +55,9 @@ $ npm run swagger:generate:md
 Generates all the documentation executing all the __swagger:*__ scripts
 
 ```shell
-$ npm run swagger
+npm run swagger
 ```
+
 ## Environment Variables
 
 must be located in a __.env__ file for development
