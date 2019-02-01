@@ -1,595 +1,961 @@
 ---
-swagger: "2.0"
+swagger: '2.0'
 info:
-  version: "0.1.0"
-  title: "reco-engine-dev"
-host: "dev-recommendations.dive.tv"
+  version: 0.1.0
+  title: reco-engine-dev
+  description: API For the Recomendation engine
+basePath: /
+consumes:
+  - application/json; charset=utf-8
+produces:
+  - application/json; charset=utf-8
 schemes:
-- "https"
+  - https
+x-amazon-apigateway-binary-media-types:
+  - application/octet-stream
+  - image/jpeg
+  - image/png
+  - image/jpg
 paths:
   /v1/build:
+    x-swagger-router-controller: build.controller
     get:
-      operationId: "getBuild"
+      operationId: getBuild
+      produces:
+        - application/json; charset=utf-8
       responses:
         200:
-          description: "200 response"
+          description: OK
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
         400:
-          description: "400 response"
+          description: Invalid Request
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
-        500:
-          description: "500 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
+              type: string
             Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
         401:
-          description: "401 response"
+          description: Invalid Request
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        500:
+          description: Error Response
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
         504:
-          description: "504 response"
+          description: Gateway Timeout
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+      security:
+        - api_key: []
+      description: Ping for health checks
+      summary: Ping for health checks
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: GET
+        uri: 'http://${stageVariables.be_endpoint}/v1/build'
+        connectionType: VPC_LINK
+        connectionId: '${stageVariables.vpcLinkId}'
+        responses:
+          200:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          400:
+            statusCode: '400'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          401:
+            statusCode: '401'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          500:
+            statusCode: '500'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          504:
+            statusCode: '504'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
   /v1/ping:
+    x-swagger-router-controller: ping.controller
     get:
-      operationId: "getPing"
+      operationId: getPing
+      produces:
+        - application/json; charset=utf-8
       responses:
         200:
-          description: "200 response"
+          description: OK
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
         400:
-          description: "400 response"
+          description: Invalid Request
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
-        500:
-          description: "500 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
+              type: string
             Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
         401:
-          description: "401 response"
+          description: Invalid Request
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        500:
+          description: Error Response
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
         504:
-          description: "504 response"
+          description: Gateway Timeout
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+      security:
+        - api_key: []
+      description: Ping for health checks
+      summary: Ping for health checks
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: GET
+        uri: 'http://${stageVariables.be_endpoint}/v1/ping'
+        connectionType: VPC_LINK
+        connectionId: '${stageVariables.vpcLinkId}'
+        responses:
+          200:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          400:
+            statusCode: '400'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          401:
+            statusCode: '401'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          500:
+            statusCode: '500'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          504:
+            statusCode: '504'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
   /v1/profile:
-    get:
-      operationId: "getProfile"
-      parameters:
-      - name: "pageSize"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "x-api-key"
-        in: "header"
-        required: true
-        type: "string"
-      - name: "externalAccountId"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "page"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "externalProfileId"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "client-id"
-        in: "header"
-        required: true
-        type: "string"
-      - name: "id"
-        in: "query"
-        required: false
-        type: "string"
-      responses:
-        200:
-          description: "200 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-        400:
-          description: "400 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-        500:
-          description: "500 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-        401:
-          description: "401 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-        504:
-          description: "504 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
+    x-swagger-router-controller: profile.controller
     post:
-      operationId: "postProfile"
-      consumes:
-      - "application/json; charset=utf-8"
-      parameters:
-      - name: "x-api-key"
-        in: "header"
-        required: true
-        type: "string"
-      - name: "client-id"
-        in: "header"
-        required: true
-        type: "string"
-      - in: "body"
-        name: "MODEL648bef"
-        required: true
-        schema:
-          $ref: "#/definitions/MODEL648bef"
+      operationId: postProfile
+      produces:
+        - application/json; charset=utf-8
       responses:
         200:
-          description: "200 response"
+          description: OK
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
         400:
-          description: "400 response"
+          description: Invalid Request
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
-        500:
-          description: "500 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
+              type: string
             Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
         401:
-          description: "401 response"
+          description: Invalid Request
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        500:
+          description: Error Response
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
         504:
-          description: "504 response"
+          description: Gateway Timeout
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
-  /v1/profile/{id}:
-    delete:
-      operationId: "deleteProfile"
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+      security:
+        - api_key: []
       parameters:
-      - name: "x-api-key"
-        in: "header"
-        required: true
-        type: "string"
-      - name: "client-id"
-        in: "header"
-        required: true
-        type: "string"
-      - name: "id"
-        in: "path"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "200 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-        400:
-          description: "400 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-        500:
-          description: "500 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-        401:
-          description: "401 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-        504:
-          description: "504 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-    patch:
-      operationId: "patchProfile"
-      consumes:
-      - "application/json; charset=utf-8"
-      parameters:
-      - name: "x-api-key"
-        in: "header"
-        required: true
-        type: "string"
-      - name: "client-id"
-        in: "header"
-        required: true
-        type: "string"
-      - name: "id"
-        in: "path"
-        required: true
-        type: "string"
-      - in: "body"
-        name: "MODELa07b6a"
-        required: true
-        schema:
-          $ref: "#/definitions/MODELa07b6a"
-      responses:
-        200:
-          description: "200 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-        400:
-          description: "400 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-        500:
-          description: "500 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-        401:
-          description: "401 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-        504:
-          description: "504 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
-  /v1/recommendations:
+        - in: header
+          name: x-api-key
+          description: Client API Key
+          type: string
+          required: true
+        - in: header
+          name: client-id
+          description: Client Id. Each client will be provided with a clientId and an API Key
+          type: string
+          required: true
+        - name: data
+          description: form data
+          in: body
+          schema:
+            type: object
+            properties:
+              externalProfileId:
+                type: string
+              externalAccountId:
+                type: string
+              name:
+                type: string
+              gender:
+                enum:
+                  - M
+                  - F
+              subscriptionPackages:
+                type: array
+                items:
+                  type: string
+              enabledParentalRatings:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    scheme:
+                      type: string
+                    value:
+                      type: string
+              country:
+                type: string
+            required:
+              - externalProfileId
+              - externalAccountId
+              - name
+              - country
+              - subscriptionPackages
+              - enabledParentalRatings
+      description: Create Profile
+      summary: Create Profile
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: POST
+        uri: 'http://${stageVariables.be_endpoint}/v1/profile'
+        connectionType: VPC_LINK
+        connectionId: '${stageVariables.vpcLinkId}'
+        responses:
+          200:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          400:
+            statusCode: '400'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          401:
+            statusCode: '401'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          500:
+            statusCode: '500'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          504:
+            statusCode: '504'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.header.x-api-key: method.request.header.x-api-key
+          integration.request.header.client-id: method.request.header.client-id
     get:
-      operationId: "getRecommendations"
-      parameters:
-      - name: "externalAccountProfileId"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "device"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "contentType"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "profileCountry"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "pageSize"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "tag"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "x-api-key"
-        in: "header"
-        required: true
-        type: "string"
-      - name: "mediaEventType"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "exclusivePageStart"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "mediaContentProviderId"
-        in: "query"
-        required: false
-        type: "string"
-      - name: "client-id"
-        in: "header"
-        required: true
-        type: "string"
+      operationId: getProfile
+      produces:
+        - application/json; charset=utf-8
       responses:
         200:
-          description: "200 response"
+          description: OK
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
         400:
-          description: "400 response"
+          description: Invalid Request
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
-        500:
-          description: "500 response"
-          headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
+              type: string
             Access-Control-Allow-Headers:
-              type: "string"
-            Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
         401:
-          description: "401 response"
+          description: Invalid Request
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        500:
+          description: Error Response
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
         504:
-          description: "504 response"
+          description: Gateway Timeout
           headers:
-            Access-Control-Allow-Origin:
-              type: "string"
-            Access-Control-Allow-Methods:
-              type: "string"
-            Access-Control-Allow-Headers:
-              type: "string"
             Content-Type:
-              type: "string"
-definitions:
-  MODEL648bef:
-    type: "object"
-    required:
-    - "country"
-    - "enabledParentalRatings"
-    - "externalAccountId"
-    - "externalProfileId"
-    - "name"
-    - "subscriptionPackages"
-    properties:
-      externalProfileId:
-        type: "string"
-      externalAccountId:
-        type: "string"
-      name:
-        type: "string"
-      subscriptionPackages:
-        type: "array"
-        items:
-          type: "string"
-      enabledParentalRatings:
-        type: "array"
-        items:
-          type: "object"
-          properties:
-            scheme:
-              type: "string"
-            value:
-              type: "string"
-      country:
-        type: "string"
-  MODELa07b6a:
-    type: "object"
-    properties:
-      name:
-        type: "string"
-      subscriptionPackages:
-        type: "array"
-        items:
-          type: "string"
-      enabledParentalRatings:
-        type: "array"
-        items:
-          type: "object"
-          properties:
-            scheme:
-              type: "string"
-            value:
-              type: "string"
-      country:
-        type: "string"
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+      security:
+        - api_key: []
+      parameters:
+        - in: header
+          name: x-api-key
+          description: Client API Key
+          type: string
+          required: true
+        - in: header
+          name: client-id
+          description: Client Id. Each client will be provided with a clientId and an API Key
+          type: string
+          required: true
+        - name: id
+          description: Profile ID to be retrieved
+          type: integer
+          in: query
+        - name: externalAccountId
+          description: account id in the Client System
+          type: string
+          in: query
+        - name: externalProfileId
+          description: profile id in the Client System
+          type: string
+          in: query
+        - name: pageSize
+          description: Number of users returned. Max 50
+          type: integer
+          in: query
+        - name: page
+          description: Number of page
+          type: integer
+          in: query
+      description: Get Profile
+      summary: Get Profile
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: GET
+        uri: 'http://${stageVariables.be_endpoint}/v1/profile'
+        connectionType: VPC_LINK
+        connectionId: '${stageVariables.vpcLinkId}'
+        responses:
+          200:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          400:
+            statusCode: '400'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          401:
+            statusCode: '401'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          500:
+            statusCode: '500'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          504:
+            statusCode: '504'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.header.x-api-key: method.request.header.x-api-key
+          integration.request.header.client-id: method.request.header.client-id
+          integration.request.querystring.id: method.request.querystring.id
+          integration.request.querystring.externalAccountId: method.request.querystring.externalAccountId
+          integration.request.querystring.externalProfileId: method.request.querystring.externalProfileId
+          integration.request.querystring.pageSize: method.request.querystring.pageSize
+          integration.request.querystring.page: method.request.querystring.page
+  /v1/profile/{id}:
+    x-swagger-router-controller: profile.controller
+    patch:
+      operationId: patchProfile
+      produces:
+        - application/json; charset=utf-8
+      responses:
+        200:
+          description: OK
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        400:
+          description: Invalid Request
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        401:
+          description: Invalid Request
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        500:
+          description: Error Response
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        504:
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+      security:
+        - api_key: []
+      parameters:
+        - in: header
+          name: x-api-key
+          description: Client API Key
+          type: string
+          required: true
+        - in: header
+          name: client-id
+          description: Client Id. Each client will be provided with a clientId and an API Key
+          type: string
+          required: true
+        - name: id
+          description: Profile ID to be patched
+          type: string
+          required: true
+          in: path
+        - name: data
+          description: form data
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              gender:
+                enum:
+                  - M
+                  - F
+              subscriptionPackages:
+                type: array
+                items:
+                  type: string
+              enabledParentalRatings:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    scheme:
+                      type: string
+                    value:
+                      type: string
+              country:
+                type: string
+      description: Patch Profile
+      summary: Patch Profile
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: PATCH
+        uri: 'http://${stageVariables.be_endpoint}/v1/profile/{id}'
+        connectionType: VPC_LINK
+        connectionId: '${stageVariables.vpcLinkId}'
+        responses:
+          200:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          400:
+            statusCode: '400'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          401:
+            statusCode: '401'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          500:
+            statusCode: '500'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          504:
+            statusCode: '504'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.header.x-api-key: method.request.header.x-api-key
+          integration.request.header.client-id: method.request.header.client-id
+          integration.request.path.id: method.request.path.id
+    delete:
+      operationId: deleteProfile
+      produces:
+        - application/json; charset=utf-8
+      responses:
+        200:
+          description: OK
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        400:
+          description: Invalid Request
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        401:
+          description: Invalid Request
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        500:
+          description: Error Response
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        504:
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+      security:
+        - api_key: []
+      parameters:
+        - in: header
+          name: x-api-key
+          description: Client API Key
+          type: string
+          required: true
+        - in: header
+          name: client-id
+          description: Client Id. Each client will be provided with a clientId and an API Key
+          type: string
+          required: true
+        - name: id
+          description: Profile ID to be deleted
+          type: string
+          required: true
+          in: path
+      description: Delete Profile
+      summary: Delete Profile
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: DELETE
+        uri: 'http://${stageVariables.be_endpoint}/v1/profile/{id}'
+        connectionType: VPC_LINK
+        connectionId: '${stageVariables.vpcLinkId}'
+        responses:
+          200:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          400:
+            statusCode: '400'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          401:
+            statusCode: '401'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          500:
+            statusCode: '500'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          504:
+            statusCode: '504'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.header.x-api-key: method.request.header.x-api-key
+          integration.request.header.client-id: method.request.header.client-id
+          integration.request.path.id: method.request.path.id
+  /v1/recommendations:
+    x-swagger-router-controller: recommendations.controller
+    get:
+      operationId: getRecommendations
+      produces:
+        - application/json; charset=utf-8
+      responses:
+        200:
+          description: OK
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        400:
+          description: Invalid Request
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        401:
+          description: Invalid Request
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        500:
+          description: Error Response
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+        504:
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+      security:
+        - api_key: []
+      parameters:
+        - in: header
+          name: x-api-key
+          description: Client API Key
+          type: string
+          required: true
+        - in: header
+          name: client-id
+          description: Client Id. Each client will be provided with a clientId and an API Key
+          type: string
+          required: true
+        - name: externalAccountProfileId
+          description: Allows to get the recommendations for a given profile account / profile
+          type: string
+          in: query
+        - name: profileCountry
+          description: Filter recommendations by country
+          type: string
+          in: query
+        - name: device
+          description: Filter recommendations by device type
+          type: string
+          in: query
+        - name: mediaEventType
+          description: Media Event Type in the Client System
+          in: query
+          type: string
+          enum:
+            - VOD
+            - EPG
+        - name: mediaContentProviderId
+          description: Content Provider Id to filter by
+          type: string
+          in: query
+        - name: pageSize
+          description: Number of users returned. Max 50
+          type: integer
+          in: query
+        - name: exclusivePageStart
+          description: From where to start reading
+          type: string
+          in: query
+        - name: tag
+          description: 'Tags to be requested to recommends. must in be tagname:value format'
+          type: string
+          in: query
+        - name: contentType
+          description: Content type to be queried
+          type: string
+          in: query
+      description: Gets a recommendation
+      summary: Gets a recommendation
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: GET
+        uri: 'http://${stageVariables.be_endpoint}/v1/recommendations'
+        connectionType: VPC_LINK
+        connectionId: '${stageVariables.vpcLinkId}'
+        responses:
+          200:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          400:
+            statusCode: '400'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          401:
+            statusCode: '401'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          500:
+            statusCode: '500'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          504:
+            statusCode: '504'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.header.x-api-key: method.request.header.x-api-key
+          integration.request.header.client-id: method.request.header.client-id
+          integration.request.querystring.externalAccountProfileId: method.request.querystring.externalAccountProfileId
+          integration.request.querystring.profileCountry: method.request.querystring.profileCountry
+          integration.request.querystring.device: method.request.querystring.device
+          integration.request.querystring.mediaEventType: method.request.querystring.mediaEventType
+          integration.request.querystring.mediaContentProviderId: method.request.querystring.mediaContentProviderId
+          integration.request.querystring.pageSize: method.request.querystring.pageSize
+          integration.request.querystring.exclusivePageStart: method.request.querystring.exclusivePageStart
+          integration.request.querystring.tag: method.request.querystring.tag
+          integration.request.querystring.contentType: method.request.querystring.contentType
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: x-api-key
+    in: header
