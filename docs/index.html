@@ -804,6 +804,89 @@ margin-bottom: 20px;
     }
   }
 };
+        defs["inline_response_200_2"] = {
+  "properties" : {
+    "recommendations" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/inline_response_200_2_recommendations"
+      }
+    },
+    "pageSize" : {
+      "type" : "integer"
+    },
+    "pageEnd" : {
+      "type" : "string"
+    }
+  }
+};
+        defs["inline_response_200_2_additionalFields"] = {
+  "properties" : {
+    "contentId" : {
+      "type" : "integer"
+    },
+    "extraData" : {
+      "$ref" : "#/definitions/inline_response_200_2_additionalFields_extraData"
+    },
+    "contentType" : {
+      "type" : "string"
+    },
+    "extraExternalMediaId" : {
+      "type" : "string"
+    },
+    "mediaEventType" : {
+      "type" : "string"
+    },
+    "externalMediaId" : {
+      "type" : "string"
+    }
+  }
+};
+        defs["inline_response_200_2_additionalFields_extraData"] = {
+  "properties" : {
+    "tags" : {
+      "$ref" : "#/definitions/inline_response_200_2_additionalFields_extraData_tags"
+    }
+  }
+};
+        defs["inline_response_200_2_additionalFields_extraData_tags"] = {
+  "properties" : {
+    "category" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    }
+  }
+};
+        defs["inline_response_200_2_recommendations"] = {
+  "properties" : {
+    "generationId" : {
+      "type" : "integer"
+    },
+    "additionalFields" : {
+      "$ref" : "#/definitions/inline_response_200_2_additionalFields"
+    },
+    "profileId" : {
+      "type" : "integer"
+    },
+    "userExternalProfileId" : {
+      "type" : "string"
+    },
+    "id" : {
+      "type" : "string"
+    },
+    "category" : {
+      "type" : "string"
+    },
+    "priority" : {
+      "type" : "integer"
+    },
+    "type" : {
+      "type" : "string"
+    }
+  }
+};
         defs["inline_response_200_parentalRatings"] = {
   "properties" : {
     "id" : {
@@ -4129,7 +4212,7 @@ public class RecommendationsApiExample {
         String tag = tag_example; // String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR
         String contentType = contentType_example; // String | Content type to be queried
         try {
-            inline_response_200 result = apiInstance.getRecommendations(xApiKey, clientId, externalAccountProfileId, profileCountry, device, mediaEventType, mediaContentProviderId, pageSize, exclusivePageStart, tag, contentType);
+            inline_response_200_2 result = apiInstance.getRecommendations(xApiKey, clientId, externalAccountProfileId, profileCountry, device, mediaEventType, mediaContentProviderId, pageSize, exclusivePageStart, tag, contentType);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RecommendationsApi#getRecommendations");
@@ -4158,7 +4241,7 @@ public class RecommendationsApiExample {
         String tag = tag_example; // String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR
         String contentType = contentType_example; // String | Content type to be queried
         try {
-            inline_response_200 result = apiInstance.getRecommendations(xApiKey, clientId, externalAccountProfileId, profileCountry, device, mediaEventType, mediaContentProviderId, pageSize, exclusivePageStart, tag, contentType);
+            inline_response_200_2 result = apiInstance.getRecommendations(xApiKey, clientId, externalAccountProfileId, profileCountry, device, mediaEventType, mediaContentProviderId, pageSize, exclusivePageStart, tag, contentType);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RecommendationsApi#getRecommendations");
@@ -4205,7 +4288,7 @@ RecommendationsApi *apiInstance = [[RecommendationsApi alloc] init];
     exclusivePageStart:exclusivePageStart
     tag:tag
     contentType:contentType
-              completionHandler: ^(inline_response_200 output, NSError* error) {
+              completionHandler: ^(inline_response_200_2 output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -4293,7 +4376,7 @@ namespace Example
             try
             {
                 // Gets recommendations
-                inline_response_200 result = apiInstance.getRecommendations(xApiKey, clientId, externalAccountProfileId, profileCountry, device, mediaEventType, mediaContentProviderId, pageSize, exclusivePageStart, tag, contentType);
+                inline_response_200_2 result = apiInstance.getRecommendations(xApiKey, clientId, externalAccountProfileId, profileCountry, device, mediaEventType, mediaContentProviderId, pageSize, exclusivePageStart, tag, contentType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -4688,20 +4771,17 @@ except ApiException as e:
   "schema" : {
     "type" : "object",
     "properties" : {
-      "page" : {
-        "type" : "integer"
+      "recommendations" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/definitions/inline_response_200_2_recommendations"
+        }
       },
       "pageSize" : {
         "type" : "integer"
       },
-      "pageCount" : {
-        "type" : "integer"
-      },
-      "profiles" : {
-        "type" : "array",
-        "items" : {
-          "$ref" : "#/definitions/inline_response_200_profiles"
-        }
+      "pageEnd" : {
+        "type" : "string"
       }
     }
   }

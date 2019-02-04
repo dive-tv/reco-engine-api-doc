@@ -568,10 +568,6 @@
                                 "method.response.header.Access-Control-Allow-Origin": "'*'"
                             }
                         }
-                    },
-                    "requestParameters": {
-                        "integration.request.header.x-api-key": "method.request.header.x-api-key",
-                        "integration.request.header.client-id": "method.request.header.client-id"
                     }
                 }
             },
@@ -893,15 +889,6 @@
                                 "method.response.header.Access-Control-Allow-Origin": "'*'"
                             }
                         }
-                    },
-                    "requestParameters": {
-                        "integration.request.header.x-api-key": "method.request.header.x-api-key",
-                        "integration.request.header.client-id": "method.request.header.client-id",
-                        "integration.request.querystring.id": "method.request.querystring.id",
-                        "integration.request.querystring.externalAccountId": "method.request.querystring.externalAccountId",
-                        "integration.request.querystring.externalProfileId": "method.request.querystring.externalProfileId",
-                        "integration.request.querystring.pageSize": "method.request.querystring.pageSize",
-                        "integration.request.querystring.page": "method.request.querystring.page"
                     }
                 }
             }
@@ -1145,11 +1132,6 @@
                                 "method.response.header.Access-Control-Allow-Origin": "'*'"
                             }
                         }
-                    },
-                    "requestParameters": {
-                        "integration.request.header.x-api-key": "method.request.header.x-api-key",
-                        "integration.request.header.client-id": "method.request.header.client-id",
-                        "integration.request.path.id": "method.request.path.id"
                     }
                 }
             },
@@ -1319,11 +1301,6 @@
                                 "method.response.header.Access-Control-Allow-Origin": "'*'"
                             }
                         }
-                    },
-                    "requestParameters": {
-                        "integration.request.header.x-api-key": "method.request.header.x-api-key",
-                        "integration.request.header.client-id": "method.request.header.client-id",
-                        "integration.request.path.id": "method.request.path.id"
                     }
                 }
             }
@@ -1355,132 +1332,76 @@
                         "schema": {
                             "type": "object",
                             "properties": {
-                                "page": {
-                                    "type": "integer"
-                                },
-                                "pageSize": {
-                                    "type": "integer"
-                                },
-                                "pageCount": {
-                                    "type": "integer"
-                                },
-                                "profiles": {
+                                "recommendations": {
                                     "type": "array",
                                     "items": {
                                         "type": "object",
                                         "properties": {
-                                            "id": {
+                                            "generationId": {
                                                 "type": "integer"
                                             },
-                                            "externalAccountId": {
-                                                "type": "string"
-                                            },
-                                            "externalProfileId": {
-                                                "type": "string"
-                                            },
-                                            "name": {
-                                                "type": "string"
-                                            },
-                                            "gender": {
-                                                "type": "string"
-                                            },
-                                            "country": {
-                                                "type": "string"
-                                            },
-                                            "createdAt": {
-                                                "type": "string"
-                                            },
-                                            "updatedAt": {
-                                                "type": "string"
-                                            },
-                                            "parentalRatings": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "id": {
-                                                            "type": "integer"
-                                                        },
-                                                        "scheme": {
-                                                            "type": "string"
-                                                        },
-                                                        "value": {
-                                                            "type": "string"
-                                                        },
-                                                        "order": {
-                                                            "type": "integer"
-                                                        },
-                                                        "isDefault": {
-                                                            "type": "integer"
-                                                        },
-                                                        "createdAt": {
-                                                            "type": "string"
-                                                        },
-                                                        "updatedAt": {
-                                                            "type": "string"
-                                                        },
-                                                        "profileParentalRating": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "createdAt": {
-                                                                    "type": "string"
-                                                                },
-                                                                "updatedAt": {
-                                                                    "type": "string"
-                                                                },
-                                                                "parentalRatingId": {
-                                                                    "type": "integer"
-                                                                },
-                                                                "profileId": {
-                                                                    "type": "integer"
+                                            "additionalFields": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "contentId": {
+                                                        "type": "integer"
+                                                    },
+                                                    "extraData": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "tags": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "category": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
                                                                 }
                                                             }
                                                         }
+                                                    },
+                                                    "contentType": {
+                                                        "type": "string"
+                                                    },
+                                                    "extraExternalMediaId": {
+                                                        "type": "string"
+                                                    },
+                                                    "mediaEventType": {
+                                                        "type": "string"
+                                                    },
+                                                    "externalMediaId": {
+                                                        "type": "string"
                                                     }
                                                 }
                                             },
-                                            "subscriptionPackages": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "id": {
-                                                            "type": "integer"
-                                                        },
-                                                        "externalSubscriptionId": {
-                                                            "type": "string"
-                                                        },
-                                                        "isDefault": {
-                                                            "type": "integer"
-                                                        },
-                                                        "createdAt": {
-                                                            "type": "string"
-                                                        },
-                                                        "updatedAt": {
-                                                            "type": "string"
-                                                        },
-                                                        "profileSubscriptionPackage": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "createdAt": {
-                                                                    "type": "string"
-                                                                },
-                                                                "updatedAt": {
-                                                                    "type": "string"
-                                                                },
-                                                                "profileId": {
-                                                                    "type": "integer"
-                                                                },
-                                                                "subscriptionPackageId": {
-                                                                    "type": "integer"
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
+                                            "profileId": {
+                                                "type": "integer"
+                                            },
+                                            "userExternalProfileId": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "category": {
+                                                "type": "string"
+                                            },
+                                            "priority": {
+                                                "type": "integer"
+                                            },
+                                            "type": {
+                                                "type": "string"
                                             }
                                         }
                                     }
+                                },
+                                "pageSize": {
+                                    "type": "integer"
+                                },
+                                "pageEnd": {
+                                    "type": "string"
                                 }
                             }
                         }
@@ -1676,19 +1597,6 @@
                                 "method.response.header.Access-Control-Allow-Origin": "'*'"
                             }
                         }
-                    },
-                    "requestParameters": {
-                        "integration.request.header.x-api-key": "method.request.header.x-api-key",
-                        "integration.request.header.client-id": "method.request.header.client-id",
-                        "integration.request.querystring.externalAccountProfileId": "method.request.querystring.externalAccountProfileId",
-                        "integration.request.querystring.profileCountry": "method.request.querystring.profileCountry",
-                        "integration.request.querystring.device": "method.request.querystring.device",
-                        "integration.request.querystring.mediaEventType": "method.request.querystring.mediaEventType",
-                        "integration.request.querystring.mediaContentProviderId": "method.request.querystring.mediaContentProviderId",
-                        "integration.request.querystring.pageSize": "method.request.querystring.pageSize",
-                        "integration.request.querystring.exclusivePageStart": "method.request.querystring.exclusivePageStart",
-                        "integration.request.querystring.tag": "method.request.querystring.tag",
-                        "integration.request.querystring.contentType": "method.request.querystring.contentType"
                     }
                 }
             }
