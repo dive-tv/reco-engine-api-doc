@@ -1259,7 +1259,7 @@
                     }
                 ],
                 "summary": "Delete Profile",
-                "description": "Removes a existent profile from the system",
+                "description": "Removes an existent profile from the system",
                 "tags": [
                     "profiles"
                 ],
