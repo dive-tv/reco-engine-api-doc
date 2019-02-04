@@ -7,7 +7,8 @@
     "swagger:get": "./scripts/swagger-get",
     "swagger:generate": "./scripts/swagger-generate",
     "swagger:generate:md": "markdown-swagger ./swagger/api.yaml ./README.md",
-    "swagger": "npm run swagger:get && npm run swagger:generate && npm run swagger:generate:md",
+    "swagger": "npm run swagger:get && npm run swagger:generate && npm run swagger:generate:md && npm run html:style",
+    "html:style": "./scripts/set-styles",
     "postinstall": "if [ -z \"$NO_SETUP\" ]; then grunt setup; fi"
   },
   "repository": {

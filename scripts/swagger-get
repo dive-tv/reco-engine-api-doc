@@ -23,6 +23,12 @@ then
     exit 1
 fi
 
+#
+#   TODO:   Amazon does not returns the information about descriptions so
+#           It's necessary copy the api definition directly instead download it
+#           from AWS 
+#
+
 #aws apigateway get-export \
 #    --rest-api-id $AWS_REST_API_ID \
 #    --stage-name $AWS_STAGE_NAME \

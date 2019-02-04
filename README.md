@@ -12,15 +12,15 @@ Documentation for the Recommendation Engine API. See the live documentation [her
 The complete documentation for each is located on __/docs__ folder
 
 <!-- markdown-swagger -->
- Endpoint              | Method | Auth? | Description           
- --------------------- | ------ | ----- | ----------------------
- `/v1/build`           | GET    | Yes   | Ping for health checks
- `/v1/ping`            | GET    | Yes   | Ping for health checks
- `/v1/profile`         | POST   | Yes   | Create Profile        
- `/v1/profile`         | GET    | Yes   | Get Profile           
- `/v1/profile/{id}`    | PATCH  | Yes   | Patch Profile         
- `/v1/profile/{id}`    | DELETE | Yes   | Delete Profile        
- `/v1/recommendations` | GET    | Yes   | Gets a recommendation 
+ Endpoint              | Method | Auth? | Description                                                   
+ --------------------- | ------ | ----- | --------------------------------------------------------------
+ `/v1/build`           | GET    | Yes   | Returns the information about build of this version of the API
+ `/v1/ping`            | GET    | Yes   | Get the health status of the API                              
+ `/v1/profile`         | POST   | Yes   | Adds a new user profile to the system                         
+ `/v1/profile`         | GET    | Yes   | List all profiles or a single profile by Id on the system     
+ `/v1/profile/{id}`    | PATCH  | Yes   | Updates a user profile on the system                          
+ `/v1/profile/{id}`    | DELETE | Yes   | Removes a existent profile from the system                    
+ `/v1/recommendations` | GET    | Yes   | List the recommendations associated with a user profile       
 <!-- /markdown-swagger -->
 
 ## Documentation Generation

@@ -4,6 +4,12 @@ info:
   version: 0.1.0
   title: reco-engine-dev
   description: API For the Recomendation engine
+  contact:
+    email: info@dive.tv
+    url: 'https://dive.tv'
+  license:
+    name: '© 2019, Dive.tv. All rights reserved.'
+    url: ''
 basePath: /
 consumes:
   - application/json; charset=utf-8
@@ -46,17 +52,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
-        401:
-          description: Invalid Request
-          headers:
-            Content-Type:
-              type: string
-            Access-Control-Allow-Headers:
-              type: string
-            Access-Control-Allow-Methods:
-              type: string
-            Access-Control-Allow-Origin:
-              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         500:
           description: Error Response
           headers:
@@ -68,6 +68,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         504:
           description: Gateway Timeout
           headers:
@@ -81,8 +86,10 @@ paths:
               type: string
       security:
         - api_key: []
-      description: Ping for health checks
-      summary: Ping for health checks
+      summary: Gets the API Builds Id
+      description: Returns the information about build of this version of the API
+      tags:
+        - status
       x-amazon-apigateway-integration:
         type: http_proxy
         httpMethod: GET
@@ -98,12 +105,6 @@ paths:
               method.response.header.Access-Control-Allow-Origin: "'*'"
           400:
             statusCode: '400'
-            responseParameters:
-              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
-              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
-              method.response.header.Access-Control-Allow-Origin: "'*'"
-          401:
-            statusCode: '401'
             responseParameters:
               method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
               method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
@@ -149,17 +150,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
-        401:
-          description: Invalid Request
-          headers:
-            Content-Type:
-              type: string
-            Access-Control-Allow-Headers:
-              type: string
-            Access-Control-Allow-Methods:
-              type: string
-            Access-Control-Allow-Origin:
-              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         500:
           description: Error Response
           headers:
@@ -171,6 +166,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         504:
           description: Gateway Timeout
           headers:
@@ -184,8 +184,10 @@ paths:
               type: string
       security:
         - api_key: []
-      description: Ping for health checks
+      description: Get the health status of the API
       summary: Ping for health checks
+      tags:
+        - status
       x-amazon-apigateway-integration:
         type: http_proxy
         httpMethod: GET
@@ -201,12 +203,6 @@ paths:
               method.response.header.Access-Control-Allow-Origin: "'*'"
           400:
             statusCode: '400'
-            responseParameters:
-              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
-              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
-              method.response.header.Access-Control-Allow-Origin: "'*'"
-          401:
-            statusCode: '401'
             responseParameters:
               method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
               method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
@@ -231,7 +227,7 @@ paths:
         - application/json; charset=utf-8
       responses:
         200:
-          description: OK
+          description: Profile result
           headers:
             Content-Type:
               type: string
@@ -241,6 +237,27 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                externalAccountId:
+                  type: string
+                externalProfileId:
+                  type: string
+                name:
+                  type: string
+                gender:
+                  type: string
+                country:
+                  type: string
+                createdAt:
+                  type: string
+                updatedAt:
+                  type: string
         400:
           description: Invalid Request
           headers:
@@ -252,17 +269,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
-        401:
-          description: Invalid Request
-          headers:
-            Content-Type:
-              type: string
-            Access-Control-Allow-Headers:
-              type: string
-            Access-Control-Allow-Methods:
-              type: string
-            Access-Control-Allow-Origin:
-              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         500:
           description: Error Response
           headers:
@@ -274,6 +285,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         504:
           description: Gateway Timeout
           headers:
@@ -336,8 +352,10 @@ paths:
               - country
               - subscriptionPackages
               - enabledParentalRatings
-      description: Create Profile
       summary: Create Profile
+      description: Adds a new user profile to the system
+      tags:
+        - profiles
       x-amazon-apigateway-integration:
         type: http_proxy
         httpMethod: POST
@@ -353,12 +371,6 @@ paths:
               method.response.header.Access-Control-Allow-Origin: "'*'"
           400:
             statusCode: '400'
-            responseParameters:
-              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
-              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
-              method.response.header.Access-Control-Allow-Origin: "'*'"
-          401:
-            statusCode: '401'
             responseParameters:
               method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
               method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
@@ -384,7 +396,7 @@ paths:
         - application/json; charset=utf-8
       responses:
         200:
-          description: OK
+          description: Profile result
           headers:
             Content-Type:
               type: string
@@ -394,6 +406,92 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
+          schema:
+            type: object
+            properties:
+              page:
+                type: integer
+              pageSize:
+                type: integer
+              pageCount:
+                type: integer
+              profiles:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    externalAccountId:
+                      type: string
+                    externalProfileId:
+                      type: string
+                    name:
+                      type: string
+                    gender:
+                      type: string
+                    country:
+                      type: string
+                    createdAt:
+                      type: string
+                    updatedAt:
+                      type: string
+                    parentalRatings:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          scheme:
+                            type: string
+                          value:
+                            type: string
+                          order:
+                            type: integer
+                          isDefault:
+                            type: integer
+                          createdAt:
+                            type: string
+                          updatedAt:
+                            type: string
+                          profileParentalRating:
+                            type: object
+                            properties:
+                              createdAt:
+                                type: string
+                              updatedAt:
+                                type: string
+                              parentalRatingId:
+                                type: integer
+                              profileId:
+                                type: integer
+                    subscriptionPackages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          externalSubscriptionId:
+                            type: string
+                          isDefault:
+                            type: integer
+                          createdAt:
+                            type: string
+                          updatedAt:
+                            type: string
+                          profileSubscriptionPackage:
+                            type: object
+                            properties:
+                              createdAt:
+                                type: string
+                              updatedAt:
+                                type: string
+                              profileId:
+                                type: integer
+                              subscriptionPackageId:
+                                type: integer
         400:
           description: Invalid Request
           headers:
@@ -405,17 +503,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
-        401:
-          description: Invalid Request
-          headers:
-            Content-Type:
-              type: string
-            Access-Control-Allow-Headers:
-              type: string
-            Access-Control-Allow-Methods:
-              type: string
-            Access-Control-Allow-Origin:
-              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         500:
           description: Error Response
           headers:
@@ -427,6 +519,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         504:
           description: Gateway Timeout
           headers:
@@ -471,8 +568,10 @@ paths:
           description: Number of page
           type: integer
           in: query
-      description: Get Profile
       summary: Get Profile
+      description: List all profiles or a single profile by Id on the system
+      tags:
+        - profiles
       x-amazon-apigateway-integration:
         type: http_proxy
         httpMethod: GET
@@ -488,12 +587,6 @@ paths:
               method.response.header.Access-Control-Allow-Origin: "'*'"
           400:
             statusCode: '400'
-            responseParameters:
-              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
-              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
-              method.response.header.Access-Control-Allow-Origin: "'*'"
-          401:
-            statusCode: '401'
             responseParameters:
               method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
               method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
@@ -526,7 +619,7 @@ paths:
         - application/json; charset=utf-8
       responses:
         200:
-          description: OK
+          description: Profile result
           headers:
             Content-Type:
               type: string
@@ -536,6 +629,27 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                externalAccountId:
+                  type: string
+                externalProfileId:
+                  type: string
+                name:
+                  type: string
+                gender:
+                  type: string
+                country:
+                  type: string
+                createdAt:
+                  type: string
+                updatedAt:
+                  type: string
         400:
           description: Invalid Request
           headers:
@@ -547,17 +661,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
-        401:
-          description: Invalid Request
-          headers:
-            Content-Type:
-              type: string
-            Access-Control-Allow-Headers:
-              type: string
-            Access-Control-Allow-Methods:
-              type: string
-            Access-Control-Allow-Origin:
-              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         500:
           description: Error Response
           headers:
@@ -569,6 +677,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         504:
           description: Gateway Timeout
           headers:
@@ -625,8 +738,10 @@ paths:
                       type: string
               country:
                 type: string
-      description: Patch Profile
       summary: Patch Profile
+      description: Updates a user profile on the system
+      tags:
+        - profiles
       x-amazon-apigateway-integration:
         type: http_proxy
         httpMethod: PATCH
@@ -642,12 +757,6 @@ paths:
               method.response.header.Access-Control-Allow-Origin: "'*'"
           400:
             statusCode: '400'
-            responseParameters:
-              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
-              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
-              method.response.header.Access-Control-Allow-Origin: "'*'"
-          401:
-            statusCode: '401'
             responseParameters:
               method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
               method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
@@ -674,7 +783,7 @@ paths:
         - application/json; charset=utf-8
       responses:
         200:
-          description: OK
+          description: Records deleted
           headers:
             Content-Type:
               type: string
@@ -684,6 +793,8 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
+          schema:
+            type: number
         400:
           description: Invalid Request
           headers:
@@ -695,17 +806,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
-        401:
-          description: Invalid Request
-          headers:
-            Content-Type:
-              type: string
-            Access-Control-Allow-Headers:
-              type: string
-            Access-Control-Allow-Methods:
-              type: string
-            Access-Control-Allow-Origin:
-              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         500:
           description: Error Response
           headers:
@@ -717,6 +822,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         504:
           description: Gateway Timeout
           headers:
@@ -746,8 +856,10 @@ paths:
           type: string
           required: true
           in: path
-      description: Delete Profile
       summary: Delete Profile
+      description: Removes a existent profile from the system
+      tags:
+        - profiles
       x-amazon-apigateway-integration:
         type: http_proxy
         httpMethod: DELETE
@@ -763,12 +875,6 @@ paths:
               method.response.header.Access-Control-Allow-Origin: "'*'"
           400:
             statusCode: '400'
-            responseParameters:
-              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
-              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
-              method.response.header.Access-Control-Allow-Origin: "'*'"
-          401:
-            statusCode: '401'
             responseParameters:
               method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
               method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
@@ -797,7 +903,7 @@ paths:
         - application/json; charset=utf-8
       responses:
         200:
-          description: OK
+          description: Success Response
           headers:
             Content-Type:
               type: string
@@ -807,6 +913,92 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
+          schema:
+            type: object
+            properties:
+              page:
+                type: integer
+              pageSize:
+                type: integer
+              pageCount:
+                type: integer
+              profiles:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    externalAccountId:
+                      type: string
+                    externalProfileId:
+                      type: string
+                    name:
+                      type: string
+                    gender:
+                      type: string
+                    country:
+                      type: string
+                    createdAt:
+                      type: string
+                    updatedAt:
+                      type: string
+                    parentalRatings:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          scheme:
+                            type: string
+                          value:
+                            type: string
+                          order:
+                            type: integer
+                          isDefault:
+                            type: integer
+                          createdAt:
+                            type: string
+                          updatedAt:
+                            type: string
+                          profileParentalRating:
+                            type: object
+                            properties:
+                              createdAt:
+                                type: string
+                              updatedAt:
+                                type: string
+                              parentalRatingId:
+                                type: integer
+                              profileId:
+                                type: integer
+                    subscriptionPackages:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          externalSubscriptionId:
+                            type: string
+                          isDefault:
+                            type: integer
+                          createdAt:
+                            type: string
+                          updatedAt:
+                            type: string
+                          profileSubscriptionPackage:
+                            type: object
+                            properties:
+                              createdAt:
+                                type: string
+                              updatedAt:
+                                type: string
+                              profileId:
+                                type: integer
+                              subscriptionPackageId:
+                                type: integer
         400:
           description: Invalid Request
           headers:
@@ -818,17 +1010,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
-        401:
-          description: Invalid Request
-          headers:
-            Content-Type:
-              type: string
-            Access-Control-Allow-Headers:
-              type: string
-            Access-Control-Allow-Methods:
-              type: string
-            Access-Control-Allow-Origin:
-              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         500:
           description: Error Response
           headers:
@@ -840,6 +1026,11 @@ paths:
               type: string
             Access-Control-Allow-Origin:
               type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
         504:
           description: Gateway Timeout
           headers:
@@ -896,15 +1087,17 @@ paths:
           type: string
           in: query
         - name: tag
-          description: 'Tags to be requested to recommends. must in be tagname:value format'
+          description: 'Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it''s like a logical AND, if are concatenated by a pipe (|) it''s a logical OR'
           type: string
           in: query
         - name: contentType
           description: Content type to be queried
           type: string
           in: query
-      description: Gets a recommendation
-      summary: Gets a recommendation
+      summary: Gets recommendations
+      description: List the recommendations associated with a user profile
+      tags:
+        - recommendations
       x-amazon-apigateway-integration:
         type: http_proxy
         httpMethod: GET
@@ -920,12 +1113,6 @@ paths:
               method.response.header.Access-Control-Allow-Origin: "'*'"
           400:
             statusCode: '400'
-            responseParameters:
-              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
-              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
-              method.response.header.Access-Control-Allow-Origin: "'*'"
-          401:
-            statusCode: '401'
             responseParameters:
               method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
               method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"

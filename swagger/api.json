@@ -1,9 +1,17 @@
 {
     "swagger": "2.0",
     "info": {
-        "version": "1.1.0",
-        "title": "Dive.tv Recommendation Engine API",
-        "description": "API Specifications for the Dive Recomendation Engine"
+        "version": "0.1.0",
+        "title": "reco-engine-dev",
+        "description": "API For the Recomendation engine",
+        "contact": {
+            "email": "info@dive.tv",
+            "url": "https://dive.tv"
+        },
+        "license": {
+            "name": "© 2019, Dive.tv. All rights reserved.",
+            "url": ""
+        }
     },
     "basePath": "/",
     "consumes": [
@@ -62,22 +70,13 @@
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
                             }
-                        }
-                    },
-                    "401": {
-                        "description": "Invalid Request",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -95,6 +94,14 @@
                             },
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -121,8 +128,11 @@
                         "api_key": []
                     }
                 ],
-                "description": "Ping for health checks",
-                "summary": "Ping for health checks",
+                "summary": "Gets the API Builds Id",
+                "description": "Returns the information about build of this version of the API",
+                "tags": [
+                    "status"
+                ],
                 "x-amazon-apigateway-integration": {
                     "type": "http_proxy",
                     "httpMethod": "GET",
@@ -140,14 +150,6 @@
                         },
                         "400": {
                             "statusCode": "400",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "401": {
-                            "statusCode": "401",
                             "responseParameters": {
                                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
                                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
@@ -214,22 +216,13 @@
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
                             }
-                        }
-                    },
-                    "401": {
-                        "description": "Invalid Request",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -247,6 +240,14 @@
                             },
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -273,8 +274,11 @@
                         "api_key": []
                     }
                 ],
-                "description": "Ping for health checks",
+                "description": "Get the health status of the API",
                 "summary": "Ping for health checks",
+                "tags": [
+                    "status"
+                ],
                 "x-amazon-apigateway-integration": {
                     "type": "http_proxy",
                     "httpMethod": "GET",
@@ -292,14 +296,6 @@
                         },
                         "400": {
                             "statusCode": "400",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "401": {
-                            "statusCode": "401",
                             "responseParameters": {
                                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
                                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
@@ -335,7 +331,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Profile result",
                         "headers": {
                             "Content-Type": {
                                 "type": "string"
@@ -348,6 +344,38 @@
                             },
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "externalAccountId": {
+                                        "type": "string"
+                                    },
+                                    "externalProfileId": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "createdAt": {
+                                        "type": "string"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string"
+                                    }
+                                }
                             }
                         }
                     },
@@ -366,22 +394,13 @@
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
                             }
-                        }
-                    },
-                    "401": {
-                        "description": "Invalid Request",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -399,6 +418,14 @@
                             },
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -497,8 +524,11 @@
                         }
                     }
                 ],
-                "description": "Create Profile",
                 "summary": "Create Profile",
+                "description": "Adds a new user profile to the system",
+                "tags": [
+                    "profiles"
+                ],
                 "x-amazon-apigateway-integration": {
                     "type": "http_proxy",
                     "httpMethod": "POST",
@@ -516,14 +546,6 @@
                         },
                         "400": {
                             "statusCode": "400",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "401": {
-                            "statusCode": "401",
                             "responseParameters": {
                                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
                                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'",
@@ -560,7 +582,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Profile result",
                         "headers": {
                             "Content-Type": {
                                 "type": "string"
@@ -723,22 +745,13 @@
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
                             }
-                        }
-                    },
-                    "401": {
-                        "description": "Invalid Request",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -756,6 +769,14 @@
                             },
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -828,8 +849,11 @@
                         "in": "query"
                     }
                 ],
-                "description": "Get Profile",
                 "summary": "Get Profile",
+                "description": "List all profiles or a single profile by Id on the system",
+                "tags": [
+                    "profiles"
+                ],
                 "x-amazon-apigateway-integration": {
                     "type": "http_proxy",
                     "httpMethod": "GET",
@@ -847,14 +871,6 @@
                         },
                         "400": {
                             "statusCode": "400",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "401": {
-                            "statusCode": "401",
                             "responseParameters": {
                                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
                                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
@@ -899,7 +915,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Profile result",
                         "headers": {
                             "Content-Type": {
                                 "type": "string"
@@ -914,134 +930,34 @@
                                 "type": "string"
                             }
                         },
-                        "scheme": {
-                            "type": "object",
-                            "properties": {
-                                "page": {
-                                    "type": "integer"
-                                },
-                                "pageSize": {
-                                    "type": "integer"
-                                },
-                                "pageCount": {
-                                    "type": "integer"
-                                },
-                                "profiles": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "id": {
-                                                "type": "integer"
-                                            },
-                                            "externalAccountId": {
-                                                "type": "string"
-                                            },
-                                            "externalProfileId": {
-                                                "type": "string"
-                                            },
-                                            "name": {
-                                                "type": "string"
-                                            },
-                                            "gender": {
-                                                "type": "string"
-                                            },
-                                            "country": {
-                                                "type": "string"
-                                            },
-                                            "createdAt": {
-                                                "type": "string"
-                                            },
-                                            "updatedAt": {
-                                                "type": "string"
-                                            },
-                                            "parentalRatings": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "id": {
-                                                            "type": "integer"
-                                                        },
-                                                        "scheme": {
-                                                            "type": "string"
-                                                        },
-                                                        "value": {
-                                                            "type": "string"
-                                                        },
-                                                        "order": {
-                                                            "type": "integer"
-                                                        },
-                                                        "isDefault": {
-                                                            "type": "integer"
-                                                        },
-                                                        "createdAt": {
-                                                            "type": "string"
-                                                        },
-                                                        "updatedAt": {
-                                                            "type": "string"
-                                                        },
-                                                        "profileParentalRating": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "createdAt": {
-                                                                    "type": "string"
-                                                                },
-                                                                "updatedAt": {
-                                                                    "type": "string"
-                                                                },
-                                                                "parentalRatingId": {
-                                                                    "type": "integer"
-                                                                },
-                                                                "profileId": {
-                                                                    "type": "integer"
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            },
-                                            "subscriptionPackages": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "id": {
-                                                            "type": "integer"
-                                                        },
-                                                        "externalSubscriptionId": {
-                                                            "type": "string"
-                                                        },
-                                                        "isDefault": {
-                                                            "type": "integer"
-                                                        },
-                                                        "createdAt": {
-                                                            "type": "string"
-                                                        },
-                                                        "updatedAt": {
-                                                            "type": "string"
-                                                        },
-                                                        "profileSubscriptionPackage": {
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "createdAt": {
-                                                                    "type": "string"
-                                                                },
-                                                                "updatedAt": {
-                                                                    "type": "string"
-                                                                },
-                                                                "profileId": {
-                                                                    "type": "integer"
-                                                                },
-                                                                "subscriptionPackageId": {
-                                                                    "type": "integer"
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "externalAccountId": {
+                                        "type": "string"
+                                    },
+                                    "externalProfileId": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "createdAt": {
+                                        "type": "string"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string"
                                     }
                                 }
                             }
@@ -1062,22 +978,13 @@
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
                             }
-                        }
-                    },
-                    "401": {
-                        "description": "Invalid Request",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -1095,6 +1002,14 @@
                             },
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -1186,8 +1101,11 @@
                         }
                     }
                 ],
-                "description": "Patch Profile",
                 "summary": "Patch Profile",
+                "description": "Updates a user profile on the system",
+                "tags": [
+                    "profiles"
+                ],
                 "x-amazon-apigateway-integration": {
                     "type": "http_proxy",
                     "httpMethod": "PATCH",
@@ -1205,14 +1123,6 @@
                         },
                         "400": {
                             "statusCode": "400",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,PATCH'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "401": {
-                            "statusCode": "401",
                             "responseParameters": {
                                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
                                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,PATCH'",
@@ -1250,7 +1160,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Records deleted",
                         "headers": {
                             "Content-Type": {
                                 "type": "string"
@@ -1264,6 +1174,9 @@
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
                             }
+                        },
+                        "schema": {
+                            "type": "number"
                         }
                     },
                     "400": {
@@ -1281,22 +1194,13 @@
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
                             }
-                        }
-                    },
-                    "401": {
-                        "description": "Invalid Request",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -1314,6 +1218,14 @@
                             },
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -1363,8 +1275,11 @@
                         "in": "path"
                     }
                 ],
-                "description": "Delete Profile",
                 "summary": "Delete Profile",
+                "description": "Removes a existent profile from the system",
+                "tags": [
+                    "profiles"
+                ],
                 "x-amazon-apigateway-integration": {
                     "type": "http_proxy",
                     "httpMethod": "DELETE",
@@ -1382,14 +1297,6 @@
                         },
                         "400": {
                             "statusCode": "400",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "401": {
-                            "statusCode": "401",
                             "responseParameters": {
                                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
                                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE'",
@@ -1430,7 +1337,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
+                        "description": "Success Response",
                         "headers": {
                             "Content-Type": {
                                 "type": "string"
@@ -1448,76 +1355,135 @@
                         "schema": {
                             "type": "object",
                             "properties": {
-                                "recommendations": {
+                                "page": {
+                                    "type": "integer"
+                                },
+                                "pageSize": {
+                                    "type": "integer"
+                                },
+                                "pageCount": {
+                                    "type": "integer"
+                                },
+                                "profiles": {
                                     "type": "array",
                                     "items": {
                                         "type": "object",
                                         "properties": {
-                                            "generationId": {
+                                            "id": {
                                                 "type": "integer"
                                             },
-                                            "additionalFields": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "contentId": {
-                                                        "type": "integer"
-                                                    },
-                                                    "extraData": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "tags": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "category": {
-                                                                        "type": "array",
-                                                                        "items": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
+                                            "externalAccountId": {
+                                                "type": "string"
+                                            },
+                                            "externalProfileId": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "gender": {
+                                                "type": "string"
+                                            },
+                                            "country": {
+                                                "type": "string"
+                                            },
+                                            "createdAt": {
+                                                "type": "string"
+                                            },
+                                            "updatedAt": {
+                                                "type": "string"
+                                            },
+                                            "parentalRatings": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer"
+                                                        },
+                                                        "scheme": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "string"
+                                                        },
+                                                        "order": {
+                                                            "type": "integer"
+                                                        },
+                                                        "isDefault": {
+                                                            "type": "integer"
+                                                        },
+                                                        "createdAt": {
+                                                            "type": "string"
+                                                        },
+                                                        "updatedAt": {
+                                                            "type": "string"
+                                                        },
+                                                        "profileParentalRating": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "createdAt": {
+                                                                    "type": "string"
+                                                                },
+                                                                "updatedAt": {
+                                                                    "type": "string"
+                                                                },
+                                                                "parentalRatingId": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "profileId": {
+                                                                    "type": "integer"
                                                                 }
                                                             }
                                                         }
-                                                    },
-                                                    "contentType": {
-                                                        "type": "string"
-                                                    },
-                                                    "extraExternalMediaId": {
-                                                        "type": "string"
-                                                    },
-                                                    "mediaEventType": {
-                                                        "type": "string"
-                                                    },
-                                                    "externalMediaId": {
-                                                        "type": "string"
                                                     }
                                                 }
                                             },
-                                            "profileId": {
-                                                "type": "integer"
-                                            },
-                                            "userExternalProfileId": {
-                                                "type": "string"
-                                            },
-                                            "id": {
-                                                "type": "string"
-                                            },
-                                            "category": {
-                                                "type": "string"
-                                            },
-                                            "priority": {
-                                                "type": "integer"
-                                            },
-                                            "type": {
-                                                "type": "string"
+                                            "subscriptionPackages": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer"
+                                                        },
+                                                        "externalSubscriptionId": {
+                                                            "type": "string"
+                                                        },
+                                                        "isDefault": {
+                                                            "type": "integer"
+                                                        },
+                                                        "createdAt": {
+                                                            "type": "string"
+                                                        },
+                                                        "updatedAt": {
+                                                            "type": "string"
+                                                        },
+                                                        "profileSubscriptionPackage": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "createdAt": {
+                                                                    "type": "string"
+                                                                },
+                                                                "updatedAt": {
+                                                                    "type": "string"
+                                                                },
+                                                                "profileId": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "subscriptionPackageId": {
+                                                                    "type": "integer"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }
-                                },
-                                "pageSize": {
-                                    "type": "integer"
                                 }
                             }
-                        }                        
+                        }
                     },
                     "400": {
                         "description": "Invalid Request",
@@ -1534,22 +1500,13 @@
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
                             }
-                        }
-                    },
-                    "401": {
-                        "description": "Invalid Request",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -1567,6 +1524,14 @@
                             },
                             "Access-Control-Allow-Origin": {
                                 "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
                             }
                         }
                     },
@@ -1667,8 +1632,11 @@
                         "in": "query"
                     }
                 ],
-                "description": "Gets a recommendation",
-                "summary": "Gets a recommendation",
+                "summary": "Gets recommendations",
+                "description": "List the recommendations associated with a user profile",
+                "tags": [
+                    "recommendations"
+                ],
                 "x-amazon-apigateway-integration": {
                     "type": "http_proxy",
                     "httpMethod": "GET",
@@ -1686,14 +1654,6 @@
                         },
                         "400": {
                             "statusCode": "400",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "401": {
-                            "statusCode": "401",
                             "responseParameters": {
                                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
                                 "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
