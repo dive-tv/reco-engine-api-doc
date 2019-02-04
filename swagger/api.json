@@ -13,6 +13,7 @@
             "url": ""
         }
     },
+    "host":"recommendations.dive.tv",
     "basePath": "/",
     "consumes": [
         "application/json; charset=utf-8"
