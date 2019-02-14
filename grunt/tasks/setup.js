@@ -48,7 +48,11 @@ module.exports = function(grunt) {
         function() {
             const done = this.async();
             const cmd = [
-                'chmod 755 `pwd`/scripts/git-alias/setup_alias'
+                'chmod 755 `pwd`/scripts/git-alias/setup_alias',
+                'chmod 755 `pwd`/scripts/swagger-get',
+                'chmod 755 `pwd`/scripts/swagger-get-codegen',
+                'chmod 755 `pwd`/scripts/swagger-generate',
+                'chmod 755 `pwd`/scripts/set-styles',
             ].join(' && ');
 
             exec(cmd, function(error/* , stdout*/) {

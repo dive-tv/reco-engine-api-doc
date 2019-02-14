@@ -1,0 +1,11 @@
+#!/bin/bash
+
+export URL=https://oss.sonatype.org/content/repositories/releases/io/swagger/swagger-codegen-cli/2.4.0/swagger-codegen-cli-2.4.0.jar
+export OUT=./swagger-codegen-cli.jar
+
+if [ ! -f $OUT ]
+then
+    echo Downloading...
+    curl $URL --output  $OUT
+fi
+echo done.

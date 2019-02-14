@@ -1,0 +1,30 @@
+#! /usr/bin/node
+
+const {resolve} = require('path');
+const {readFile, writeFile} = require('fs');
+
+const styleTag = '<link rel="stylesheet" href="dive.css">';
+const heading1 = 'Dive.tv - Recommendation Engine API';
+
+
+const indexHtmlPath = resolve(__dirname, '../docs/index.html');
+
+console.log(indexHtmlPath);
+
+readFile(indexHtmlPath, (err, data) => {
+    if (err) {
+        console.log(err.toString());
+    } else {
+        let content = data
+            .toString()
+            .replace('</head>', `${styleTag}</head>`)
+            .replace('<h1>reco-engine-dev</h1>', `<h1>${heading1}<h1>`);
+
+        writeFile(indexHtmlPath, content, (err) => {
+            if (err) {
+                console.log(err.toString());
+            }
+            console.log('Set style done');
+        })
+    }
+});

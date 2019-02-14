@@ -1,0 +1,44 @@
+#!/bin/bash
+
+export $(egrep -v '^#' .env | xargs)
+
+export AWS_REST_API_ID=$AWS_REST_API_ID_DEV
+export AWS_STAGE_NAME=$AWS_STAGE_NAME_DEV
+
+if [ "$TRAVIS_BRANCH" == "pre" ]
+then
+   export AWS_REST_API_ID=$AWS_REST_API_ID_PRE
+    export AWS_STAGE_NAME=$AWS_STAGE_NAME_PRE
+fi
+
+if [ "$TRAVIS_BRANCH" == "pro" ]
+then
+    export AWS_REST_API_ID=$AWS_REST_API_ID_PRO
+    export AWS_STAGE_NAME=$AWS_STAGE_NAME_PRO
+fi
+
+if [ -z "$AWS_REST_API_ID" ] || [ -z "$AWS_STAGE_NAME" ]
+then
+    echo "You must define AWS_REST_API_ID and AWS_STAGE_NAME for all environments. " 
+    exit 1
+fi
+
+#
+#   TODO:   Amazon does not returns the information about descriptions so
+#           It's necessary copy the api definition directly instead download it
+#           from AWS 
+#
+
+#aws apigateway get-export \
+#    --rest-api-id $AWS_REST_API_ID \
+#    --stage-name $AWS_STAGE_NAME \
+#    --export-type swagger \
+#    ./swagger/api.json
+
+
+#aws apigateway get-export \
+#    --rest-api-id $AWS_REST_API_ID \
+#    --stage-name $AWS_STAGE_NAME \
+#    --export-type swagger \
+#    --accepts application/yaml \
+#    ./swagger/api.yaml

@@ -1,0 +1,1613 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.1.0",
+        "title": "reco-engine-dev",
+        "description": "API For the Recomendation engine",
+        "contact": {
+            "email": "info@dive.tv",
+            "url": "https://dive.tv"
+        },
+        "license": {
+            "name": "© 2019, Dive.tv. All rights reserved.",
+            "url": ""
+        }
+    },
+    "host":"recommendations.dive.tv",
+    "basePath": "/",
+    "consumes": [
+        "application/json; charset=utf-8"
+    ],
+    "produces": [
+        "application/json; charset=utf-8"
+    ],
+    "schemes": [
+        "https"
+    ],
+    "x-amazon-apigateway-binary-media-types": [
+        "application/octet-stream",
+        "image/jpeg",
+        "image/png",
+        "image/jpg"
+    ],
+    "paths": {
+        "/v1/build": {
+            "x-swagger-router-controller": "build.controller",
+            "get": {
+                "operationId": "getBuild",
+                "produces": [
+                    "application/json; charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error Response",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "504": {
+                        "description": "Gateway Timeout",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "summary": "Gets the API Builds Id",
+                "description": "Returns the information about build of this version of the API",
+                "tags": [
+                    "status"
+                ],
+                "x-amazon-apigateway-integration": {
+                    "type": "http_proxy",
+                    "httpMethod": "GET",
+                    "uri": "http://${stageVariables.be_endpoint}/v1/build",
+                    "connectionType": "VPC_LINK",
+                    "connectionId": "${stageVariables.vpcLinkId}",
+                    "responses": {
+                        "200": {
+                            "statusCode": "200",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "400": {
+                            "statusCode": "400",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "500": {
+                            "statusCode": "500",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "504": {
+                            "statusCode": "504",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/ping": {
+            "x-swagger-router-controller": "ping.controller",
+            "get": {
+                "operationId": "getPing",
+                "produces": [
+                    "application/json; charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error Response",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "504": {
+                        "description": "Gateway Timeout",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "description": "Get the health status of the API",
+                "summary": "Ping for health checks",
+                "tags": [
+                    "status"
+                ],
+                "x-amazon-apigateway-integration": {
+                    "type": "http_proxy",
+                    "httpMethod": "GET",
+                    "uri": "http://${stageVariables.be_endpoint}/v1/ping",
+                    "connectionType": "VPC_LINK",
+                    "connectionId": "${stageVariables.vpcLinkId}",
+                    "responses": {
+                        "200": {
+                            "statusCode": "200",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "400": {
+                            "statusCode": "400",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "500": {
+                            "statusCode": "500",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "504": {
+                            "statusCode": "504",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/profile": {
+            "x-swagger-router-controller": "profile.controller",
+            "post": {
+                "operationId": "postProfile",
+                "produces": [
+                    "application/json; charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Profile result",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "externalAccountId": {
+                                        "type": "string"
+                                    },
+                                    "externalProfileId": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "createdAt": {
+                                        "type": "string"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error Response",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "504": {
+                        "description": "Gateway Timeout",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "x-api-key",
+                        "description": "Client API Key",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "client-id",
+                        "description": "Client Id. Each client will be provided with a clientId and an API Key",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "data",
+                        "description": "form data",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "externalProfileId": {
+                                    "type": "string"
+                                },
+                                "externalAccountId": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "enum": [
+                                        "M",
+                                        "F"
+                                    ]
+                                },
+                                "subscriptionPackages": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "enabledParentalRatings": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "scheme": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "country": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "externalProfileId",
+                                "externalAccountId",
+                                "name",
+                                "country",
+                                "subscriptionPackages",
+                                "enabledParentalRatings"
+                            ]
+                        }
+                    }
+                ],
+                "summary": "Create Profile",
+                "description": "Adds a new user profile to the system",
+                "tags": [
+                    "profiles"
+                ],
+                "x-amazon-apigateway-integration": {
+                    "type": "http_proxy",
+                    "httpMethod": "POST",
+                    "uri": "http://${stageVariables.be_endpoint}/v1/profile",
+                    "connectionType": "VPC_LINK",
+                    "connectionId": "${stageVariables.vpcLinkId}",
+                    "responses": {
+                        "200": {
+                            "statusCode": "200",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "400": {
+                            "statusCode": "400",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "500": {
+                            "statusCode": "500",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "504": {
+                            "statusCode": "504",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,POST'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "operationId": "getProfile",
+                "produces": [
+                    "application/json; charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Profile result",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "page": {
+                                    "type": "integer"
+                                },
+                                "pageSize": {
+                                    "type": "integer"
+                                },
+                                "pageCount": {
+                                    "type": "integer"
+                                },
+                                "profiles": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer"
+                                            },
+                                            "externalAccountId": {
+                                                "type": "string"
+                                            },
+                                            "externalProfileId": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "gender": {
+                                                "type": "string"
+                                            },
+                                            "country": {
+                                                "type": "string"
+                                            },
+                                            "createdAt": {
+                                                "type": "string"
+                                            },
+                                            "updatedAt": {
+                                                "type": "string"
+                                            },
+                                            "parentalRatings": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer"
+                                                        },
+                                                        "scheme": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "string"
+                                                        },
+                                                        "order": {
+                                                            "type": "integer"
+                                                        },
+                                                        "isDefault": {
+                                                            "type": "integer"
+                                                        },
+                                                        "createdAt": {
+                                                            "type": "string"
+                                                        },
+                                                        "updatedAt": {
+                                                            "type": "string"
+                                                        },
+                                                        "profileParentalRating": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "createdAt": {
+                                                                    "type": "string"
+                                                                },
+                                                                "updatedAt": {
+                                                                    "type": "string"
+                                                                },
+                                                                "parentalRatingId": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "profileId": {
+                                                                    "type": "integer"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "subscriptionPackages": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer"
+                                                        },
+                                                        "externalSubscriptionId": {
+                                                            "type": "string"
+                                                        },
+                                                        "isDefault": {
+                                                            "type": "integer"
+                                                        },
+                                                        "createdAt": {
+                                                            "type": "string"
+                                                        },
+                                                        "updatedAt": {
+                                                            "type": "string"
+                                                        },
+                                                        "profileSubscriptionPackage": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "createdAt": {
+                                                                    "type": "string"
+                                                                },
+                                                                "updatedAt": {
+                                                                    "type": "string"
+                                                                },
+                                                                "profileId": {
+                                                                    "type": "integer"
+                                                                },
+                                                                "subscriptionPackageId": {
+                                                                    "type": "integer"
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error Response",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "504": {
+                        "description": "Gateway Timeout",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "x-api-key",
+                        "description": "Client API Key",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "client-id",
+                        "description": "Client Id. Each client will be provided with a clientId and an API Key",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "description": "Profile ID to be retrieved",
+                        "type": "integer",
+                        "in": "query"
+                    },
+                    {
+                        "name": "externalAccountId",
+                        "description": "account id in the Client System",
+                        "type": "string",
+                        "in": "query"
+                    },
+                    {
+                        "name": "externalProfileId",
+                        "description": "profile id in the Client System",
+                        "type": "string",
+                        "in": "query"
+                    },
+                    {
+                        "name": "pageSize",
+                        "description": "Number of users returned. Max 50",
+                        "type": "integer",
+                        "in": "query"
+                    },
+                    {
+                        "name": "page",
+                        "description": "Number of page",
+                        "type": "integer",
+                        "in": "query"
+                    }
+                ],
+                "summary": "Get Profile",
+                "description": "List all profiles or a single profile by Id on the system",
+                "tags": [
+                    "profiles"
+                ],
+                "x-amazon-apigateway-integration": {
+                    "type": "http_proxy",
+                    "httpMethod": "GET",
+                    "uri": "http://${stageVariables.be_endpoint}/v1/profile",
+                    "connectionType": "VPC_LINK",
+                    "connectionId": "${stageVariables.vpcLinkId}",
+                    "responses": {
+                        "200": {
+                            "statusCode": "200",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "400": {
+                            "statusCode": "400",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "500": {
+                            "statusCode": "500",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "504": {
+                            "statusCode": "504",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/profile/{id}": {
+            "x-swagger-router-controller": "profile.controller",
+            "patch": {
+                "operationId": "patchProfile",
+                "produces": [
+                    "application/json; charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Profile result",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "externalAccountId": {
+                                        "type": "string"
+                                    },
+                                    "externalProfileId": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    },
+                                    "country": {
+                                        "type": "string"
+                                    },
+                                    "createdAt": {
+                                        "type": "string"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error Response",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "504": {
+                        "description": "Gateway Timeout",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "x-api-key",
+                        "description": "Client API Key",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "client-id",
+                        "description": "Client Id. Each client will be provided with a clientId and an API Key",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "description": "Profile ID to be patched",
+                        "type": "string",
+                        "required": true,
+                        "in": "path"
+                    },
+                    {
+                        "name": "data",
+                        "description": "form data",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "enum": [
+                                        "M",
+                                        "F"
+                                    ]
+                                },
+                                "subscriptionPackages": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "enabledParentalRatings": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "scheme": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "country": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "summary": "Patch Profile",
+                "description": "Updates a user profile on the system",
+                "tags": [
+                    "profiles"
+                ],
+                "x-amazon-apigateway-integration": {
+                    "type": "http_proxy",
+                    "httpMethod": "PATCH",
+                    "uri": "http://${stageVariables.be_endpoint}/v1/profile/{id}",
+                    "connectionType": "VPC_LINK",
+                    "connectionId": "${stageVariables.vpcLinkId}",
+                    "responses": {
+                        "200": {
+                            "statusCode": "200",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,PATCH'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "400": {
+                            "statusCode": "400",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,PATCH'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "500": {
+                            "statusCode": "500",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,PATCH'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "504": {
+                            "statusCode": "504",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,PATCH'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "deleteProfile",
+                "produces": [
+                    "application/json; charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Records deleted",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error Response",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "504": {
+                        "description": "Gateway Timeout",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "x-api-key",
+                        "description": "Client API Key",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "client-id",
+                        "description": "Client Id. Each client will be provided with a clientId and an API Key",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "description": "Profile ID to be deleted",
+                        "type": "string",
+                        "required": true,
+                        "in": "path"
+                    }
+                ],
+                "summary": "Delete Profile",
+                "description": "Removes an existent profile from the system",
+                "tags": [
+                    "profiles"
+                ],
+                "x-amazon-apigateway-integration": {
+                    "type": "http_proxy",
+                    "httpMethod": "DELETE",
+                    "uri": "http://${stageVariables.be_endpoint}/v1/profile/{id}",
+                    "connectionType": "VPC_LINK",
+                    "connectionId": "${stageVariables.vpcLinkId}",
+                    "responses": {
+                        "200": {
+                            "statusCode": "200",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "400": {
+                            "statusCode": "400",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "500": {
+                            "statusCode": "500",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "504": {
+                            "statusCode": "504",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,DELETE'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/recommendations": {
+            "x-swagger-router-controller": "recommendations.controller",
+            "get": {
+                "operationId": "getRecommendations",
+                "produces": [
+                    "application/json; charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "recommendations": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "generationId": {
+                                                "type": "integer"
+                                            },
+                                            "additionalFields": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "contentId": {
+                                                        "type": "integer"
+                                                    },
+                                                    "extraData": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "tags": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "category": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "contentType": {
+                                                        "type": "string"
+                                                    },
+                                                    "extraExternalMediaId": {
+                                                        "type": "string"
+                                                    },
+                                                    "mediaEventType": {
+                                                        "type": "string"
+                                                    },
+                                                    "externalMediaId": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "profileId": {
+                                                "type": "integer"
+                                            },
+                                            "userExternalProfileId": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "category": {
+                                                "type": "string"
+                                            },
+                                            "priority": {
+                                                "type": "integer"
+                                            },
+                                            "type": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "pageSize": {
+                                    "type": "integer"
+                                },
+                                "pageEnd": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error Response",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "504": {
+                        "description": "Gateway Timeout",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "x-api-key",
+                        "description": "Client API Key",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "client-id",
+                        "description": "Client Id. Each client will be provided with a clientId and an API Key",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "externalAccountProfileId",
+                        "description": "Allows to get the recommendations for a given profile account / profile",
+                        "type": "string",
+                        "in": "query"
+                    },
+                    {
+                        "name": "profileCountry",
+                        "description": "Filter recommendations by country",
+                        "type": "string",
+                        "in": "query"
+                    },
+                    {
+                        "name": "device",
+                        "description": "Filter recommendations by device type",
+                        "type": "string",
+                        "in": "query"
+                    },
+                    {
+                        "name": "mediaEventType",
+                        "description": "Media Event Type in the Client System",
+                        "in": "query",
+                        "type": "string",
+                        "enum": [
+                            "VOD",
+                            "EPG"
+                        ]
+                    },
+                    {
+                        "name": "mediaContentProviderId",
+                        "description": "Content Provider Id to filter by",
+                        "type": "string",
+                        "in": "query"
+                    },
+                    {
+                        "name": "pageSize",
+                        "description": "Number of users returned. Max 50",
+                        "type": "integer",
+                        "in": "query"
+                    },
+                    {
+                        "name": "exclusivePageStart",
+                        "description": "From where to start reading",
+                        "type": "string",
+                        "in": "query"
+                    },
+                    {
+                        "name": "tag",
+                        "description": "Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR",
+                        "type": "string",
+                        "in": "query"
+                    },
+                    {
+                        "name": "contentType",
+                        "description": "Content type to be queried",
+                        "type": "string",
+                        "in": "query"
+                    }
+                ],
+                "summary": "Gets recommendations",
+                "description": "List the recommendations associated with a user profile",
+                "tags": [
+                    "recommendations"
+                ],
+                "x-amazon-apigateway-integration": {
+                    "type": "http_proxy",
+                    "httpMethod": "GET",
+                    "uri": "http://${stageVariables.be_endpoint}/v1/recommendations",
+                    "connectionType": "VPC_LINK",
+                    "connectionId": "${stageVariables.vpcLinkId}",
+                    "responses": {
+                        "200": {
+                            "statusCode": "200",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "400": {
+                            "statusCode": "400",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "500": {
+                            "statusCode": "500",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "504": {
+                            "statusCode": "504",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "api_key": {
+            "type": "apiKey",
+            "name": "x-api-key",
+            "in": "header"
+        }
+    }
+}

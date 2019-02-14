@@ -1,0 +1,65 @@
+body, html {
+    background-color: #333;
+}
+
+.sidenav {
+    background-color: #333;
+}
+
+.sidenav::before {
+    text-align: center;
+    content: '';
+    height: 100px;
+    width: 100%;
+    background-position: center center;
+    background-image: url('logo.png');
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    display: block;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.sidenav li.nav-header a {
+    background-color:  #279b8b;
+}
+
+.sidenav li a {
+    color: white;
+}
+
+.sidenav li a:hover{
+    background-color: #279b8b;
+}
+
+#content {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#header, #project, #sections, #footer {
+    background-color: #f1f1f1;
+    width: 60%;
+    padding: 10px;
+    border-left: 2px black solid;
+    border-right: 2px black solid;
+}
+
+#project {
+    padding-top: 0px;
+}
+
+#project h1 {
+    margin-top: 25px;
+}
+
+#footer {
+    border-top: 1px #ccc solid;
+    padding-top: 10px;
+}
+
+#footer .license-info {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
