@@ -1,0 +1,41 @@
+#! /usr/bin/node
+
+const {resolve} = require('path');
+const {writeFile} = require('fs')
+const api = require(resolve('./swagger/api.json'));
+
+const prefix = (v) => 'by' + v[0].toUpperCase() + v.substring(1);
+const excludedTags = 'status'
+
+Object.keys(api.paths).forEach((path) => {
+    const action = api.paths[path];
+    if (action.get && action.get.parameters) {
+        console.log('GET', path);
+        action.get.parameters.forEach((parameter) => {
+            if (parameter.in === 'query') {
+                const originalName = parameter.name;
+                console.log(` * ${parameter.name} -> ${prefix(parameter.name)}`)
+                parameter.name = prefix(parameter.name);
+                parameter.description += `. You may also query the endpont using the parameter name ${originalName}`
+            }
+        })
+        console.log('');
+    }
+
+    Object.keys(action).forEach((actionVerb) => {
+        const verb = action[actionVerb];
+        if (verb.tags && verb.tags.includes(excludedTags)) {
+            console.log(`Removing ${actionVerb}:${path}\n`);
+            delete action[actionVerb]
+        }
+    })
+})
+
+writeFile(resolve('./swagger/api_prefixed.json'), JSON.stringify(api, null, 4), (err) => {
+    if (err) {
+        console.log(err.message);
+        process.exit(1);
+    } else {
+        console.log('Writed')
+    }
+})
