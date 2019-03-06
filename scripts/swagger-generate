@@ -8,6 +8,6 @@ then
 fi
 
 java -jar $JAR_FILE generate \
-    -i ./swagger/api.json \
+    -i ./swagger/api_prefixed.json \
     -o ./docs \
     -l html2

@@ -1,7 +1,7 @@
 ---
 swagger: '2.0'
 info:
-  version: 1.1.0
+  version: 1.3.0
   title: reco-engine-dev
   description: API For the Recomendation engine
   contact:
@@ -10,6 +10,7 @@ info:
   license:
     name: '© 2019, Dive.tv. All rights reserved.'
     url: ''
+host: recommendations.dive.tv
 basePath: /
 consumes:
   - application/json; charset=utf-8
@@ -121,6 +122,632 @@ paths:
               method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
               method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
               method.response.header.Access-Control-Allow-Origin: "'*'"
+  /v1/account/{externalAccountId}:
+    x-swagger-router-controller: external_account.controller
+    patch:
+      operationId: patchExternal_account
+      produces:
+        - application/json; charset=utf-8
+      responses:
+        200:
+          description: Profile result
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                externalAccountId:
+                  type: string
+                externalProfileId:
+                  type: string
+                name:
+                  type: string
+                gender:
+                  type: string
+                country:
+                  type: string
+                createdAt:
+                  type: string
+                updatedAt:
+                  type: string
+        400:
+          description: Invalid Request
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+        500:
+          description: Error Response
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+        504:
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+      security:
+        - api_key: []
+      parameters:
+        - in: header
+          name: x-api-key
+          description: Client API Key
+          type: string
+          required: true
+        - in: header
+          name: client-id
+          description: Client Id. Each client will be provided with a clientId and an API Key
+          type: string
+          required: true
+        - name: externalAccountId
+          description: External Account Id to be patched
+          type: string
+          required: true
+          in: path
+        - name: data
+          description: form data
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              gender:
+                enum:
+                  - M
+                  - F
+              subscriptionPackages:
+                type: array
+                items:
+                  type: string
+              enabledParentalRatings:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    scheme:
+                      type: string
+                    value:
+                      type: string
+              country:
+                type: string
+      summary: Patch Profile by external account id
+      description: Updates a user profile on the system
+      tags:
+        - Externals
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: PATCH
+        uri: 'http://${stageVariables.be_endpoint}/v1/account/{externalAccountId}'
+        connectionType: VPC_LINK
+        connectionId: '${stageVariables.vpcLinkId}'
+        responses:
+          200:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          400:
+            statusCode: '400'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          500:
+            statusCode: '500'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          504:
+            statusCode: '504'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.path.externalAccountId: method.request.path.externalAccountId
+    delete:
+      operationId: deleteExternal_account
+      produces:
+        - application/json; charset=utf-8
+      responses:
+        200:
+          description: Records deleted
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: number
+        400:
+          description: Invalid Request
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+        500:
+          description: Error Response
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+        504:
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+      security:
+        - api_key: []
+      parameters:
+        - in: header
+          name: x-api-key
+          description: Client API Key
+          type: string
+          required: true
+        - in: header
+          name: client-id
+          description: Client Id. Each client will be provided with a clientId and an API Key
+          type: string
+          required: true
+        - name: externalAccountId
+          description: External Account Id to be deleted
+          type: string
+          required: true
+          in: path
+        - name: data
+          description: form data
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              gender:
+                enum:
+                  - M
+                  - F
+              subscriptionPackages:
+                type: array
+                items:
+                  type: string
+              enabledParentalRatings:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    scheme:
+                      type: string
+                    value:
+                      type: string
+              country:
+                type: string
+      summary: Delete Profile by external account id
+      description: Deletes a user profile on the system
+      tags:
+        - Externals
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: DELETE
+        uri: 'http://${stageVariables.be_endpoint}/v1/account/{externalAccountId}'
+        connectionType: VPC_LINK
+        connectionId: '${stageVariables.vpcLinkId}'
+        responses:
+          200:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          400:
+            statusCode: '400'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          500:
+            statusCode: '500'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          504:
+            statusCode: '504'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.path.externalAccountId: method.request.path.externalAccountId
+  /v1/account/{externalAccountId}/profile/{externalProfileId}:
+    x-swagger-router-controller: external_account.controller
+    patch:
+      operationId: patchExternal_Profile
+      produces:
+        - application/json; charset=utf-8
+      responses:
+        200:
+          description: Profile result
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                externalAccountId:
+                  type: string
+                externalProfileId:
+                  type: string
+                name:
+                  type: string
+                gender:
+                  type: string
+                country:
+                  type: string
+                createdAt:
+                  type: string
+                updatedAt:
+                  type: string
+        400:
+          description: Invalid Request
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+        500:
+          description: Error Response
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+        504:
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+      security:
+        - api_key: []
+      parameters:
+        - in: header
+          name: x-api-key
+          description: Client API Key
+          type: string
+          required: true
+        - in: header
+          name: client-id
+          description: Client Id. Each client will be provided with a clientId and an API Key
+          type: string
+          required: true
+        - name: externalAccountId
+          description: External Account Id to be patched
+          type: string
+          required: true
+          in: path
+        - name: externalProfileId
+          description: External Profile Id to be patched
+          type: string
+          required: true
+          in: path
+        - name: data
+          description: form data
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              gender:
+                enum:
+                  - M
+                  - F
+              subscriptionPackages:
+                type: array
+                items:
+                  type: string
+              enabledParentalRatings:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    scheme:
+                      type: string
+                    value:
+                      type: string
+              country:
+                type: string
+      summary: Patch Profile by external account id and profile id
+      description: Updates a user profile on the system
+      tags:
+        - Externals
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: PATCH
+        uri: 'http://${stageVariables.be_endpoint}/v1/account/{externalAccountId}/profile/{externalProfileId}'
+        connectionType: VPC_LINK
+        connectionId: '${stageVariables.vpcLinkId}'
+        responses:
+          200:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          400:
+            statusCode: '400'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          500:
+            statusCode: '500'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          504:
+            statusCode: '504'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.path.externalAccountId: method.request.path.externalAccountId
+          integration.request.path.externalProfileId: method.request.path.externalProfileId
+    delete:
+      operationId: deleteExternal_Profile
+      produces:
+        - application/json; charset=utf-8
+      responses:
+        200:
+          description: Records deleted
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: number
+        400:
+          description: Invalid Request
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+        500:
+          description: Error Response
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+        504:
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+      security:
+        - api_key: []
+      parameters:
+        - in: header
+          name: x-api-key
+          description: Client API Key
+          type: string
+          required: true
+        - in: header
+          name: client-id
+          description: Client Id. Each client will be provided with a clientId and an API Key
+          type: string
+          required: true
+        - name: externalAccountId
+          description: External Account Id to be deleted
+          type: string
+          required: true
+          in: path
+        - name: externalProfileId
+          description: External Profile Id to be patched
+          type: string
+          required: true
+          in: path
+        - name: data
+          description: form data
+          in: body
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              gender:
+                enum:
+                  - M
+                  - F
+              subscriptionPackages:
+                type: array
+                items:
+                  type: string
+              enabledParentalRatings:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    scheme:
+                      type: string
+                    value:
+                      type: string
+              country:
+                type: string
+      summary: Delete Profile by external account id and profile id
+      description: Deletes a user profile on the system
+      tags:
+        - Externals
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: DELETE
+        uri: 'http://${stageVariables.be_endpoint}/v1/account/{externalAccountId}/profile/{externalProfileId}'
+        connectionType: VPC_LINK
+        connectionId: '${stageVariables.vpcLinkId}'
+        responses:
+          200:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          400:
+            statusCode: '400'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          500:
+            statusCode: '500'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          504:
+            statusCode: '504'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.path.externalAccountId: method.request.path.externalAccountId
+          integration.request.path.externalProfileId: method.request.path.externalProfileId
   /v1/ping:
     x-swagger-router-controller: ping.controller
     get:
@@ -221,172 +848,6 @@ paths:
               method.response.header.Access-Control-Allow-Origin: "'*'"
   /v1/profile:
     x-swagger-router-controller: profile.controller
-    post:
-      operationId: postProfile
-      produces:
-        - application/json; charset=utf-8
-      responses:
-        200:
-          description: Profile result
-          headers:
-            Content-Type:
-              type: string
-            Access-Control-Allow-Headers:
-              type: string
-            Access-Control-Allow-Methods:
-              type: string
-            Access-Control-Allow-Origin:
-              type: string
-          schema:
-            type: array
-            items:
-              type: object
-              properties:
-                id:
-                  type: integer
-                externalAccountId:
-                  type: string
-                externalProfileId:
-                  type: string
-                name:
-                  type: string
-                gender:
-                  type: string
-                country:
-                  type: string
-                createdAt:
-                  type: string
-                updatedAt:
-                  type: string
-        400:
-          description: Invalid Request
-          headers:
-            Content-Type:
-              type: string
-            Access-Control-Allow-Headers:
-              type: string
-            Access-Control-Allow-Methods:
-              type: string
-            Access-Control-Allow-Origin:
-              type: string
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
-        500:
-          description: Error Response
-          headers:
-            Content-Type:
-              type: string
-            Access-Control-Allow-Headers:
-              type: string
-            Access-Control-Allow-Methods:
-              type: string
-            Access-Control-Allow-Origin:
-              type: string
-          schema:
-            type: object
-            properties:
-              error:
-                type: string
-        504:
-          description: Gateway Timeout
-          headers:
-            Content-Type:
-              type: string
-            Access-Control-Allow-Headers:
-              type: string
-            Access-Control-Allow-Methods:
-              type: string
-            Access-Control-Allow-Origin:
-              type: string
-      security:
-        - api_key: []
-      parameters:
-        - in: header
-          name: x-api-key
-          description: Client API Key
-          type: string
-          required: true
-        - in: header
-          name: client-id
-          description: Client Id. Each client will be provided with a clientId and an API Key
-          type: string
-          required: true
-        - name: data
-          description: form data
-          in: body
-          schema:
-            type: object
-            properties:
-              externalProfileId:
-                type: string
-              externalAccountId:
-                type: string
-              name:
-                type: string
-              gender:
-                enum:
-                  - M
-                  - F
-              subscriptionPackages:
-                type: array
-                items:
-                  type: string
-              enabledParentalRatings:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    scheme:
-                      type: string
-                    value:
-                      type: string
-              country:
-                type: string
-            required:
-              - externalProfileId
-              - externalAccountId
-              - name
-              - country
-              - subscriptionPackages
-              - enabledParentalRatings
-      summary: Create Profile
-      description: Adds a new user profile to the system
-      tags:
-        - profiles
-      x-amazon-apigateway-integration:
-        type: http_proxy
-        httpMethod: POST
-        uri: 'http://${stageVariables.be_endpoint}/v1/profile'
-        connectionType: VPC_LINK
-        connectionId: '${stageVariables.vpcLinkId}'
-        responses:
-          200:
-            statusCode: '200'
-            responseParameters:
-              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
-              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
-              method.response.header.Access-Control-Allow-Origin: "'*'"
-          400:
-            statusCode: '400'
-            responseParameters:
-              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
-              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
-              method.response.header.Access-Control-Allow-Origin: "'*'"
-          500:
-            statusCode: '500'
-            responseParameters:
-              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
-              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
-              method.response.header.Access-Control-Allow-Origin: "'*'"
-          504:
-            statusCode: '504'
-            responseParameters:
-              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
-              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
-              method.response.header.Access-Control-Allow-Origin: "'*'"
     get:
       operationId: getProfile
       produces:
@@ -600,6 +1061,172 @@ paths:
               method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
               method.response.header.Access-Control-Allow-Methods: "'OPTIONS,GET'"
               method.response.header.Access-Control-Allow-Origin: "'*'"
+    post:
+      operationId: postProfile
+      produces:
+        - application/json; charset=utf-8
+      responses:
+        200:
+          description: Profile result
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                externalAccountId:
+                  type: string
+                externalProfileId:
+                  type: string
+                name:
+                  type: string
+                gender:
+                  type: string
+                country:
+                  type: string
+                createdAt:
+                  type: string
+                updatedAt:
+                  type: string
+        400:
+          description: Invalid Request
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+        500:
+          description: Error Response
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+        504:
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              type: string
+            Access-Control-Allow-Headers:
+              type: string
+            Access-Control-Allow-Methods:
+              type: string
+            Access-Control-Allow-Origin:
+              type: string
+      security:
+        - api_key: []
+      parameters:
+        - in: header
+          name: x-api-key
+          description: Client API Key
+          type: string
+          required: true
+        - in: header
+          name: client-id
+          description: Client Id. Each client will be provided with a clientId and an API Key
+          type: string
+          required: true
+        - name: data
+          description: form data
+          in: body
+          schema:
+            type: object
+            properties:
+              externalProfileId:
+                type: string
+              externalAccountId:
+                type: string
+              name:
+                type: string
+              gender:
+                enum:
+                  - M
+                  - F
+              subscriptionPackages:
+                type: array
+                items:
+                  type: string
+              enabledParentalRatings:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    scheme:
+                      type: string
+                    value:
+                      type: string
+              country:
+                type: string
+            required:
+              - externalProfileId
+              - externalAccountId
+              - name
+              - country
+              - subscriptionPackages
+              - enabledParentalRatings
+      summary: Create Profile
+      description: Adds a new user profile to the system
+      tags:
+        - profiles
+      x-amazon-apigateway-integration:
+        type: http_proxy
+        httpMethod: POST
+        uri: 'http://${stageVariables.be_endpoint}/v1/profile'
+        connectionType: VPC_LINK
+        connectionId: '${stageVariables.vpcLinkId}'
+        responses:
+          200:
+            statusCode: '200'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          400:
+            statusCode: '400'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          500:
+            statusCode: '500'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+          504:
+            statusCode: '504'
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
   /v1/profile/{id}:
     x-swagger-router-controller: profile.controller
     patch:
@@ -762,6 +1389,8 @@ paths:
               method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
               method.response.header.Access-Control-Allow-Methods: "'OPTIONS,PATCH'"
               method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.path.id: method.request.path.id
     delete:
       operationId: deleteProfile
       produces:
@@ -842,7 +1471,7 @@ paths:
           required: true
           in: path
       summary: Delete Profile
-      description: Removes a existent profile from the system
+      description: Removes an existent profile from the system
       tags:
         - profiles
       x-amazon-apigateway-integration:
@@ -876,6 +1505,8 @@ paths:
               method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
               method.response.header.Access-Control-Allow-Methods: "'OPTIONS,DELETE'"
               method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.path.id: method.request.path.id
   /v1/recommendations:
     x-swagger-router-controller: recommendations.controller
     get:
@@ -1000,7 +1631,7 @@ paths:
           type: string
           required: true
         - name: externalAccountProfileId
-          description: Allows to get the recommendations for a given profile account / profile
+          description: Allows to get the recommendations for a given profile account / profile.It must came in the form of externalacoount$$$externalprofile
           type: string
           in: query
         - name: profileCountry
@@ -1030,14 +1661,17 @@ paths:
           description: From where to start reading
           type: string
           in: query
-        - name: tag
+        - name: tags
           description: 'Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it''s like a logical AND, if are concatenated by a pipe (|) it''s a logical OR'
           type: string
           in: query
-        - name: contentType
-          description: Content type to be queried
-          type: string
+        - name: programType
+          description: Content type to be queried. Valid options are 'Series' or 'Movies'
           in: query
+          type: string
+          enum:
+            - Series
+            - Movie
       summary: Gets recommendations
       description: List the recommendations associated with a user profile
       tags:
