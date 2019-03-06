@@ -32,150 +32,7 @@
     ],
     "paths": {
         "/v1/build": {
-            "x-swagger-router-controller": "build.controller",
-            "get": {
-                "operationId": "getBuild",
-                "produces": [
-                    "application/json; charset=utf-8"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid Request",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
-                            }
-                        },
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "error": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Error Response",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
-                            }
-                        },
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "error": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    "504": {
-                        "description": "Gateway Timeout",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "api_key": []
-                    }
-                ],
-                "summary": "Gets the API Builds Id",
-                "description": "Returns the information about build of this version of the API",
-                "tags": [
-                    "status"
-                ],
-                "x-amazon-apigateway-integration": {
-                    "type": "http_proxy",
-                    "httpMethod": "GET",
-                    "uri": "http://${stageVariables.be_endpoint}/v1/build",
-                    "connectionType": "VPC_LINK",
-                    "connectionId": "${stageVariables.vpcLinkId}",
-                    "responses": {
-                        "200": {
-                            "statusCode": "200",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "400": {
-                            "statusCode": "400",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "500": {
-                            "statusCode": "500",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "504": {
-                            "statusCode": "504",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        }
-                    }
-                }
-            }
+            "x-swagger-router-controller": "build.controller"
         },
         "/v1/account/{externalAccountId}": {
             "x-swagger-router-controller": "external_account.controller",
@@ -1030,150 +887,7 @@
             }
         },
         "/v1/ping": {
-            "x-swagger-router-controller": "ping.controller",
-            "get": {
-                "operationId": "getPing",
-                "produces": [
-                    "application/json; charset=utf-8"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Invalid Request",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
-                            }
-                        },
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "error": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Error Response",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
-                            }
-                        },
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "error": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    "504": {
-                        "description": "Gateway Timeout",
-                        "headers": {
-                            "Content-Type": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Headers": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Methods": {
-                                "type": "string"
-                            },
-                            "Access-Control-Allow-Origin": {
-                                "type": "string"
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "api_key": []
-                    }
-                ],
-                "description": "Get the health status of the API",
-                "summary": "Ping for health checks",
-                "tags": [
-                    "status"
-                ],
-                "x-amazon-apigateway-integration": {
-                    "type": "http_proxy",
-                    "httpMethod": "GET",
-                    "uri": "http://${stageVariables.be_endpoint}/v1/ping",
-                    "connectionType": "VPC_LINK",
-                    "connectionId": "${stageVariables.vpcLinkId}",
-                    "responses": {
-                        "200": {
-                            "statusCode": "200",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "400": {
-                            "statusCode": "400",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "500": {
-                            "statusCode": "500",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        },
-                        "504": {
-                            "statusCode": "504",
-                            "responseParameters": {
-                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
-                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
-                                "method.response.header.Access-Control-Allow-Origin": "'*'"
-                            }
-                        }
-                    }
-                }
-            }
+            "x-swagger-router-controller": "ping.controller"
         },
         "/v1/profile": {
             "x-swagger-router-controller": "profile.controller",
@@ -1421,32 +1135,32 @@
                         "required": true
                     },
                     {
-                        "name": "id",
-                        "description": "Profile ID to be retrieved",
+                        "name": "byId",
+                        "description": "Profile ID to be retrieved. You may also query the endpont using the parameter name id",
                         "type": "integer",
                         "in": "query"
                     },
                     {
-                        "name": "externalAccountId",
-                        "description": "account id in the Client System",
+                        "name": "byExternalAccountId",
+                        "description": "account id in the Client System. You may also query the endpont using the parameter name externalAccountId",
                         "type": "string",
                         "in": "query"
                     },
                     {
-                        "name": "externalProfileId",
-                        "description": "profile id in the Client System",
+                        "name": "byExternalProfileId",
+                        "description": "profile id in the Client System. You may also query the endpont using the parameter name externalProfileId",
                         "type": "string",
                         "in": "query"
                     },
                     {
-                        "name": "pageSize",
-                        "description": "Number of users returned. Max 50",
+                        "name": "byPageSize",
+                        "description": "Number of users returned. Max 50. You may also query the endpont using the parameter name pageSize",
                         "type": "integer",
                         "in": "query"
                     },
                     {
-                        "name": "page",
-                        "description": "Number of page",
+                        "name": "byPage",
+                        "description": "Number of page. You may also query the endpont using the parameter name page",
                         "type": "integer",
                         "in": "query"
                     }
@@ -2354,26 +2068,26 @@
                         "required": true
                     },
                     {
-                        "name": "externalAccountProfileId",
-                        "description": "Allows to get the recommendations for a given profile account / profile.It must came in the form of externalacoount$$$externalprofile",
+                        "name": "byExternalAccountProfileId",
+                        "description": "Allows to get the recommendations for a given profile account / profile.It must came in the form of externalacoount$$$externalprofile. You may also query the endpont using the parameter name externalAccountProfileId",
                         "type": "string",
                         "in": "query"
                     },
                     {
-                        "name": "profileCountry",
-                        "description": "Filter recommendations by country",
+                        "name": "byProfileCountry",
+                        "description": "Filter recommendations by country. You may also query the endpont using the parameter name profileCountry",
                         "type": "string",
                         "in": "query"
                     },
                     {
-                        "name": "device",
-                        "description": "Filter recommendations by device type",
+                        "name": "byDevice",
+                        "description": "Filter recommendations by device type. You may also query the endpont using the parameter name device",
                         "type": "string",
                         "in": "query"
                     },
                     {
-                        "name": "mediaEventType",
-                        "description": "Media Event Type in the Client System",
+                        "name": "byMediaEventType",
+                        "description": "Media Event Type in the Client System. You may also query the endpont using the parameter name mediaEventType",
                         "in": "query",
                         "type": "string",
                         "enum": [
@@ -2382,32 +2096,32 @@
                         ]
                     },
                     {
-                        "name": "mediaContentProviderId",
-                        "description": "Content Provider Id to filter by",
+                        "name": "byMediaContentProviderId",
+                        "description": "Content Provider Id to filter by. You may also query the endpont using the parameter name mediaContentProviderId",
                         "type": "string",
                         "in": "query"
                     },
                     {
-                        "name": "pageSize",
-                        "description": "Number of users returned. Max 50",
+                        "name": "byPageSize",
+                        "description": "Number of users returned. Max 50. You may also query the endpont using the parameter name pageSize",
                         "type": "integer",
                         "in": "query"
                     },
                     {
-                        "name": "exclusivePageStart",
-                        "description": "From where to start reading",
+                        "name": "byExclusivePageStart",
+                        "description": "From where to start reading. You may also query the endpont using the parameter name exclusivePageStart",
                         "type": "string",
                         "in": "query"
                     },
                     {
-                        "name": "tags",
-                        "description": "Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR",
+                        "name": "byTags",
+                        "description": "Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR. You may also query the endpont using the parameter name tags",
                         "type": "string",
                         "in": "query"
                     },
                     {
-                        "name": "programType",
-                        "description": "Content type to be queried. Valid options are 'Series' or 'Movies'",
+                        "name": "byProgramType",
+                        "description": "Content type to be queried. Valid options are 'Series' or 'Movies'. You may also query the endpont using the parameter name programType",
                         "in": "query",
                         "type": "string",
                         "enum": [

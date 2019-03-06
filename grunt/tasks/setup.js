@@ -53,6 +53,7 @@ module.exports = function(grunt) {
                 'chmod 755 `pwd`/scripts/swagger-get-codegen',
                 'chmod 755 `pwd`/scripts/swagger-generate',
                 'chmod 755 `pwd`/scripts/set-styles',
+                'chmod 755 `pwd`/scripts/swagger-prefix-params',
             ].join(' && ');
 
             exec(cmd, function(error/* , stdout*/) {
