@@ -542,48 +542,6 @@
                         "type": "string",
                         "required": true,
                         "in": "path"
-                    },
-                    {
-                        "name": "data",
-                        "description": "form data",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "name": {
-                                    "type": "string"
-                                },
-                                "gender": {
-                                    "enum": [
-                                        "M",
-                                        "F"
-                                    ]
-                                },
-                                "subscriptionPackages": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "enabledParentalRatings": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "scheme": {
-                                                "type": "string"
-                                            },
-                                            "value": {
-                                                "type": "string"
-                                            }
-                                        }
-                                    }
-                                },
-                                "country": {
-                                    "type": "string"
-                                }
-                            }
-                        }
                     }
                 ],
                 "summary": "Delete Profile by external account id",
@@ -1017,48 +975,6 @@
                         "type": "string",
                         "required": true,
                         "in": "path"
-                    },
-                    {
-                        "name": "data",
-                        "description": "form data",
-                        "in": "body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "name": {
-                                    "type": "string"
-                                },
-                                "gender": {
-                                    "enum": [
-                                        "M",
-                                        "F"
-                                    ]
-                                },
-                                "subscriptionPackages": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "string"
-                                    }
-                                },
-                                "enabledParentalRatings": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "scheme": {
-                                                "type": "string"
-                                            },
-                                            "value": {
-                                                "type": "string"
-                                            }
-                                        }
-                                    }
-                                },
-                                "country": {
-                                    "type": "string"
-                                }
-                            }
-                        }
                     }
                 ],
                 "summary": "Delete Profile by external account id and profile id",

@@ -752,60 +752,6 @@ margin-bottom: 20px;
 };
         defs["data_2"] = {
   "type" : "object",
-  "properties" : {
-    "name" : {
-      "type" : "string"
-    },
-    "gender" : {
-      "type" : "string",
-      "enum" : [ "M", "F" ]
-    },
-    "subscriptionPackages" : {
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "enabledParentalRatings" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/v1accountexternalAccountId_enabledParentalRatings"
-      }
-    },
-    "country" : {
-      "type" : "string"
-    }
-  }
-};
-        defs["data_3"] = {
-  "type" : "object",
-  "properties" : {
-    "name" : {
-      "type" : "string"
-    },
-    "gender" : {
-      "type" : "string",
-      "enum" : [ "M", "F" ]
-    },
-    "subscriptionPackages" : {
-      "type" : "array",
-      "items" : {
-        "type" : "string"
-      }
-    },
-    "enabledParentalRatings" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/v1accountexternalAccountId_enabledParentalRatings"
-      }
-    },
-    "country" : {
-      "type" : "string"
-    }
-  }
-};
-        defs["data_4"] = {
-  "type" : "object",
   "required" : [ "country", "enabledParentalRatings", "externalAccountId", "externalProfileId", "name", "subscriptionPackages" ],
   "properties" : {
     "externalProfileId" : {
@@ -838,7 +784,7 @@ margin-bottom: 20px;
     }
   }
 };
-        defs["data_5"] = {
+        defs["data_3"] = {
   "type" : "object",
   "properties" : {
     "name" : {
@@ -1259,9 +1205,8 @@ public class ExternalsApiExample {
         String xApiKey = xApiKey_example; // String | Client API Key
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
         String externalAccountId = externalAccountId_example; // String | External Account Id to be deleted
-        Data data = ; // Data | form data
         try {
-            BigDecimal result = apiInstance.deleteExternalAccount(xApiKey, clientId, externalAccountId, data);
+            BigDecimal result = apiInstance.deleteExternalAccount(xApiKey, clientId, externalAccountId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExternalsApi#deleteExternalAccount");
@@ -1281,9 +1226,8 @@ public class ExternalsApiExample {
         String xApiKey = xApiKey_example; // String | Client API Key
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
         String externalAccountId = externalAccountId_example; // String | External Account Id to be deleted
-        Data data = ; // Data | form data
         try {
-            BigDecimal result = apiInstance.deleteExternalAccount(xApiKey, clientId, externalAccountId, data);
+            BigDecimal result = apiInstance.deleteExternalAccount(xApiKey, clientId, externalAccountId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExternalsApi#deleteExternalAccount");
@@ -1307,7 +1251,6 @@ public class ExternalsApiExample {
 String *xApiKey = xApiKey_example; // Client API Key
 String *clientId = clientId_example; // Client Id. Each client will be provided with a clientId and an API Key
 String *externalAccountId = externalAccountId_example; // External Account Id to be deleted
-Data *data = ; // form data (optional)
 
 ExternalsApi *apiInstance = [[ExternalsApi alloc] init];
 
@@ -1315,7 +1258,6 @@ ExternalsApi *apiInstance = [[ExternalsApi alloc] init];
 [apiInstance deleteExternalAccountWith:xApiKey
     clientId:clientId
     externalAccountId:externalAccountId
-    data:data
               completionHandler: ^(BigDecimal output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -1345,9 +1287,6 @@ var clientId = clientId_example; // {String} Client Id. Each client will be prov
 
 var externalAccountId = externalAccountId_example; // {String} External Account Id to be deleted
 
-var opts = { 
-  'data':  // {Data} form data
-};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -1356,7 +1295,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.deleteExternalAccount(xApiKey, clientId, externalAccountId, opts, callback);
+api.deleteExternalAccount(xApiKey, clientId, externalAccountId, callback);
 </code></pre>
                             </div>
 
@@ -1386,12 +1325,11 @@ namespace Example
             var xApiKey = xApiKey_example;  // String | Client API Key
             var clientId = clientId_example;  // String | Client Id. Each client will be provided with a clientId and an API Key
             var externalAccountId = externalAccountId_example;  // String | External Account Id to be deleted
-            var data = new Data(); // Data | form data (optional) 
 
             try
             {
                 // Delete Profile by external account id
-                BigDecimal result = apiInstance.deleteExternalAccount(xApiKey, clientId, externalAccountId, data);
+                BigDecimal result = apiInstance.deleteExternalAccount(xApiKey, clientId, externalAccountId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1417,10 +1355,9 @@ $api_instance = new Swagger\Client\Api\ExternalsApi();
 $xApiKey = xApiKey_example; // String | Client API Key
 $clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
 $externalAccountId = externalAccountId_example; // String | External Account Id to be deleted
-$data = ; // Data | form data
 
 try {
-    $result = $api_instance->deleteExternalAccount($xApiKey, $clientId, $externalAccountId, $data);
+    $result = $api_instance->deleteExternalAccount($xApiKey, $clientId, $externalAccountId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ExternalsApi->deleteExternalAccount: ', $e->getMessage(), PHP_EOL;
@@ -1442,10 +1379,9 @@ my $api_instance = WWW::SwaggerClient::ExternalsApi->new();
 my $xApiKey = xApiKey_example; # String | Client API Key
 my $clientId = clientId_example; # String | Client Id. Each client will be provided with a clientId and an API Key
 my $externalAccountId = externalAccountId_example; # String | External Account Id to be deleted
-my $data = WWW::SwaggerClient::Object::Data->new(); # Data | form data
 
 eval { 
-    my $result = $api_instance->deleteExternalAccount(xApiKey => $xApiKey, clientId => $clientId, externalAccountId => $externalAccountId, data => $data);
+    my $result = $api_instance->deleteExternalAccount(xApiKey => $xApiKey, clientId => $clientId, externalAccountId => $externalAccountId);
     print Dumper($result);
 };
 if ($@) {
@@ -1470,11 +1406,10 @@ api_instance = swagger_client.ExternalsApi()
 xApiKey = xApiKey_example # String | Client API Key
 clientId = clientId_example # String | Client Id. Each client will be provided with a clientId and an API Key
 externalAccountId = externalAccountId_example # String | External Account Id to be deleted
-data =  # Data | form data (optional)
 
 try: 
     # Delete Profile by external account id
-    api_response = api_instance.delete_external_account(xApiKey, clientId, externalAccountId, data=data)
+    api_response = api_instance.delete_external_account(xApiKey, clientId, externalAccountId)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ExternalsApi->deleteExternalAccount: %s\n" % e)</code></pre>
@@ -1568,48 +1503,6 @@ except ApiException as e:
 
                             </table>
 
-                            <div class="methodsubtabletitle">Body parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">data </td>
-<td>
-
-
-<script>
-$(document).ready(function() {
-  var schemaWrapper = {
-  "in" : "body",
-  "name" : "data",
-  "description" : "form data",
-  "required" : false,
-  "schema" : {
-    "$ref" : "#/definitions/data"
-  }
-};
-  var schema = schemaWrapper.schema;
-  if (schema.$ref != null) {
-    schema = defsParser.$refs.get(schema.$ref);
-  } else {
-    schemaWrapper.definitions = Object.assign({}, defs);
-    $RefParser.dereference(schemaWrapper).catch(function(err) {
-      console.log(err);
-    });
-  }
-
-  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-  var result = $('#d2e199_deleteExternalAccount_data');
-  result.empty();
-  result.append(view.render());
-});
-</script>
-<div id="d2e199_deleteExternalAccount_data"></div>
-</td>
-</tr>
-
-                            </table>
 
 
 
@@ -2013,9 +1906,8 @@ public class ExternalsApiExample {
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
         String externalAccountId = externalAccountId_example; // String | External Account Id to be deleted
         String externalProfileId = externalProfileId_example; // String | External Profile Id to be patched
-        Data_2 data = ; // Data_2 | form data
         try {
-            BigDecimal result = apiInstance.deleteExternalProfile(xApiKey, clientId, externalAccountId, externalProfileId, data);
+            BigDecimal result = apiInstance.deleteExternalProfile(xApiKey, clientId, externalAccountId, externalProfileId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExternalsApi#deleteExternalProfile");
@@ -2036,9 +1928,8 @@ public class ExternalsApiExample {
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
         String externalAccountId = externalAccountId_example; // String | External Account Id to be deleted
         String externalProfileId = externalProfileId_example; // String | External Profile Id to be patched
-        Data_2 data = ; // Data_2 | form data
         try {
-            BigDecimal result = apiInstance.deleteExternalProfile(xApiKey, clientId, externalAccountId, externalProfileId, data);
+            BigDecimal result = apiInstance.deleteExternalProfile(xApiKey, clientId, externalAccountId, externalProfileId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ExternalsApi#deleteExternalProfile");
@@ -2063,7 +1954,6 @@ String *xApiKey = xApiKey_example; // Client API Key
 String *clientId = clientId_example; // Client Id. Each client will be provided with a clientId and an API Key
 String *externalAccountId = externalAccountId_example; // External Account Id to be deleted
 String *externalProfileId = externalProfileId_example; // External Profile Id to be patched
-Data_2 *data = ; // form data (optional)
 
 ExternalsApi *apiInstance = [[ExternalsApi alloc] init];
 
@@ -2072,7 +1962,6 @@ ExternalsApi *apiInstance = [[ExternalsApi alloc] init];
     clientId:clientId
     externalAccountId:externalAccountId
     externalProfileId:externalProfileId
-    data:data
               completionHandler: ^(BigDecimal output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -2104,9 +1993,6 @@ var externalAccountId = externalAccountId_example; // {String} External Account 
 
 var externalProfileId = externalProfileId_example; // {String} External Profile Id to be patched
 
-var opts = { 
-  'data':  // {Data_2} form data
-};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -2115,7 +2001,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.deleteExternalProfile(xApiKey, clientId, externalAccountId, externalProfileId, opts, callback);
+api.deleteExternalProfile(xApiKey, clientId, externalAccountId, externalProfileId, callback);
 </code></pre>
                             </div>
 
@@ -2146,12 +2032,11 @@ namespace Example
             var clientId = clientId_example;  // String | Client Id. Each client will be provided with a clientId and an API Key
             var externalAccountId = externalAccountId_example;  // String | External Account Id to be deleted
             var externalProfileId = externalProfileId_example;  // String | External Profile Id to be patched
-            var data = new Data_2(); // Data_2 | form data (optional) 
 
             try
             {
                 // Delete Profile by external account id and profile id
-                BigDecimal result = apiInstance.deleteExternalProfile(xApiKey, clientId, externalAccountId, externalProfileId, data);
+                BigDecimal result = apiInstance.deleteExternalProfile(xApiKey, clientId, externalAccountId, externalProfileId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2178,10 +2063,9 @@ $xApiKey = xApiKey_example; // String | Client API Key
 $clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
 $externalAccountId = externalAccountId_example; // String | External Account Id to be deleted
 $externalProfileId = externalProfileId_example; // String | External Profile Id to be patched
-$data = ; // Data_2 | form data
 
 try {
-    $result = $api_instance->deleteExternalProfile($xApiKey, $clientId, $externalAccountId, $externalProfileId, $data);
+    $result = $api_instance->deleteExternalProfile($xApiKey, $clientId, $externalAccountId, $externalProfileId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ExternalsApi->deleteExternalProfile: ', $e->getMessage(), PHP_EOL;
@@ -2204,10 +2088,9 @@ my $xApiKey = xApiKey_example; # String | Client API Key
 my $clientId = clientId_example; # String | Client Id. Each client will be provided with a clientId and an API Key
 my $externalAccountId = externalAccountId_example; # String | External Account Id to be deleted
 my $externalProfileId = externalProfileId_example; # String | External Profile Id to be patched
-my $data = WWW::SwaggerClient::Object::Data_2->new(); # Data_2 | form data
 
 eval { 
-    my $result = $api_instance->deleteExternalProfile(xApiKey => $xApiKey, clientId => $clientId, externalAccountId => $externalAccountId, externalProfileId => $externalProfileId, data => $data);
+    my $result = $api_instance->deleteExternalProfile(xApiKey => $xApiKey, clientId => $clientId, externalAccountId => $externalAccountId, externalProfileId => $externalProfileId);
     print Dumper($result);
 };
 if ($@) {
@@ -2233,11 +2116,10 @@ xApiKey = xApiKey_example # String | Client API Key
 clientId = clientId_example # String | Client Id. Each client will be provided with a clientId and an API Key
 externalAccountId = externalAccountId_example # String | External Account Id to be deleted
 externalProfileId = externalProfileId_example # String | External Profile Id to be patched
-data =  # Data_2 | form data (optional)
 
 try: 
     # Delete Profile by external account id and profile id
-    api_response = api_instance.delete_external_profile(xApiKey, clientId, externalAccountId, externalProfileId, data=data)
+    api_response = api_instance.delete_external_profile(xApiKey, clientId, externalAccountId, externalProfileId)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ExternalsApi->deleteExternalProfile: %s\n" % e)</code></pre>
@@ -2354,48 +2236,6 @@ except ApiException as e:
 
                             </table>
 
-                            <div class="methodsubtabletitle">Body parameters</div>
-                            <table id="methodsubtable">
-                              <tr>
-                                <th width="150px">Name</th>
-                                <th>Description</th>
-                              </tr>
-                                <tr><td style="width:150px;">data </td>
-<td>
-
-
-<script>
-$(document).ready(function() {
-  var schemaWrapper = {
-  "in" : "body",
-  "name" : "data",
-  "description" : "form data",
-  "required" : false,
-  "schema" : {
-    "$ref" : "#/definitions/data_2"
-  }
-};
-  var schema = schemaWrapper.schema;
-  if (schema.$ref != null) {
-    schema = defsParser.$refs.get(schema.$ref);
-  } else {
-    schemaWrapper.definitions = Object.assign({}, defs);
-    $RefParser.dereference(schemaWrapper).catch(function(err) {
-      console.log(err);
-    });
-  }
-
-  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-  var result = $('#d2e199_deleteExternalProfile_data');
-  result.empty();
-  result.append(view.render());
-});
-</script>
-<div id="d2e199_deleteExternalProfile_data"></div>
-</td>
-</tr>
-
-                            </table>
 
 
 
@@ -2798,7 +2638,7 @@ public class ExternalsApiExample {
         String xApiKey = xApiKey_example; // String | Client API Key
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
         String externalAccountId = externalAccountId_example; // String | External Account Id to be patched
-        Data_1 data = ; // Data_1 | form data
+        Data data = ; // Data | form data
         try {
             array[Object] result = apiInstance.patchExternalAccount(xApiKey, clientId, externalAccountId, data);
             System.out.println(result);
@@ -2820,7 +2660,7 @@ public class ExternalsApiExample {
         String xApiKey = xApiKey_example; // String | Client API Key
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
         String externalAccountId = externalAccountId_example; // String | External Account Id to be patched
-        Data_1 data = ; // Data_1 | form data
+        Data data = ; // Data | form data
         try {
             array[Object] result = apiInstance.patchExternalAccount(xApiKey, clientId, externalAccountId, data);
             System.out.println(result);
@@ -2846,7 +2686,7 @@ public class ExternalsApiExample {
 String *xApiKey = xApiKey_example; // Client API Key
 String *clientId = clientId_example; // Client Id. Each client will be provided with a clientId and an API Key
 String *externalAccountId = externalAccountId_example; // External Account Id to be patched
-Data_1 *data = ; // form data (optional)
+Data *data = ; // form data (optional)
 
 ExternalsApi *apiInstance = [[ExternalsApi alloc] init];
 
@@ -2885,7 +2725,7 @@ var clientId = clientId_example; // {String} Client Id. Each client will be prov
 var externalAccountId = externalAccountId_example; // {String} External Account Id to be patched
 
 var opts = { 
-  'data':  // {Data_1} form data
+  'data':  // {Data} form data
 };
 
 var callback = function(error, data, response) {
@@ -2925,7 +2765,7 @@ namespace Example
             var xApiKey = xApiKey_example;  // String | Client API Key
             var clientId = clientId_example;  // String | Client Id. Each client will be provided with a clientId and an API Key
             var externalAccountId = externalAccountId_example;  // String | External Account Id to be patched
-            var data = new Data_1(); // Data_1 | form data (optional) 
+            var data = new Data(); // Data | form data (optional) 
 
             try
             {
@@ -2956,7 +2796,7 @@ $api_instance = new Swagger\Client\Api\ExternalsApi();
 $xApiKey = xApiKey_example; // String | Client API Key
 $clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
 $externalAccountId = externalAccountId_example; // String | External Account Id to be patched
-$data = ; // Data_1 | form data
+$data = ; // Data | form data
 
 try {
     $result = $api_instance->patchExternalAccount($xApiKey, $clientId, $externalAccountId, $data);
@@ -2981,7 +2821,7 @@ my $api_instance = WWW::SwaggerClient::ExternalsApi->new();
 my $xApiKey = xApiKey_example; # String | Client API Key
 my $clientId = clientId_example; # String | Client Id. Each client will be provided with a clientId and an API Key
 my $externalAccountId = externalAccountId_example; # String | External Account Id to be patched
-my $data = WWW::SwaggerClient::Object::Data_1->new(); # Data_1 | form data
+my $data = WWW::SwaggerClient::Object::Data->new(); # Data | form data
 
 eval { 
     my $result = $api_instance->patchExternalAccount(xApiKey => $xApiKey, clientId => $clientId, externalAccountId => $externalAccountId, data => $data);
@@ -3009,7 +2849,7 @@ api_instance = swagger_client.ExternalsApi()
 xApiKey = xApiKey_example # String | Client API Key
 clientId = clientId_example # String | Client Id. Each client will be provided with a clientId and an API Key
 externalAccountId = externalAccountId_example # String | External Account Id to be patched
-data =  # Data_1 | form data (optional)
+data =  # Data | form data (optional)
 
 try: 
     # Patch Profile by external account id
@@ -3125,7 +2965,7 @@ $(document).ready(function() {
   "description" : "form data",
   "required" : false,
   "schema" : {
-    "$ref" : "#/definitions/data_1"
+    "$ref" : "#/definitions/data"
   }
 };
   var schema = schemaWrapper.schema;
@@ -3581,7 +3421,7 @@ public class ExternalsApiExample {
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
         String externalAccountId = externalAccountId_example; // String | External Account Id to be patched
         String externalProfileId = externalProfileId_example; // String | External Profile Id to be patched
-        Data_3 data = ; // Data_3 | form data
+        Data_1 data = ; // Data_1 | form data
         try {
             array[Object] result = apiInstance.patchExternalProfile(xApiKey, clientId, externalAccountId, externalProfileId, data);
             System.out.println(result);
@@ -3604,7 +3444,7 @@ public class ExternalsApiExample {
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
         String externalAccountId = externalAccountId_example; // String | External Account Id to be patched
         String externalProfileId = externalProfileId_example; // String | External Profile Id to be patched
-        Data_3 data = ; // Data_3 | form data
+        Data_1 data = ; // Data_1 | form data
         try {
             array[Object] result = apiInstance.patchExternalProfile(xApiKey, clientId, externalAccountId, externalProfileId, data);
             System.out.println(result);
@@ -3631,7 +3471,7 @@ String *xApiKey = xApiKey_example; // Client API Key
 String *clientId = clientId_example; // Client Id. Each client will be provided with a clientId and an API Key
 String *externalAccountId = externalAccountId_example; // External Account Id to be patched
 String *externalProfileId = externalProfileId_example; // External Profile Id to be patched
-Data_3 *data = ; // form data (optional)
+Data_1 *data = ; // form data (optional)
 
 ExternalsApi *apiInstance = [[ExternalsApi alloc] init];
 
@@ -3673,7 +3513,7 @@ var externalAccountId = externalAccountId_example; // {String} External Account 
 var externalProfileId = externalProfileId_example; // {String} External Profile Id to be patched
 
 var opts = { 
-  'data':  // {Data_3} form data
+  'data':  // {Data_1} form data
 };
 
 var callback = function(error, data, response) {
@@ -3714,7 +3554,7 @@ namespace Example
             var clientId = clientId_example;  // String | Client Id. Each client will be provided with a clientId and an API Key
             var externalAccountId = externalAccountId_example;  // String | External Account Id to be patched
             var externalProfileId = externalProfileId_example;  // String | External Profile Id to be patched
-            var data = new Data_3(); // Data_3 | form data (optional) 
+            var data = new Data_1(); // Data_1 | form data (optional) 
 
             try
             {
@@ -3746,7 +3586,7 @@ $xApiKey = xApiKey_example; // String | Client API Key
 $clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
 $externalAccountId = externalAccountId_example; // String | External Account Id to be patched
 $externalProfileId = externalProfileId_example; // String | External Profile Id to be patched
-$data = ; // Data_3 | form data
+$data = ; // Data_1 | form data
 
 try {
     $result = $api_instance->patchExternalProfile($xApiKey, $clientId, $externalAccountId, $externalProfileId, $data);
@@ -3772,7 +3612,7 @@ my $xApiKey = xApiKey_example; # String | Client API Key
 my $clientId = clientId_example; # String | Client Id. Each client will be provided with a clientId and an API Key
 my $externalAccountId = externalAccountId_example; # String | External Account Id to be patched
 my $externalProfileId = externalProfileId_example; # String | External Profile Id to be patched
-my $data = WWW::SwaggerClient::Object::Data_3->new(); # Data_3 | form data
+my $data = WWW::SwaggerClient::Object::Data_1->new(); # Data_1 | form data
 
 eval { 
     my $result = $api_instance->patchExternalProfile(xApiKey => $xApiKey, clientId => $clientId, externalAccountId => $externalAccountId, externalProfileId => $externalProfileId, data => $data);
@@ -3801,7 +3641,7 @@ xApiKey = xApiKey_example # String | Client API Key
 clientId = clientId_example # String | Client Id. Each client will be provided with a clientId and an API Key
 externalAccountId = externalAccountId_example # String | External Account Id to be patched
 externalProfileId = externalProfileId_example # String | External Profile Id to be patched
-data =  # Data_3 | form data (optional)
+data =  # Data_1 | form data (optional)
 
 try: 
     # Patch Profile by external account id and profile id
@@ -3940,7 +3780,7 @@ $(document).ready(function() {
   "description" : "form data",
   "required" : false,
   "schema" : {
-    "$ref" : "#/definitions/data_3"
+    "$ref" : "#/definitions/data_1"
   }
 };
   var schema = schemaWrapper.schema;
@@ -5929,7 +5769,7 @@ public class ProfilesApiExample {
         String xApiKey = xApiKey_example; // String | Client API Key
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
         String id = id_example; // String | Profile ID to be patched
-        Data_5 data = ; // Data_5 | form data
+        Data_3 data = ; // Data_3 | form data
         try {
             array[Object] result = apiInstance.patchProfile(xApiKey, clientId, id, data);
             System.out.println(result);
@@ -5951,7 +5791,7 @@ public class ProfilesApiExample {
         String xApiKey = xApiKey_example; // String | Client API Key
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
         String id = id_example; // String | Profile ID to be patched
-        Data_5 data = ; // Data_5 | form data
+        Data_3 data = ; // Data_3 | form data
         try {
             array[Object] result = apiInstance.patchProfile(xApiKey, clientId, id, data);
             System.out.println(result);
@@ -5977,7 +5817,7 @@ public class ProfilesApiExample {
 String *xApiKey = xApiKey_example; // Client API Key
 String *clientId = clientId_example; // Client Id. Each client will be provided with a clientId and an API Key
 String *id = id_example; // Profile ID to be patched
-Data_5 *data = ; // form data (optional)
+Data_3 *data = ; // form data (optional)
 
 ProfilesApi *apiInstance = [[ProfilesApi alloc] init];
 
@@ -6016,7 +5856,7 @@ var clientId = clientId_example; // {String} Client Id. Each client will be prov
 var id = id_example; // {String} Profile ID to be patched
 
 var opts = { 
-  'data':  // {Data_5} form data
+  'data':  // {Data_3} form data
 };
 
 var callback = function(error, data, response) {
@@ -6056,7 +5896,7 @@ namespace Example
             var xApiKey = xApiKey_example;  // String | Client API Key
             var clientId = clientId_example;  // String | Client Id. Each client will be provided with a clientId and an API Key
             var id = id_example;  // String | Profile ID to be patched
-            var data = new Data_5(); // Data_5 | form data (optional) 
+            var data = new Data_3(); // Data_3 | form data (optional) 
 
             try
             {
@@ -6087,7 +5927,7 @@ $api_instance = new Swagger\Client\Api\ProfilesApi();
 $xApiKey = xApiKey_example; // String | Client API Key
 $clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
 $id = id_example; // String | Profile ID to be patched
-$data = ; // Data_5 | form data
+$data = ; // Data_3 | form data
 
 try {
     $result = $api_instance->patchProfile($xApiKey, $clientId, $id, $data);
@@ -6112,7 +5952,7 @@ my $api_instance = WWW::SwaggerClient::ProfilesApi->new();
 my $xApiKey = xApiKey_example; # String | Client API Key
 my $clientId = clientId_example; # String | Client Id. Each client will be provided with a clientId and an API Key
 my $id = id_example; # String | Profile ID to be patched
-my $data = WWW::SwaggerClient::Object::Data_5->new(); # Data_5 | form data
+my $data = WWW::SwaggerClient::Object::Data_3->new(); # Data_3 | form data
 
 eval { 
     my $result = $api_instance->patchProfile(xApiKey => $xApiKey, clientId => $clientId, id => $id, data => $data);
@@ -6140,7 +5980,7 @@ api_instance = swagger_client.ProfilesApi()
 xApiKey = xApiKey_example # String | Client API Key
 clientId = clientId_example # String | Client Id. Each client will be provided with a clientId and an API Key
 id = id_example # String | Profile ID to be patched
-data =  # Data_5 | form data (optional)
+data =  # Data_3 | form data (optional)
 
 try: 
     # Patch Profile
@@ -6256,7 +6096,7 @@ $(document).ready(function() {
   "description" : "form data",
   "required" : false,
   "schema" : {
-    "$ref" : "#/definitions/data_5"
+    "$ref" : "#/definitions/data_3"
   }
 };
   var schema = schemaWrapper.schema;
@@ -6710,7 +6550,7 @@ public class ProfilesApiExample {
         ProfilesApi apiInstance = new ProfilesApi();
         String xApiKey = xApiKey_example; // String | Client API Key
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
-        Data_4 data = ; // Data_4 | form data
+        Data_2 data = ; // Data_2 | form data
         try {
             array[Object] result = apiInstance.postProfile(xApiKey, clientId, data);
             System.out.println(result);
@@ -6731,7 +6571,7 @@ public class ProfilesApiExample {
         ProfilesApi apiInstance = new ProfilesApi();
         String xApiKey = xApiKey_example; // String | Client API Key
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
-        Data_4 data = ; // Data_4 | form data
+        Data_2 data = ; // Data_2 | form data
         try {
             array[Object] result = apiInstance.postProfile(xApiKey, clientId, data);
             System.out.println(result);
@@ -6756,7 +6596,7 @@ public class ProfilesApiExample {
 
 String *xApiKey = xApiKey_example; // Client API Key
 String *clientId = clientId_example; // Client Id. Each client will be provided with a clientId and an API Key
-Data_4 *data = ; // form data (optional)
+Data_2 *data = ; // form data (optional)
 
 ProfilesApi *apiInstance = [[ProfilesApi alloc] init];
 
@@ -6792,7 +6632,7 @@ var xApiKey = xApiKey_example; // {String} Client API Key
 var clientId = clientId_example; // {String} Client Id. Each client will be provided with a clientId and an API Key
 
 var opts = { 
-  'data':  // {Data_4} form data
+  'data':  // {Data_2} form data
 };
 
 var callback = function(error, data, response) {
@@ -6831,7 +6671,7 @@ namespace Example
             var apiInstance = new ProfilesApi();
             var xApiKey = xApiKey_example;  // String | Client API Key
             var clientId = clientId_example;  // String | Client Id. Each client will be provided with a clientId and an API Key
-            var data = new Data_4(); // Data_4 | form data (optional) 
+            var data = new Data_2(); // Data_2 | form data (optional) 
 
             try
             {
@@ -6861,7 +6701,7 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 
 $api_instance = new Swagger\Client\Api\ProfilesApi();
 $xApiKey = xApiKey_example; // String | Client API Key
 $clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
-$data = ; // Data_4 | form data
+$data = ; // Data_2 | form data
 
 try {
     $result = $api_instance->postProfile($xApiKey, $clientId, $data);
@@ -6885,7 +6725,7 @@ $WWW::SwaggerClient::Configuration::api_key->{'x-api-key'} = 'YOUR_API_KEY';
 my $api_instance = WWW::SwaggerClient::ProfilesApi->new();
 my $xApiKey = xApiKey_example; # String | Client API Key
 my $clientId = clientId_example; # String | Client Id. Each client will be provided with a clientId and an API Key
-my $data = WWW::SwaggerClient::Object::Data_4->new(); # Data_4 | form data
+my $data = WWW::SwaggerClient::Object::Data_2->new(); # Data_2 | form data
 
 eval { 
     my $result = $api_instance->postProfile(xApiKey => $xApiKey, clientId => $clientId, data => $data);
@@ -6912,7 +6752,7 @@ swagger_client.configuration.api_key['x-api-key'] = 'YOUR_API_KEY'
 api_instance = swagger_client.ProfilesApi()
 xApiKey = xApiKey_example # String | Client API Key
 clientId = clientId_example # String | Client Id. Each client will be provided with a clientId and an API Key
-data =  # Data_4 | form data (optional)
+data =  # Data_2 | form data (optional)
 
 try: 
     # Create Profile
@@ -6998,7 +6838,7 @@ $(document).ready(function() {
   "description" : "form data",
   "required" : false,
   "schema" : {
-    "$ref" : "#/definitions/data_4"
+    "$ref" : "#/definitions/data_2"
   }
 };
   var schema = schemaWrapper.schema;
