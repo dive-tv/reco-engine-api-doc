@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "version": "1.3.2",
+        "version": "1.3.3",
         "title": "reco-engine-dev",
         "description": "API For the Recomendation engine",
         "contact": {
@@ -180,7 +180,7 @@
         "/v1/account/{externalAccountId}": {
             "x-swagger-router-controller": "external_account.controller",
             "patch": {
-                "operationId": "patchExternal_account",
+                "operationId": "patchExternalAccount",
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -423,7 +423,7 @@
                 }
             },
             "delete": {
-                "operationId": "deleteExternal_account",
+                "operationId": "deleteExternalAccount",
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -542,6 +542,48 @@
                         "type": "string",
                         "required": true,
                         "in": "path"
+                    },
+                    {
+                        "name": "data",
+                        "description": "form data",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "enum": [
+                                        "M",
+                                        "F"
+                                    ]
+                                },
+                                "subscriptionPackages": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "enabledParentalRatings": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "scheme": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "country": {
+                                    "type": "string"
+                                }
+                            }
+                        }
                     }
                 ],
                 "summary": "Delete Profile by external account id",
@@ -598,7 +640,7 @@
         "/v1/account/{externalAccountId}/profile/{externalProfileId}": {
             "x-swagger-router-controller": "external_account.controller",
             "patch": {
-                "operationId": "patchExternal_Profile",
+                "operationId": "patchExternalProfile",
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -849,7 +891,7 @@
                 }
             },
             "delete": {
-                "operationId": "deleteExternal_Profile",
+                "operationId": "deleteExternalProfile",
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -975,6 +1017,48 @@
                         "type": "string",
                         "required": true,
                         "in": "path"
+                    },
+                    {
+                        "name": "data",
+                        "description": "form data",
+                        "in": "body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "gender": {
+                                    "enum": [
+                                        "M",
+                                        "F"
+                                    ]
+                                },
+                                "subscriptionPackages": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "enabledParentalRatings": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "scheme": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                },
+                                "country": {
+                                    "type": "string"
+                                }
+                            }
+                        }
                     }
                 ],
                 "summary": "Delete Profile by external account id and profile id",
@@ -1025,6 +1109,207 @@
                     "requestParameters": {
                         "integration.request.path.externalAccountId": "method.request.path.externalAccountId",
                         "integration.request.path.externalProfileId": "method.request.path.externalProfileId"
+                    }
+                }
+            }
+        },
+        "/v1/media_content": {
+            "x-swagger-router-controller": "media_content.controller",
+            "get": {
+                "operationId": "getMediaContent",
+                "produces": [
+                    "application/json; charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Request",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error Response",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        },
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "error": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "504": {
+                        "description": "Gateway Timeout",
+                        "headers": {
+                            "Content-Type": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Headers": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Methods": {
+                                "type": "string"
+                            },
+                            "Access-Control-Allow-Origin": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "x-api-key",
+                        "description": "Client API Key",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "header",
+                        "name": "client-id",
+                        "description": "Client Id. Each client will be provided with a clientId and an API Key",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "pageSize",
+                        "description": "Number of media returned. Max 50",
+                        "minimum": 1,
+                        "maximum": 50,
+                        "type": "integer",
+                        "in": "query"
+                    },
+                    {
+                        "name": "title",
+                        "description": "Title of the movie",
+                        "type": "string",
+                        "in": "query"
+                    },
+                    {
+                        "name": "page",
+                        "description": "Number of page",
+                        "type": "integer",
+                        "in": "query"
+                    },
+                    {
+                        "name": "year",
+                        "description": "Year of the media",
+                        "type": "integer",
+                        "in": "query"
+                    },
+                    {
+                        "name": "type",
+                        "description": "Content type to be queried",
+                        "in": "query",
+                        "type": "string",
+                        "enum": [
+                            "Movie",
+                            "Episode",
+                            "Series",
+                            "Season",
+                            "Other"
+                        ]
+                    }
+                ],
+                "summary": "List Media content",
+                "description": "List the media content according a criterias",
+                "tags": [
+                    "dashboard"
+                ],
+                "x-amazon-apigateway-integration": {
+                    "type": "http_proxy",
+                    "httpMethod": "GET",
+                    "uri": "http://${stageVariables.be_endpoint}/v1/media_content",
+                    "connectionType": "VPC_LINK",
+                    "connectionId": "${stageVariables.vpcLinkId}",
+                    "responses": {
+                        "200": {
+                            "statusCode": "200",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "400": {
+                            "statusCode": "400",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "500": {
+                            "statusCode": "500",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        },
+                        "504": {
+                            "statusCode": "504",
+                            "responseParameters": {
+                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'",
+                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                                "method.response.header.Access-Control-Allow-Origin": "'*'"
+                            }
+                        }
                     }
                 }
             }
@@ -1441,6 +1726,8 @@
                     {
                         "name": "pageSize",
                         "description": "Number of users returned. Max 50",
+                        "minimum": 1,
+                        "maximum": 50,
                         "type": "integer",
                         "in": "query"
                     },
@@ -2196,8 +2483,17 @@
                                     "items": {
                                         "type": "object",
                                         "properties": {
+                                            "category": {
+                                                "type": "string"
+                                            },
                                             "generationId": {
                                                 "type": "integer"
+                                            },
+                                            "score": {
+                                                "type": "number"
+                                            },
+                                            "id": {
+                                                "type": "string"
                                             },
                                             "additionalFields": {
                                                 "type": "object",
@@ -2205,55 +2501,98 @@
                                                     "contentId": {
                                                         "type": "integer"
                                                     },
-                                                    "extraData": {
-                                                        "type": "object",
-                                                        "properties": {
-                                                            "tags": {
-                                                                "type": "object",
-                                                                "properties": {
-                                                                    "category": {
-                                                                        "type": "array",
-                                                                        "items": {
-                                                                            "type": "string"
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    },
                                                     "contentType": {
-                                                        "type": "string"
-                                                    },
-                                                    "extraExternalMediaId": {
-                                                        "type": "string"
-                                                    },
-                                                    "mediaEventType": {
                                                         "type": "string"
                                                     },
                                                     "externalMediaId": {
                                                         "type": "string"
+                                                    },
+                                                    "extraData": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "subscriptionGuids": {
+                                                                "type": "array",
+                                                                "items": [
+                                                                    {
+                                                                        "type": "string"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "tags": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "genre": {
+                                                                        "type": "array",
+                                                                        "items": [
+                                                                            {
+                                                                                "type": "string"
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "categories": {
+                                                                        "type": "array",
+                                                                        "items": [
+                                                                            {
+                                                                                "type": "string"
+                                                                            },
+                                                                            {
+                                                                                "type": "string"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "genre",
+                                                                    "categories"
+                                                                ]
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "subscriptionGuids",
+                                                            "tags"
+                                                        ]
+                                                    },
+                                                    "mediaEventType": {
+                                                        "type": "string"
+                                                    },
+                                                    "posterUrl": {
+                                                        "type": "string"
+                                                    },
+                                                    "subscriptionPackagesExternalSubscriptionIds": {
+                                                        "type": "array",
+                                                        "items": [
+                                                            {
+                                                                "type": "string"
+                                                            }
+                                                        ]
+                                                    },
+                                                    "title": {
+                                                        "type": "string"
                                                     }
-                                                }
-                                            },
-                                            "profileId": {
-                                                "type": "integer"
-                                            },
-                                            "userExternalProfileId": {
-                                                "type": "string"
-                                            },
-                                            "id": {
-                                                "type": "string"
-                                            },
-                                            "category": {
-                                                "type": "string"
-                                            },
-                                            "priority": {
-                                                "type": "integer"
+                                                },
+                                                "required": [
+                                                    "contentId",
+                                                    "contentType",
+                                                    "externalMediaId",
+                                                    "extraData",
+                                                    "mediaEventType",
+                                                    "posterUrl",
+                                                    "subscriptionPackagesExternalSubscriptionIds",
+                                                    "title"
+                                                ]
                                             },
                                             "type": {
                                                 "type": "string"
                                             }
-                                        }
+                                        },
+                                        "required": [
+                                            "category",
+                                            "generationId",
+                                            "score",
+                                            "id",
+                                            "additionalFields",
+                                            "type"
+                                        ]
                                     }
                                 },
                                 "pageSize": {
@@ -2355,19 +2694,21 @@
                     },
                     {
                         "name": "externalAccountProfileId",
-                        "description": "Allows to get the recommendations for a given profile account / profile.It must came in the form of externalacoount$$$externalprofile",
+                        "description": "Allows to get the recommendations for a given profile account / profile.It must came in the form of externalAcoount$$$externalProfile",
                         "type": "string",
                         "in": "query"
                     },
                     {
                         "name": "profileCountry",
                         "description": "Filter recommendations by country",
+                        "x-normalize": "UPPERCASE",
                         "type": "string",
                         "in": "query"
                     },
                     {
                         "name": "device",
                         "description": "Filter recommendations by device type",
+                        "x-normalize": "UPPERCASE",
                         "type": "string",
                         "in": "query"
                     },
@@ -2376,10 +2717,22 @@
                         "description": "Media Event Type in the Client System",
                         "in": "query",
                         "type": "string",
-                        "enum": [
+                        "x-enum": [
                             "VOD",
                             "EPG"
-                        ]
+                        ],
+                        "x-normalize": "UPPERCASE"
+                    },
+                    {
+                        "name": "programType",
+                        "description": "Content type to be queried. Valid options are 'Series' or 'Movies'",
+                        "in": "query",
+                        "type": "string",
+                        "x-enum": [
+                            "Series",
+                            "Movie"
+                        ],
+                        "x-normalize": "CAMELCASE"
                     },
                     {
                         "name": "mediaContentProviderId",
@@ -2390,6 +2743,8 @@
                     {
                         "name": "pageSize",
                         "description": "Number of users returned. Max 50",
+                        "minimum": 1,
+                        "maximum": 50,
                         "type": "integer",
                         "in": "query"
                     },
@@ -2402,18 +2757,21 @@
                     {
                         "name": "tags",
                         "description": "Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR",
+                        "x-normalize": "LOWERCASE",
                         "type": "string",
                         "in": "query"
                     },
                     {
-                        "name": "programType",
-                        "description": "Content type to be queried. Valid options are 'Series' or 'Movies'",
-                        "in": "query",
+                        "name": "movieId",
+                        "description": "External movie id. Used to determine the more like this",
                         "type": "string",
-                        "enum": [
-                            "Series",
-                            "Movie"
-                        ]
+                        "in": "query"
+                    },
+                    {
+                        "name": "customValue",
+                        "description": "To query by any value on the output. The format is {fieldname}[values] values can be separated by pipes (|)",
+                        "type": "string",
+                        "in": "query"
                     }
                 ],
                 "summary": "Gets recommendations",

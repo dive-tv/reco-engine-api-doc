@@ -16,7 +16,15 @@ Object.keys(api.paths).forEach((path) => {
                 const originalName = parameter.name;
                 console.log(` * ${parameter.name} -> ${prefix(parameter.name)}`)
                 parameter.name = prefix(parameter.name);
-                parameter.description += `. You may also query the endpont using the parameter name ${originalName}`
+                parameter.description += `#{You may also query the endpont using the parameter name ${originalName}}`
+
+                if (parameter['x-normalize']) {
+                    parameter.description += '#{This argument is case insensitive}'
+                }
+
+                if (parameter['x-enum']) {
+                    parameter.description += `#{Only acept the values ${parameter['x-enum']}}` 
+                }
             }
         })
         console.log('');
