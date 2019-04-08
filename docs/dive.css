@@ -63,3 +63,8 @@ body, html {
     margin-bottom: 10px;
     text-align: center;
 }
+
+.description div.more-info {
+    padding-top: 10px;
+    color: #333;
+}

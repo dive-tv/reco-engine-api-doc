@@ -19,6 +19,7 @@ The complete documentation for each is located on __/docs__ folder
  `/v1/account/{externalAccountId}`                             | DELETE | Yes   | Deletes a user profile on the system                          
  `/v1/account/{externalAccountId}/profile/{externalProfileId}` | PATCH  | Yes   | Updates a user profile on the system                          
  `/v1/account/{externalAccountId}/profile/{externalProfileId}` | DELETE | Yes   | Deletes a user profile on the system                          
+ `/v1/media_content`                                           | GET    | Yes   | List the media content according a criterias                  
  `/v1/ping`                                                    | GET    | Yes   | Get the health status of the API                              
  `/v1/profile`                                                 | GET    | Yes   | List all profiles or a single profile by Id on the system     
  `/v1/profile`                                                 | POST   | Yes   | Adds a new user profile to the system                         

@@ -20,6 +20,18 @@ readFile(indexHtmlPath, (err, data) => {
             .replace('</head>', `${styleTag}</head>`)
             .replace('<h1>reco-engine-dev</h1>', `<h1>${heading1}<h1>`);
 
+
+
+         const index = content.indexOf('class="inner description"');
+        if (index) {
+            const pre = content.substr(0, index);
+            let post = content.substr(index);
+
+            post = post.replace(/#\{([^}]+)}/gi, '<div class="more-info">$1</div>');
+
+            content = [pre, post].join('');
+        } 
+
         writeFile(indexHtmlPath, content, (err) => {
             if (err) {
                 console.log(err.toString());
