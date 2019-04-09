@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "version": "1.3.3",
+        "version": "1.3.5",
         "title": "reco-engine-dev",
         "description": "API For the Recomendation engine",
         "contact": {
@@ -2413,9 +2413,16 @@
                         "in": "query"
                     },
                     {
+                        "name": "byMovieId",
+                        "description": "External movie id. Used to determine the more like this#{You may also query the endpont using the parameter name movieId}",
+                        "type": "string",
+                        "in": "query"
+                    },
+                    {
                         "name": "byProfileCountry",
-                        "description": "Filter recommendations by country#{You may also query the endpont using the parameter name profileCountry}#{This argument is case insensitive}",
+                        "description": "Filter recommendations by country#{You may also query the endpont using the parameter name profileCountry}#{This argument is case insensitive}#{You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter}",
                         "x-normalize": "UPPERCASE",
+                        "x-expr-enabled": true,
                         "type": "string",
                         "in": "query"
                     },
@@ -2428,31 +2435,27 @@
                     },
                     {
                         "name": "byMediaEventType",
-                        "description": "Media Event Type in the Client System#{You may also query the endpont using the parameter name mediaEventType}#{This argument is case insensitive}#{Only acept the values VOD,EPG}",
+                        "description": "Media Event Type in the Client System#{You may also query the endpont using the parameter name mediaEventType}#{This argument is case insensitive}#{Only acept the values VOD,EPG}#{You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter}",
                         "in": "query",
                         "type": "string",
                         "x-enum": [
                             "VOD",
                             "EPG"
                         ],
-                        "x-normalize": "UPPERCASE"
+                        "x-normalize": "UPPERCASE",
+                        "x-expr-enabled": true
                     },
                     {
                         "name": "byProgramType",
-                        "description": "Content type to be queried. Valid options are 'Series' or 'Movies'#{You may also query the endpont using the parameter name programType}#{This argument is case insensitive}#{Only acept the values Series,Movie}",
+                        "description": "Content type to be queried. Valid options are 'Series' or 'Movies'#{You may also query the endpont using the parameter name programType}#{This argument is case insensitive}#{Only acept the values Series,Movie}#{You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter}",
                         "in": "query",
                         "type": "string",
                         "x-enum": [
                             "Series",
                             "Movie"
                         ],
-                        "x-normalize": "CAMELCASE"
-                    },
-                    {
-                        "name": "byMediaContentProviderId",
-                        "description": "Content Provider Id to filter by#{You may also query the endpont using the parameter name mediaContentProviderId}",
-                        "type": "string",
-                        "in": "query"
+                        "x-normalize": "CAMELCASE",
+                        "x-expr-enabled": true
                     },
                     {
                         "name": "byPageSize",
@@ -2463,9 +2466,9 @@
                         "in": "query"
                     },
                     {
-                        "name": "byExclusivePageStart",
-                        "description": "From where to start reading#{You may also query the endpont using the parameter name exclusivePageStart}",
-                        "type": "string",
+                        "name": "byPage",
+                        "description": "Number of page#{You may also query the endpont using the parameter name page}",
+                        "type": "integer",
                         "in": "query"
                     },
                     {
@@ -2476,14 +2479,8 @@
                         "in": "query"
                     },
                     {
-                        "name": "byMovieId",
-                        "description": "External movie id. Used to determine the more like this#{You may also query the endpont using the parameter name movieId}",
-                        "type": "string",
-                        "in": "query"
-                    },
-                    {
                         "name": "byCustomValue",
-                        "description": "To query by any value on the output. The format is {fieldname}[values] values can be separated by pipes (|)#{You may also query the endpont using the parameter name customValue}",
+                        "description": "To query by any value on the output. The format is {fieldname}{values} values can be separated by pipes (|)#{You may also query the endpont using the parameter name customValue}",
                         "type": "string",
                         "in": "query"
                     }
