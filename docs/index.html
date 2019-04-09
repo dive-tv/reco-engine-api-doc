@@ -1208,7 +1208,7 @@ margin-bottom: 20px;
         <div id="header">
           <div id="api-_">
             <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
-              <div class="app-desc">Version: 1.3.3</div>
+              <div class="app-desc">Version: 1.3.5</div>
             <hr>
             <div>API For the Recomendation engine</div>
           </div>
@@ -8204,7 +8204,7 @@ $(document).ready(function() {
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Recommendations-getRecommendations-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET -H "x-api-key: [[apiKey]]" "https://recommendations.dive.tv/v1/recommendations?byExternalAccountProfileId=&byProfileCountry=&byDevice=&byMediaEventType=&byProgramType=&byMediaContentProviderId=&byPageSize=&byExclusivePageStart=&byTags=&byMovieId=&byCustomValue="</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET -H "x-api-key: [[apiKey]]" "https://recommendations.dive.tv/v1/recommendations?byExternalAccountProfileId=&byMovieId=&byProfileCountry=&byDevice=&byMediaEventType=&byProgramType=&byPageSize=&byPage=&byTags=&byCustomValue="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Recommendations-getRecommendations-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -8230,18 +8230,17 @@ public class RecommendationsApiExample {
         String xApiKey = xApiKey_example; // String | Client API Key
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
         String byExternalAccountProfileId = byExternalAccountProfileId_example; // String | Allows to get the recommendations for a given profile account / profile.It must came in the form of externalAcoount$$$externalProfile<div class="more-info">You may also query the endpont using the parameter name externalAccountProfileId</div>
-        String byProfileCountry = byProfileCountry_example; // String | Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div>
-        String byDevice = byDevice_example; // String | Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div>
-        String byMediaEventType = byMediaEventType_example; // String | Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div>
-        String byProgramType = byProgramType_example; // String | Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div>
-        String byMediaContentProviderId = byMediaContentProviderId_example; // String | Content Provider Id to filter by<div class="more-info">You may also query the endpont using the parameter name mediaContentProviderId</div>
-        Integer byPageSize = 56; // Integer | Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div>
-        String byExclusivePageStart = byExclusivePageStart_example; // String | From where to start reading<div class="more-info">You may also query the endpont using the parameter name exclusivePageStart</div>
-        String byTags = byTags_example; // String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div>
         String byMovieId = byMovieId_example; // String | External movie id. Used to determine the more like this<div class="more-info">You may also query the endpont using the parameter name movieId</div>
-        String byCustomValue = byCustomValue_example; // String | To query by any value on the output. The format is {fieldname}[values] values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div>
+        String byProfileCountry = byProfileCountry_example; // String | Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+        String byDevice = byDevice_example; // String | Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div>
+        String byMediaEventType = byMediaEventType_example; // String | Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+        String byProgramType = byProgramType_example; // String | Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+        Integer byPageSize = 56; // Integer | Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div>
+        Integer byPage = 56; // Integer | Number of page<div class="more-info">You may also query the endpont using the parameter name page</div>
+        String byTags = byTags_example; // String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div>
+        String byCustomValue = byCustomValue_example; // String | To query by any value on the output. The format is {fieldname}{values} values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div>
         try {
-            inline_response_200_2 result = apiInstance.getRecommendations(xApiKey, clientId, byExternalAccountProfileId, byProfileCountry, byDevice, byMediaEventType, byProgramType, byMediaContentProviderId, byPageSize, byExclusivePageStart, byTags, byMovieId, byCustomValue);
+            inline_response_200_2 result = apiInstance.getRecommendations(xApiKey, clientId, byExternalAccountProfileId, byMovieId, byProfileCountry, byDevice, byMediaEventType, byProgramType, byPageSize, byPage, byTags, byCustomValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RecommendationsApi#getRecommendations");
@@ -8261,18 +8260,17 @@ public class RecommendationsApiExample {
         String xApiKey = xApiKey_example; // String | Client API Key
         String clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
         String byExternalAccountProfileId = byExternalAccountProfileId_example; // String | Allows to get the recommendations for a given profile account / profile.It must came in the form of externalAcoount$$$externalProfile<div class="more-info">You may also query the endpont using the parameter name externalAccountProfileId</div>
-        String byProfileCountry = byProfileCountry_example; // String | Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div>
-        String byDevice = byDevice_example; // String | Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div>
-        String byMediaEventType = byMediaEventType_example; // String | Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div>
-        String byProgramType = byProgramType_example; // String | Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div>
-        String byMediaContentProviderId = byMediaContentProviderId_example; // String | Content Provider Id to filter by<div class="more-info">You may also query the endpont using the parameter name mediaContentProviderId</div>
-        Integer byPageSize = 56; // Integer | Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div>
-        String byExclusivePageStart = byExclusivePageStart_example; // String | From where to start reading<div class="more-info">You may also query the endpont using the parameter name exclusivePageStart</div>
-        String byTags = byTags_example; // String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div>
         String byMovieId = byMovieId_example; // String | External movie id. Used to determine the more like this<div class="more-info">You may also query the endpont using the parameter name movieId</div>
-        String byCustomValue = byCustomValue_example; // String | To query by any value on the output. The format is {fieldname}[values] values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div>
+        String byProfileCountry = byProfileCountry_example; // String | Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+        String byDevice = byDevice_example; // String | Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div>
+        String byMediaEventType = byMediaEventType_example; // String | Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+        String byProgramType = byProgramType_example; // String | Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+        Integer byPageSize = 56; // Integer | Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div>
+        Integer byPage = 56; // Integer | Number of page<div class="more-info">You may also query the endpont using the parameter name page</div>
+        String byTags = byTags_example; // String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div>
+        String byCustomValue = byCustomValue_example; // String | To query by any value on the output. The format is {fieldname}{values} values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div>
         try {
-            inline_response_200_2 result = apiInstance.getRecommendations(xApiKey, clientId, byExternalAccountProfileId, byProfileCountry, byDevice, byMediaEventType, byProgramType, byMediaContentProviderId, byPageSize, byExclusivePageStart, byTags, byMovieId, byCustomValue);
+            inline_response_200_2 result = apiInstance.getRecommendations(xApiKey, clientId, byExternalAccountProfileId, byMovieId, byProfileCountry, byDevice, byMediaEventType, byProgramType, byPageSize, byPage, byTags, byCustomValue);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RecommendationsApi#getRecommendations");
@@ -8296,16 +8294,15 @@ public class RecommendationsApiExample {
 String *xApiKey = xApiKey_example; // Client API Key
 String *clientId = clientId_example; // Client Id. Each client will be provided with a clientId and an API Key
 String *byExternalAccountProfileId = byExternalAccountProfileId_example; // Allows to get the recommendations for a given profile account / profile.It must came in the form of externalAcoount$$$externalProfile<div class="more-info">You may also query the endpont using the parameter name externalAccountProfileId</div> (optional)
-String *byProfileCountry = byProfileCountry_example; // Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div> (optional)
-String *byDevice = byDevice_example; // Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div> (optional)
-String *byMediaEventType = byMediaEventType_example; // Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div> (optional)
-String *byProgramType = byProgramType_example; // Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div> (optional)
-String *byMediaContentProviderId = byMediaContentProviderId_example; // Content Provider Id to filter by<div class="more-info">You may also query the endpont using the parameter name mediaContentProviderId</div> (optional)
-Integer *byPageSize = 56; // Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div> (optional)
-String *byExclusivePageStart = byExclusivePageStart_example; // From where to start reading<div class="more-info">You may also query the endpont using the parameter name exclusivePageStart</div> (optional)
-String *byTags = byTags_example; // Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div> (optional)
 String *byMovieId = byMovieId_example; // External movie id. Used to determine the more like this<div class="more-info">You may also query the endpont using the parameter name movieId</div> (optional)
-String *byCustomValue = byCustomValue_example; // To query by any value on the output. The format is {fieldname}[values] values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div> (optional)
+String *byProfileCountry = byProfileCountry_example; // Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div> (optional)
+String *byDevice = byDevice_example; // Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div> (optional)
+String *byMediaEventType = byMediaEventType_example; // Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div> (optional)
+String *byProgramType = byProgramType_example; // Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div> (optional)
+Integer *byPageSize = 56; // Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div> (optional)
+Integer *byPage = 56; // Number of page<div class="more-info">You may also query the endpont using the parameter name page</div> (optional)
+String *byTags = byTags_example; // Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div> (optional)
+String *byCustomValue = byCustomValue_example; // To query by any value on the output. The format is {fieldname}{values} values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div> (optional)
 
 RecommendationsApi *apiInstance = [[RecommendationsApi alloc] init];
 
@@ -8313,15 +8310,14 @@ RecommendationsApi *apiInstance = [[RecommendationsApi alloc] init];
 [apiInstance getRecommendationsWith:xApiKey
     clientId:clientId
     byExternalAccountProfileId:byExternalAccountProfileId
+    byMovieId:byMovieId
     byProfileCountry:byProfileCountry
     byDevice:byDevice
     byMediaEventType:byMediaEventType
     byProgramType:byProgramType
-    byMediaContentProviderId:byMediaContentProviderId
     byPageSize:byPageSize
-    byExclusivePageStart:byExclusivePageStart
+    byPage:byPage
     byTags:byTags
-    byMovieId:byMovieId
     byCustomValue:byCustomValue
               completionHandler: ^(inline_response_200_2 output, NSError* error) {
                             if (output) {
@@ -8352,16 +8348,15 @@ var clientId = clientId_example; // {String} Client Id. Each client will be prov
 
 var opts = { 
   'byExternalAccountProfileId': byExternalAccountProfileId_example, // {String} Allows to get the recommendations for a given profile account / profile.It must came in the form of externalAcoount$$$externalProfile<div class="more-info">You may also query the endpont using the parameter name externalAccountProfileId</div>
-  'byProfileCountry': byProfileCountry_example, // {String} Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div>
-  'byDevice': byDevice_example, // {String} Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div>
-  'byMediaEventType': byMediaEventType_example, // {String} Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div>
-  'byProgramType': byProgramType_example, // {String} Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div>
-  'byMediaContentProviderId': byMediaContentProviderId_example, // {String} Content Provider Id to filter by<div class="more-info">You may also query the endpont using the parameter name mediaContentProviderId</div>
-  'byPageSize': 56, // {Integer} Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div>
-  'byExclusivePageStart': byExclusivePageStart_example, // {String} From where to start reading<div class="more-info">You may also query the endpont using the parameter name exclusivePageStart</div>
-  'byTags': byTags_example, // {String} Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div>
   'byMovieId': byMovieId_example, // {String} External movie id. Used to determine the more like this<div class="more-info">You may also query the endpont using the parameter name movieId</div>
-  'byCustomValue': byCustomValue_example // {String} To query by any value on the output. The format is {fieldname}[values] values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div>
+  'byProfileCountry': byProfileCountry_example, // {String} Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+  'byDevice': byDevice_example, // {String} Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div>
+  'byMediaEventType': byMediaEventType_example, // {String} Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+  'byProgramType': byProgramType_example, // {String} Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+  'byPageSize': 56, // {Integer} Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div>
+  'byPage': 56, // {Integer} Number of page<div class="more-info">You may also query the endpont using the parameter name page</div>
+  'byTags': byTags_example, // {String} Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div>
+  'byCustomValue': byCustomValue_example // {String} To query by any value on the output. The format is {fieldname}{values} values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div>
 };
 
 var callback = function(error, data, response) {
@@ -8401,21 +8396,20 @@ namespace Example
             var xApiKey = xApiKey_example;  // String | Client API Key
             var clientId = clientId_example;  // String | Client Id. Each client will be provided with a clientId and an API Key
             var byExternalAccountProfileId = byExternalAccountProfileId_example;  // String | Allows to get the recommendations for a given profile account / profile.It must came in the form of externalAcoount$$$externalProfile<div class="more-info">You may also query the endpont using the parameter name externalAccountProfileId</div> (optional) 
-            var byProfileCountry = byProfileCountry_example;  // String | Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div> (optional) 
-            var byDevice = byDevice_example;  // String | Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div> (optional) 
-            var byMediaEventType = byMediaEventType_example;  // String | Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div> (optional) 
-            var byProgramType = byProgramType_example;  // String | Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div> (optional) 
-            var byMediaContentProviderId = byMediaContentProviderId_example;  // String | Content Provider Id to filter by<div class="more-info">You may also query the endpont using the parameter name mediaContentProviderId</div> (optional) 
-            var byPageSize = 56;  // Integer | Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div> (optional) 
-            var byExclusivePageStart = byExclusivePageStart_example;  // String | From where to start reading<div class="more-info">You may also query the endpont using the parameter name exclusivePageStart</div> (optional) 
-            var byTags = byTags_example;  // String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div> (optional) 
             var byMovieId = byMovieId_example;  // String | External movie id. Used to determine the more like this<div class="more-info">You may also query the endpont using the parameter name movieId</div> (optional) 
-            var byCustomValue = byCustomValue_example;  // String | To query by any value on the output. The format is {fieldname}[values] values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div> (optional) 
+            var byProfileCountry = byProfileCountry_example;  // String | Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div> (optional) 
+            var byDevice = byDevice_example;  // String | Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div> (optional) 
+            var byMediaEventType = byMediaEventType_example;  // String | Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div> (optional) 
+            var byProgramType = byProgramType_example;  // String | Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div> (optional) 
+            var byPageSize = 56;  // Integer | Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div> (optional) 
+            var byPage = 56;  // Integer | Number of page<div class="more-info">You may also query the endpont using the parameter name page</div> (optional) 
+            var byTags = byTags_example;  // String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div> (optional) 
+            var byCustomValue = byCustomValue_example;  // String | To query by any value on the output. The format is {fieldname}{values} values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div> (optional) 
 
             try
             {
                 // Gets recommendations
-                inline_response_200_2 result = apiInstance.getRecommendations(xApiKey, clientId, byExternalAccountProfileId, byProfileCountry, byDevice, byMediaEventType, byProgramType, byMediaContentProviderId, byPageSize, byExclusivePageStart, byTags, byMovieId, byCustomValue);
+                inline_response_200_2 result = apiInstance.getRecommendations(xApiKey, clientId, byExternalAccountProfileId, byMovieId, byProfileCountry, byDevice, byMediaEventType, byProgramType, byPageSize, byPage, byTags, byCustomValue);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -8441,19 +8435,18 @@ $api_instance = new Swagger\Client\Api\RecommendationsApi();
 $xApiKey = xApiKey_example; // String | Client API Key
 $clientId = clientId_example; // String | Client Id. Each client will be provided with a clientId and an API Key
 $byExternalAccountProfileId = byExternalAccountProfileId_example; // String | Allows to get the recommendations for a given profile account / profile.It must came in the form of externalAcoount$$$externalProfile<div class="more-info">You may also query the endpont using the parameter name externalAccountProfileId</div>
-$byProfileCountry = byProfileCountry_example; // String | Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div>
-$byDevice = byDevice_example; // String | Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div>
-$byMediaEventType = byMediaEventType_example; // String | Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div>
-$byProgramType = byProgramType_example; // String | Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div>
-$byMediaContentProviderId = byMediaContentProviderId_example; // String | Content Provider Id to filter by<div class="more-info">You may also query the endpont using the parameter name mediaContentProviderId</div>
-$byPageSize = 56; // Integer | Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div>
-$byExclusivePageStart = byExclusivePageStart_example; // String | From where to start reading<div class="more-info">You may also query the endpont using the parameter name exclusivePageStart</div>
-$byTags = byTags_example; // String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div>
 $byMovieId = byMovieId_example; // String | External movie id. Used to determine the more like this<div class="more-info">You may also query the endpont using the parameter name movieId</div>
-$byCustomValue = byCustomValue_example; // String | To query by any value on the output. The format is {fieldname}[values] values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div>
+$byProfileCountry = byProfileCountry_example; // String | Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+$byDevice = byDevice_example; // String | Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div>
+$byMediaEventType = byMediaEventType_example; // String | Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+$byProgramType = byProgramType_example; // String | Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+$byPageSize = 56; // Integer | Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div>
+$byPage = 56; // Integer | Number of page<div class="more-info">You may also query the endpont using the parameter name page</div>
+$byTags = byTags_example; // String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div>
+$byCustomValue = byCustomValue_example; // String | To query by any value on the output. The format is {fieldname}{values} values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div>
 
 try {
-    $result = $api_instance->getRecommendations($xApiKey, $clientId, $byExternalAccountProfileId, $byProfileCountry, $byDevice, $byMediaEventType, $byProgramType, $byMediaContentProviderId, $byPageSize, $byExclusivePageStart, $byTags, $byMovieId, $byCustomValue);
+    $result = $api_instance->getRecommendations($xApiKey, $clientId, $byExternalAccountProfileId, $byMovieId, $byProfileCountry, $byDevice, $byMediaEventType, $byProgramType, $byPageSize, $byPage, $byTags, $byCustomValue);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecommendationsApi->getRecommendations: ', $e->getMessage(), PHP_EOL;
@@ -8475,19 +8468,18 @@ my $api_instance = WWW::SwaggerClient::RecommendationsApi->new();
 my $xApiKey = xApiKey_example; # String | Client API Key
 my $clientId = clientId_example; # String | Client Id. Each client will be provided with a clientId and an API Key
 my $byExternalAccountProfileId = byExternalAccountProfileId_example; # String | Allows to get the recommendations for a given profile account / profile.It must came in the form of externalAcoount$$$externalProfile<div class="more-info">You may also query the endpont using the parameter name externalAccountProfileId</div>
-my $byProfileCountry = byProfileCountry_example; # String | Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div>
-my $byDevice = byDevice_example; # String | Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div>
-my $byMediaEventType = byMediaEventType_example; # String | Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div>
-my $byProgramType = byProgramType_example; # String | Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div>
-my $byMediaContentProviderId = byMediaContentProviderId_example; # String | Content Provider Id to filter by<div class="more-info">You may also query the endpont using the parameter name mediaContentProviderId</div>
-my $byPageSize = 56; # Integer | Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div>
-my $byExclusivePageStart = byExclusivePageStart_example; # String | From where to start reading<div class="more-info">You may also query the endpont using the parameter name exclusivePageStart</div>
-my $byTags = byTags_example; # String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div>
 my $byMovieId = byMovieId_example; # String | External movie id. Used to determine the more like this<div class="more-info">You may also query the endpont using the parameter name movieId</div>
-my $byCustomValue = byCustomValue_example; # String | To query by any value on the output. The format is {fieldname}[values] values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div>
+my $byProfileCountry = byProfileCountry_example; # String | Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+my $byDevice = byDevice_example; # String | Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div>
+my $byMediaEventType = byMediaEventType_example; # String | Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+my $byProgramType = byProgramType_example; # String | Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div>
+my $byPageSize = 56; # Integer | Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div>
+my $byPage = 56; # Integer | Number of page<div class="more-info">You may also query the endpont using the parameter name page</div>
+my $byTags = byTags_example; # String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div>
+my $byCustomValue = byCustomValue_example; # String | To query by any value on the output. The format is {fieldname}{values} values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div>
 
 eval { 
-    my $result = $api_instance->getRecommendations(xApiKey => $xApiKey, clientId => $clientId, byExternalAccountProfileId => $byExternalAccountProfileId, byProfileCountry => $byProfileCountry, byDevice => $byDevice, byMediaEventType => $byMediaEventType, byProgramType => $byProgramType, byMediaContentProviderId => $byMediaContentProviderId, byPageSize => $byPageSize, byExclusivePageStart => $byExclusivePageStart, byTags => $byTags, byMovieId => $byMovieId, byCustomValue => $byCustomValue);
+    my $result = $api_instance->getRecommendations(xApiKey => $xApiKey, clientId => $clientId, byExternalAccountProfileId => $byExternalAccountProfileId, byMovieId => $byMovieId, byProfileCountry => $byProfileCountry, byDevice => $byDevice, byMediaEventType => $byMediaEventType, byProgramType => $byProgramType, byPageSize => $byPageSize, byPage => $byPage, byTags => $byTags, byCustomValue => $byCustomValue);
     print Dumper($result);
 };
 if ($@) {
@@ -8512,20 +8504,19 @@ api_instance = swagger_client.RecommendationsApi()
 xApiKey = xApiKey_example # String | Client API Key
 clientId = clientId_example # String | Client Id. Each client will be provided with a clientId and an API Key
 byExternalAccountProfileId = byExternalAccountProfileId_example # String | Allows to get the recommendations for a given profile account / profile.It must came in the form of externalAcoount$$$externalProfile<div class="more-info">You may also query the endpont using the parameter name externalAccountProfileId</div> (optional)
-byProfileCountry = byProfileCountry_example # String | Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div> (optional)
-byDevice = byDevice_example # String | Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div> (optional)
-byMediaEventType = byMediaEventType_example # String | Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div> (optional)
-byProgramType = byProgramType_example # String | Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div> (optional)
-byMediaContentProviderId = byMediaContentProviderId_example # String | Content Provider Id to filter by<div class="more-info">You may also query the endpont using the parameter name mediaContentProviderId</div> (optional)
-byPageSize = 56 # Integer | Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div> (optional)
-byExclusivePageStart = byExclusivePageStart_example # String | From where to start reading<div class="more-info">You may also query the endpont using the parameter name exclusivePageStart</div> (optional)
-byTags = byTags_example # String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div> (optional)
 byMovieId = byMovieId_example # String | External movie id. Used to determine the more like this<div class="more-info">You may also query the endpont using the parameter name movieId</div> (optional)
-byCustomValue = byCustomValue_example # String | To query by any value on the output. The format is {fieldname}[values] values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div> (optional)
+byProfileCountry = byProfileCountry_example # String | Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div> (optional)
+byDevice = byDevice_example # String | Filter recommendations by device type<div class="more-info">You may also query the endpont using the parameter name device</div><div class="more-info">This argument is case insensitive</div> (optional)
+byMediaEventType = byMediaEventType_example # String | Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div> (optional)
+byProgramType = byProgramType_example # String | Content type to be queried. Valid options are 'Series' or 'Movies'<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div><div class="more-info">You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter</div> (optional)
+byPageSize = 56 # Integer | Number of users returned. Max 50<div class="more-info">You may also query the endpont using the parameter name pageSize</div> (optional)
+byPage = 56 # Integer | Number of page<div class="more-info">You may also query the endpont using the parameter name page</div> (optional)
+byTags = byTags_example # String | Recommendations that include these tags. Tag values must follow this syntax: tagname:value[,tagname1:value1|tagname2:value2...]. When expression ar concatenated by a comma (,) it's like a logical AND, if are concatenated by a pipe (|) it's a logical OR<div class="more-info">You may also query the endpont using the parameter name tags</div><div class="more-info">This argument is case insensitive</div> (optional)
+byCustomValue = byCustomValue_example # String | To query by any value on the output. The format is {fieldname}{values} values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div> (optional)
 
 try: 
     # Gets recommendations
-    api_response = api_instance.get_recommendations(xApiKey, clientId, byExternalAccountProfileId=byExternalAccountProfileId, byProfileCountry=byProfileCountry, byDevice=byDevice, byMediaEventType=byMediaEventType, byProgramType=byProgramType, byMediaContentProviderId=byMediaContentProviderId, byPageSize=byPageSize, byExclusivePageStart=byExclusivePageStart, byTags=byTags, byMovieId=byMovieId, byCustomValue=byCustomValue)
+    api_response = api_instance.get_recommendations(xApiKey, clientId, byExternalAccountProfileId=byExternalAccountProfileId, byMovieId=byMovieId, byProfileCountry=byProfileCountry, byDevice=byDevice, byMediaEventType=byMediaEventType, byProgramType=byProgramType, byPageSize=byPageSize, byPage=byPage, byTags=byTags, byCustomValue=byCustomValue)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RecommendationsApi->getRecommendations: %s\n" % e)</code></pre>
@@ -8617,6 +8608,26 @@ except ApiException as e:
 </td>
 </tr>
 
+                                <tr><td style="width:150px;">byMovieId</td>
+<td>
+
+
+    <div id="d2e199_getRecommendations_byMovieId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description">
+                        External movie id. Used to determine the more like this<div class="more-info">You may also query the endpont using the parameter name movieId</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
                                 <tr><td style="width:150px;">byProfileCountry</td>
 <td>
 
@@ -8629,7 +8640,7 @@ except ApiException as e:
                 </span>
 
                     <div class="inner description">
-                        Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div>
+                        Filter recommendations by country<div class="more-info">You may also query the endpont using the parameter name profileCountry</div><div class="more-info">This argument is case insensitive</div><div class="more-info">You may use a pipe (|) for a logical &#39;or&#39; or a comma (,) for logical &#39;and&#39; for values in the parameter</div>
                     </div>
             </div>
         </div>
@@ -8669,7 +8680,7 @@ except ApiException as e:
                 </span>
 
                     <div class="inner description">
-                        Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div>
+                        Media Event Type in the Client System<div class="more-info">You may also query the endpont using the parameter name mediaEventType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values VOD,EPG</div><div class="more-info">You may use a pipe (|) for a logical &#39;or&#39; or a comma (,) for logical &#39;and&#39; for values in the parameter</div>
                     </div>
             </div>
         </div>
@@ -8689,27 +8700,7 @@ except ApiException as e:
                 </span>
 
                     <div class="inner description">
-                        Content type to be queried. Valid options are &#39;Series&#39; or &#39;Movies&#39;<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div>
-                    </div>
-            </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                                <tr><td style="width:150px;">byMediaContentProviderId</td>
-<td>
-
-
-    <div id="d2e199_getRecommendations_byMediaContentProviderId">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    String
-                </span>
-
-                    <div class="inner description">
-                        Content Provider Id to filter by<div class="more-info">You may also query the endpont using the parameter name mediaContentProviderId</div>
+                        Content type to be queried. Valid options are &#39;Series&#39; or &#39;Movies&#39;<div class="more-info">You may also query the endpont using the parameter name programType</div><div class="more-info">This argument is case insensitive</div><div class="more-info">Only acept the values Series,Movie</div><div class="more-info">You may use a pipe (|) for a logical &#39;or&#39; or a comma (,) for logical &#39;and&#39; for values in the parameter</div>
                     </div>
             </div>
         </div>
@@ -8737,19 +8728,19 @@ except ApiException as e:
 </td>
 </tr>
 
-                                <tr><td style="width:150px;">byExclusivePageStart</td>
+                                <tr><td style="width:150px;">byPage</td>
 <td>
 
 
-    <div id="d2e199_getRecommendations_byExclusivePageStart">
+    <div id="d2e199_getRecommendations_byPage">
         <div class="json-schema-view">
             <div class="primitive">
                 <span class="type">
-                    String
+                    Integer
                 </span>
 
                     <div class="inner description">
-                        From where to start reading<div class="more-info">You may also query the endpont using the parameter name exclusivePageStart</div>
+                        Number of page<div class="more-info">You may also query the endpont using the parameter name page</div>
                     </div>
             </div>
         </div>
@@ -8777,26 +8768,6 @@ except ApiException as e:
 </td>
 </tr>
 
-                                <tr><td style="width:150px;">byMovieId</td>
-<td>
-
-
-    <div id="d2e199_getRecommendations_byMovieId">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    String
-                </span>
-
-                    <div class="inner description">
-                        External movie id. Used to determine the more like this<div class="more-info">You may also query the endpont using the parameter name movieId</div>
-                    </div>
-            </div>
-        </div>
-    </div>
-</td>
-</tr>
-
                                 <tr><td style="width:150px;">byCustomValue</td>
 <td>
 
@@ -8809,7 +8780,7 @@ except ApiException as e:
                 </span>
 
                     <div class="inner description">
-                        To query by any value on the output. The format is {fieldname}[values] values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div>
+                        To query by any value on the output. The format is {fieldname}{values} values can be separated by pipes (|)<div class="more-info">You may also query the endpont using the parameter name customValue</div>
                     </div>
             </div>
         </div>

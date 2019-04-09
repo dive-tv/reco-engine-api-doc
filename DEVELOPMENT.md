@@ -66,7 +66,7 @@ Name                  | Description                       | Required
 --------------------- | --------------------------------- | ------------------------
 `AWS_REST_API_ID_DEV` | Development AWS REST API Id       | __for development__
 `AWS_STAGE_NAME_DEV`  | Development AWS API Stage name    | __for development__
-`AWS_REST_API_ID_PRE` | Pre-production AWS REST API Id    | __for pre-production__ 
+`AWS_REST_API_ID_PRE` | Pre-production AWS REST API Id    | __for pre-production__
 `AWS_STAGE_NAME_PRE`  | Pre-production AWS API Stage name | __for pre-production__
 `AWS_REST_API_ID_PRO` | Production AWS REST API Id        | __for production__
 `AWS_STAGE_NAME_PRO`  | Production AWS API Stage name     | __for production__

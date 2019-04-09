@@ -23,7 +23,11 @@ Object.keys(api.paths).forEach((path) => {
                 }
 
                 if (parameter['x-enum']) {
-                    parameter.description += `#{Only acept the values ${parameter['x-enum']}}` 
+                    parameter.description += `#{Only acept the values ${parameter['x-enum']}}`
+                }
+
+                if (parameter['x-expr-enabled']) {
+                    parameter.description += `#{You may use a pipe (|) for a logical 'or' or a comma (,) for logical 'and' for values in the parameter}`
                 }
             }
         })
